@@ -128,6 +128,120 @@ li { margin-bottom: 5px; }
   padding: 20px 28px; margin: 24px 0;
 }
 .toc a { color: var(--primary); text-decoration: none; }
+
+.opportunity-directory { margin:18px 0 34px; }
+.opportunity-section { margin:28px 0 34px; }
+.opportunity-section-title {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin:0 0 14px;
+  padding:12px 16px;
+  border-radius:12px;
+  background:linear-gradient(90deg,#edf6f2 0%,#f9fbfa 100%);
+  border:1px solid #dce9e4;
+  color:var(--primary);
+  font-size:14pt;
+  font-weight:800;
+}
+.opportunity-cards {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.opportunity-link-card {
+  position:relative;
+  min-height:168px;
+  padding:15px;
+  border:1px solid #dce5e1;
+  border-radius:16px;
+  background:#fff;
+  color:inherit;
+  text-decoration:none;
+  text-align:center;
+  box-shadow:0 4px 16px rgba(19,67,51,.05);
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+}
+.opportunity-link-card:hover {
+  transform:translateY(-3px);
+  box-shadow:0 10px 26px rgba(19,67,51,.10);
+  border-color:#9ebfb3;
+}
+.opportunity-number {
+  position:absolute;
+  top:10px;
+  left:10px;
+  min-width:30px;
+  height:30px;
+  padding:0 8px;
+  border-radius:999px;
+  background:#eef5f2;
+  color:var(--primary);
+  display:grid;
+  place-items:center;
+  font-size:9pt;
+  font-weight:800;
+}
+.opportunity-icon {
+  width:44px;
+  height:44px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  margin:2px auto 9px;
+  background:#eef6f3;
+  color:var(--primary);
+}
+.opportunity-name {
+  display:block;
+  color:#183f34;
+  font-size:11pt;
+  font-weight:800;
+  line-height:1.5;
+  margin-bottom:9px;
+}
+.opportunity-meta {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:5px;
+  margin-top:auto;
+}
+.opportunity-pill {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:26px;
+  padding:4px 8px;
+  border-radius:999px;
+  background:#f4f6f5;
+  color:#5e6d67;
+  border:1px solid #e1e6e4;
+  font-size:8.4pt;
+  line-height:1.25;
+}
+.opportunity-open {
+  margin-top:9px;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  color:var(--primary);
+  font-size:8.8pt;
+  font-weight:800;
+}
+.project-card[id^="opp-card-"] { scroll-margin-top:24px; }
+
+@media (max-width:820px) {
+  .opportunity-cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:520px) {
+  .opportunity-cards { grid-template-columns:1fr; }
+}
 .study-download-btn, .close-download-btn {
   display: inline-block; margin-top: 12px;
   margin-left: 8px;
@@ -562,7 +676,7 @@ li { margin-bottom: 5px; }
   <ol>
     <li><a href="#ch1">كيف تستخدم هذه المحفظة</a></li>
     <li><a href="#ch2">الإطار التنفيذي والحوكمي المشترك</a></li>
-    <li><a href="#ch3">سجل جميع الفرص (96 فرصة)</a></li>
+    <li><a href="#ch3">دليل الفرص (96 فرصة)</a></li>
     <li><a href="#ch4">بنك الأفكار لكل فرصة</a></li>
     <li><a href="#ch5">محفظة نوعية لذوي الإعاقة</a></li>
     <li><a href="#ch6">الملحق التفصيلي — 80 مشروعًا</a></li>
@@ -606,7 +720,7 @@ li { margin-bottom: 5px; }
 </ul>
 
 <!-- ============ الفصل 3 ============ -->
-<h1 id="ch3">3. سجل جميع الفرص (96 فرصة)</h1>
+<h1 id="ch3">3. دليل الفرص (96 فرصة)</h1>
 <div id="opportunities-table"></div>
 
 <!-- ============ الفصل 4 ============ -->
@@ -886,17 +1000,45 @@ function buildOpportunitiesTable() {
     { title: "3.4 الفرص من 67 إلى 80 (مسار الزكاة)", from: 67, to: 80 },
     { title: "3.5 الفرص من 81 إلى 96", from: 81, to: 96 }
   ];
-  
-  let html = '';
+
+  const fieldIcons = {
+    "أسري واجتماعي": "people",
+    "سكني ومعيشي": "home4",
+    "صحي وتأهيلي": "stethoscope",
+    "تعليمي وتنموي": "graduation-cap",
+    "ديني وضيوف الرحمن": "kaaba",
+    "بيئي ومائي": "leaf",
+    "اجتماعي عام": "hand-heart",
+    "مؤسسي وتشغيلي": "office",
+    "تمكين اقتصادي": "briefcase-dollar",
+    "وقف وتنمية مستدامة": "building-coins"
+  };
+
+  let html = '<div class="opportunity-directory">';
   sections.forEach(sec => {
-    html += `<h2>${sec.title}</h2>`;
-    html += `<table><thead><tr><th>#</th><th>الفرصة</th><th>مسار التمويل</th><th>المجال</th><th>عدد الأفكار</th></tr></thead><tbody>`;
-    OPPORTUNITIES.filter(o => o.n >= sec.from && o.n <= sec.to).forEach(o => {
-      html += `<tr><td>${o.n}</td><td>${o.name}</td><td>${o.fund}</td><td>${o.field}</td><td>${o.count}</td></tr>`;
+    const rows = OPPORTUNITIES.filter(o => o.n >= sec.from && o.n <= sec.to);
+    html += '<section class="opportunity-section">';
+    html += '<div class="opportunity-section-title"><span>'+sec.title+'</span><span style="font-size:9pt;color:#708078;">'+rows.length+' فرصة</span></div>';
+    html += '<div class="opportunity-cards">';
+    rows.forEach(o => {
+      const target = 'opp-card-' + String(o.n).padStart(3,'0');
+      const icon = fieldIcons[o.field] || 'document-text';
+      html += `
+        <a class="opportunity-link-card" href="#${target}" aria-label="فتح بطاقة ${o.name}">
+          <span class="opportunity-number">${o.n}</span>
+          <span class="opportunity-icon"><re-icon icon="${icon}" weight="Outline" size="25" color="currentColor"></re-icon></span>
+          <span class="opportunity-name">${o.name}</span>
+          <span class="opportunity-meta">
+            <span class="opportunity-pill">${o.field}</span>
+            <span class="opportunity-pill">${o.fund}</span>
+            <span class="opportunity-pill">${o.count} أفكار</span>
+          </span>
+          <span class="opportunity-open"><re-icon icon="arrow-left" weight="Outline" size="14" color="currentColor"></re-icon><span>فتح البطاقة</span></span>
+        </a>`;
     });
-    html += `</tbody></table>`;
+    html += '</div></section>';
   });
-  
+  html += '</div>';
   container.innerHTML = html;
 }
 
@@ -969,7 +1111,7 @@ function buildIdeasBank() {
     const ideas = COMMON_IDEAS[o.field] || COMMON_IDEAS["أسري واجتماعي"];
     
     html += `
-    <div class="project-card" data-doc-id="opp-${String(o.n).padStart(3, '0')}" data-name="${o.name}" data-field="${o.field}" data-fund="${o.fund}">
+    <div class="project-card" id="opp-card-${String(o.n).padStart(3, '0')}" data-doc-id="opp-${String(o.n).padStart(3, '0')}" data-name="${o.name}" data-field="${o.field}" data-fund="${o.fund}">
       <h3>4.${o.n} ${cleanName}</h3>
       <div class="meta-bar">المجال: ${o.field} | التمويل: ${o.fund}</div>
       <table>
