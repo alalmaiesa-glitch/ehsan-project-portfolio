@@ -1341,7 +1341,7 @@ function addButtonsToCards() {
 
     const title = document.createElement('div');
     title.className = 'github-forms-title';
-    title.textContent = 'نماذج Word — 11 نموذج + مطالبة الذكاء الاصطناعي';
+    title.textContent = 'نماذج Word — 11 نموذج + مطالبة الذكاء الاصطناعي لتصميم مشروع';
     grid.appendChild(title);
 
     templates.forEach(function(t) {
@@ -1357,7 +1357,7 @@ function addButtonsToCards() {
     const aiBtn = document.createElement('button');
     aiBtn.type = 'button';
     aiBtn.className = 'ai-prompt-btn';
-    aiBtn.textContent = '🤖 مطالبة الذكاء الاصطناعي';
+    aiBtn.textContent = '🤖 مطالبة الذكاء الاصطناعي لتصميم مشروع';
     aiBtn.setAttribute('aria-label', 'نسخ المطالبة الاحترافية لتوليد دراسة المشروع');
     aiBtn.addEventListener('click', function() { copyAIPromptFromCard(aiBtn); });
     grid.appendChild(aiBtn);
