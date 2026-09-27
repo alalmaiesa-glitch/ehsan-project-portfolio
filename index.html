@@ -342,6 +342,76 @@ li { margin-bottom: 5px; }
   font-weight:500;
 }
 
+.portfolio-title-frame {
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin:0 0 14px;
+}
+.portfolio-title-badge {
+  flex:0 0 auto;
+  min-width:38px;
+  height:38px;
+  padding:0 10px;
+  border-radius:11px;
+  display:grid;
+  place-items:center;
+  background:#f7f1dc;
+  border:1px solid #dcc57d;
+  color:#775b16;
+  font-size:9.8pt;
+  font-weight:800;
+}
+.portfolio-title-box {
+  position:relative;
+  flex:1;
+  min-width:0;
+  padding:12px 16px 12px 18px;
+  border:1.5px solid #d2b04a;
+  border-radius:14px;
+  background:linear-gradient(180deg,#fffef9 0%,#fbf8ee 100%);
+  box-shadow:0 4px 14px rgba(170,135,34,.07);
+  transition:border-color .18s ease, box-shadow .18s ease, background .18s ease, transform .18s ease;
+}
+.portfolio-title-box::before {
+  content:"";
+  position:absolute;
+  top:10px;
+  bottom:10px;
+  right:0;
+  width:4px;
+  border-radius:4px 0 0 4px;
+  background:#c9a43b;
+}
+.portfolio-title-box h3 {
+  margin:0;
+  padding:0;
+  border:0;
+  color:#143d32;
+  font-size:16pt;
+  line-height:1.55;
+  font-weight:800;
+}
+.portfolio-title-frame:hover .portfolio-title-box {
+  border-color:#b99220;
+  background:#fffaf0;
+  box-shadow:0 8px 20px rgba(170,135,34,.11);
+  transform:translateY(-1px);
+}
+.portfolio-title-frame.is-zakat .portfolio-title-badge {
+  background:#fbf3d9;
+  border-color:#d6b857;
+  color:#6f5512;
+}
+.portfolio-title-frame.is-zakat .portfolio-title-box {
+  border-color:#caa73c;
+}
+@media(max-width:620px){
+  .portfolio-title-frame { align-items:flex-start; }
+  .portfolio-title-badge { min-width:34px; height:34px; }
+  .portfolio-title-box h3 { font-size:14.5pt; }
+}
+
 .idea-card-heading {
   position:relative;
   display:flex;
@@ -1122,7 +1192,9 @@ li { margin-bottom: 5px; }
   font-weight:800;
   line-height:1.55;
   text-align:right;
-  transition:color .2s ease;
+  padding-bottom:5px;
+  border-bottom:1px solid #dec56f;
+  transition:color .2s ease,border-color .2s ease;
 }
 .opportunity-meta-line {
   display:flex;
@@ -1169,6 +1241,9 @@ li { margin-bottom: 5px; }
 .opportunity-link-card:hover .opportunity-name,
 .opportunity-link-card:hover .opportunity-meta-line {
   color:#fff;
+}
+.opportunity-link-card:hover .opportunity-name {
+  border-bottom-color:#d0aa2d;
 }
 .opportunity-link-card:hover .opportunity-number {
   background:rgba(255,255,255,.13);
@@ -2348,11 +2423,12 @@ function buildIdeasBank() {
     
     html += `
     <div class="project-card" id="opp-card-${String(o.n).padStart(3, '0')}" data-doc-id="opp-${String(o.n).padStart(3, '0')}" data-name="${o.name}" data-field="${o.field}" data-fund="${o.fund}">
-      <div class="idea-card-heading">
-        <div class="idea-card-title-wrap">
-          <span class="idea-card-kicker">فرصة مشروع</span>
-          <h3>${cleanName}</h3>
-        </div>
+      <div class="portfolio-title-frame ${o.fund === "زكاة" ? "is-zakat" : ""}">
+        <span class="portfolio-title-badge">${o.n}</span>
+        <div class="portfolio-title-box"><h3>${cleanName}</h3></div>
+      </div>
+      <div class="idea-card-heading" style="padding:0 0 12px;border:0;background:transparent;">
+        <div class="idea-card-title-wrap"><span class="idea-card-kicker">فرصة مشروع</span></div>
         <span class="idea-card-path ${o.fund === "زكاة" ? "zakat" : ""}">${o.fund === "زكاة" ? "مسار الزكاة" : o.fund}</span>
       </div>
       <div class="idea-card-meta">
@@ -2489,7 +2565,10 @@ function buildAppendix() {
     section.projects.forEach(p => {
       html += `
       <div class="project-card" data-doc-id="app-${String(p.n).padStart(3, '0')}" data-name="${p.name}" data-field="${section.title.replace(/^المحور[^:]*:\s*/, '')}" data-fund="">
-        <h3>${p.n}. ${p.name}</h3>
+        <div class="portfolio-title-frame">
+          <span class="portfolio-title-badge">${p.n}</span>
+          <div class="portfolio-title-box"><h3>${p.name}</h3></div>
+        </div>
         <p><strong>الوصف:</strong> ${p.desc}</p>
         <p><strong>الميزانية التقديرية:</strong> ${p.budget}</p>
         <p><strong>المدة:</strong> ${p.months}</p>
