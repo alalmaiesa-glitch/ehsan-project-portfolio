@@ -2241,7 +2241,7 @@ tbody td { color:#26342f; font-weight:500; }
     <div class="excel-workbook-item"><strong>بطاقة الفكرة</strong><span>تجميع بيانات الفكرة والاحتياج والمصدر والحالة.</span></div>
     <div class="excel-workbook-item"><strong>مراجعة قبل البدء</strong><span>قائمة تحقق داخلية للحاجة والاستحقاق والموافقات والميزانية والمؤشرات.</span></div>
     <div class="excel-workbook-item"><strong>فحص ذاتي للجاهزية</strong><span>درجات من 1 إلى 5 مع أوزان وحساب تلقائي للنتيجة من 100.</span></div>
-    <div class="excel-workbook-item"><strong>توثيق المعلومات والمصادر</strong><span>توثيق المعلومات والأرقام المهمة وربطها بالمستند أو الرابط الذي يثبتها.</span></div>
+    <div class="excel-workbook-item"><strong>توثيق المعلومات والمصادر</strong><span>ورقة داخل ملف Excel لتسجيل المعلومات المهمة ومصادر إثباتها. لا يوجد إدخال أو حفظ لهذه البيانات داخل الموقع.</span></div>
   </div>
 
   <a class="excel-download-btn" href="downloads/project-workbook-v2.xlsx" download>
@@ -2282,7 +2282,7 @@ tbody td { color:#26342f; font-weight:500; }
     <div style="color:#0d5c4a;margin-bottom:8px;"><re-icon icon="document-download" weight="Outline" size="42" color="currentColor"></re-icon></div>
     <h2 style="color:#0d5c4a;margin:0 0 10px;font-size:18pt;">ملف العمل التنفيذي للمشروع</h2>
     <p style="color:#3f4b46;font-size:12pt;margin:0 0 15px;">
-      ملف Excel قابل للتعبئة يضم بطاقة الفكرة، المراجعة قبل البدء، فحص الجاهزية الذاتي، وسجل الأدلة.
+      ملف Excel قابل للتعبئة يضم بطاقة الفكرة، المراجعة قبل البدء، فحص الجاهزية الذاتي، وتوثيق المعلومات والمصادر.
     </p>
     <a class="excel-download-btn" href="downloads/project-workbook-v2.xlsx" download>
       <re-icon icon="document-download" weight="Outline" size="19" color="currentColor"></re-icon>
@@ -3496,10 +3496,14 @@ function addButtonsToCards() {
     readySec.innerHTML='<div class="tool-section-title">'+iconLabel('clipboard-check','إدارة الجاهزية',18)+' <span class="readiness-badge">الجاهزية: 0/10</span></div><div class="tool-grid"></div>';
     const readyGrid=readySec.querySelector('.tool-grid');
     const rb=document.createElement('button'); rb.type='button'; rb.className='tool-btn tool-ready'; rb.innerHTML=iconLabel('checklist','فحص الجاهزية',17); rb.addEventListener('click',function(){openReadiness(card);});
-    const eb=document.createElement('button'); eb.type='button'; eb.className='tool-btn tool-evidence'; eb.innerHTML=iconLabel('archive-book','توثيق المعلومات والمصادر',17); eb.addEventListener('click',function(){openEvidenceRegister(card);});
     const gb=document.createElement('button'); gb.type='button'; gb.className='tool-btn'; gb.innerHTML=iconLabel('search-status','تحليل النواقص',17); gb.addEventListener('click',function(){openReviewTool(card,'gaps');});
-    readyGrid.appendChild(rb); readyGrid.appendChild(eb); readyGrid.appendChild(gb);
+    readyGrid.appendChild(rb); readyGrid.appendChild(gb);
     wrap.appendChild(readySec);
+
+    const evidenceNote=document.createElement('div');
+    evidenceNote.className='local-note';
+    evidenceNote.innerHTML='توثيق المعلومات يتم داخل ملف Excel المرفق فقط؛ لا يوجد إدخال أو حفظ لهذه البيانات داخل الموقع.';
+    wrap.appendChild(evidenceNote);
 
     card.appendChild(wrap);
     updateReadinessBadge(card);
