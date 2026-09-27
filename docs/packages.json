@@ -1,0 +1,882 @@
+[
+  {
+    "card_id": "opp-001",
+    "card_name": "الأجهزة الكهربائية للمحتاجين",
+    "path": "docs/opp-001/opp-001-project-package.zip"
+  },
+  {
+    "card_id": "opp-002",
+    "card_name": "توفير الكسوة للأسر المحتاجة",
+    "path": "docs/opp-002/opp-002-project-package.zip"
+  },
+  {
+    "card_id": "opp-003",
+    "card_name": "إعانة أسر السجناء",
+    "path": "docs/opp-003/opp-003-project-package.zip"
+  },
+  {
+    "card_id": "opp-004",
+    "card_name": "تفريج كربة",
+    "path": "docs/opp-004/opp-004-project-package.zip"
+  },
+  {
+    "card_id": "opp-005",
+    "card_name": "دعم الأسر المحتاجة",
+    "path": "docs/opp-005/opp-005-project-package.zip"
+  },
+  {
+    "card_id": "opp-006",
+    "card_name": "رعاية كبار السن المحتاجين",
+    "path": "docs/opp-006/opp-006-project-package.zip"
+  },
+  {
+    "card_id": "opp-007",
+    "card_name": "كسوة العيد",
+    "path": "docs/opp-007/opp-007-project-package.zip"
+  },
+  {
+    "card_id": "opp-008",
+    "card_name": "تيسير نقل المحتاجين",
+    "path": "docs/opp-008/opp-008-project-package.zip"
+  },
+  {
+    "card_id": "opp-009",
+    "card_name": "ترميم مساكن الأسر المحتاجة",
+    "path": "docs/opp-009/opp-009-project-package.zip"
+  },
+  {
+    "card_id": "opp-010",
+    "card_name": "دعم المقبلين على الزواج",
+    "path": "docs/opp-010/opp-010-project-package.zip"
+  },
+  {
+    "card_id": "opp-011",
+    "card_name": "تهيئة وصيانة المساجد",
+    "path": "docs/opp-011/opp-011-project-package.zip"
+  },
+  {
+    "card_id": "opp-012",
+    "card_name": "ترميم المساجد",
+    "path": "docs/opp-012/opp-012-project-package.zip"
+  },
+  {
+    "card_id": "opp-013",
+    "card_name": "بناء مسجد",
+    "path": "docs/opp-013/opp-013-project-package.zip"
+  },
+  {
+    "card_id": "opp-014",
+    "card_name": "بناء جامع",
+    "path": "docs/opp-014/opp-014-project-package.zip"
+  },
+  {
+    "card_id": "opp-015",
+    "card_name": "البطانيات للأسر المحتاجة",
+    "path": "docs/opp-015/opp-015-project-package.zip"
+  },
+  {
+    "card_id": "opp-016",
+    "card_name": "الحقيبة الشتوية للأسر المحتاجة",
+    "path": "docs/opp-016/opp-016-project-package.zip"
+  },
+  {
+    "card_id": "opp-017",
+    "card_name": "كفالة الأرامل والمطلقات",
+    "path": "docs/opp-017/opp-017-project-package.zip"
+  },
+  {
+    "card_id": "opp-018",
+    "card_name": "توفير الأدوية للمرضى المحتاجين",
+    "path": "docs/opp-018/opp-018-project-package.zip"
+  },
+  {
+    "card_id": "opp-019",
+    "card_name": "العمليات الجراحية للمحتاجين",
+    "path": "docs/opp-019/opp-019-project-package.zip"
+  },
+  {
+    "card_id": "opp-020",
+    "card_name": "كفارة العاجز عن الصيام",
+    "path": "docs/opp-020/opp-020-project-package.zip"
+  },
+  {
+    "card_id": "opp-021",
+    "card_name": "كفالة اليتيم",
+    "path": "docs/opp-021/opp-021-project-package.zip"
+  },
+  {
+    "card_id": "opp-022",
+    "card_name": "الأجهزة التعليمية",
+    "path": "docs/opp-022/opp-022-project-package.zip"
+  },
+  {
+    "card_id": "opp-023",
+    "card_name": "كفالة معتمر",
+    "path": "docs/opp-023/opp-023-project-package.zip"
+  },
+  {
+    "card_id": "opp-024",
+    "card_name": "كفالة حاج",
+    "path": "docs/opp-024/opp-024-project-package.zip"
+  },
+  {
+    "card_id": "opp-025",
+    "card_name": "تفريج كربة سجين",
+    "path": "docs/opp-025/opp-025-project-package.zip"
+  },
+  {
+    "card_id": "opp-026",
+    "card_name": "محطات تحلية المياه",
+    "path": "docs/opp-026/opp-026-project-package.zip"
+  },
+  {
+    "card_id": "opp-027",
+    "card_name": "توفير اللحوم للأسر المتعففة",
+    "path": "docs/opp-027/opp-027-project-package.zip"
+  },
+  {
+    "card_id": "opp-028",
+    "card_name": "وجبات الطعام للأسر المتعففة",
+    "path": "docs/opp-028/opp-028-project-package.zip"
+  },
+  {
+    "card_id": "opp-029",
+    "card_name": "بطاقات تموينية رمضانية",
+    "path": "docs/opp-029/opp-029-project-package.zip"
+  },
+  {
+    "card_id": "opp-030",
+    "card_name": "الدورات التدريبية للأيتام",
+    "path": "docs/opp-030/opp-030-project-package.zip"
+  },
+  {
+    "card_id": "opp-031",
+    "card_name": "تنمية وتأهيل الأيتام",
+    "path": "docs/opp-031/opp-031-project-package.zip"
+  },
+  {
+    "card_id": "opp-032",
+    "card_name": "تأهيل وتدريب ذوي الإعاقة",
+    "path": "docs/opp-032/opp-032-project-package.zip"
+  },
+  {
+    "card_id": "opp-033",
+    "card_name": "تموين الأسر المحتاجة",
+    "path": "docs/opp-033/opp-033-project-package.zip"
+  },
+  {
+    "card_id": "opp-034",
+    "card_name": "توفير التمور للأسر المتعففة",
+    "path": "docs/opp-034/opp-034-project-package.zip"
+  },
+  {
+    "card_id": "opp-035",
+    "card_name": "إعانة المنقطعين من المعتمرين",
+    "path": "docs/opp-035/opp-035-project-package.zip"
+  },
+  {
+    "card_id": "opp-036",
+    "card_name": "خدمة ضيوف الرحمن",
+    "path": "docs/opp-036/opp-036-project-package.zip"
+  },
+  {
+    "card_id": "opp-037",
+    "card_name": "كفالة دعاة الجاليات",
+    "path": "docs/opp-037/opp-037-project-package.zip"
+  },
+  {
+    "card_id": "opp-038",
+    "card_name": "طباعة ونشر المصاحف",
+    "path": "docs/opp-038/opp-038-project-package.zip"
+  },
+  {
+    "card_id": "opp-039",
+    "card_name": "دعم حلقات تحفيظ القرآن الكريم",
+    "path": "docs/opp-039/opp-039-project-package.zip"
+  },
+  {
+    "card_id": "opp-040",
+    "card_name": "الحقيبة المدرسية للطلاب المحتاجين",
+    "path": "docs/opp-040/opp-040-project-package.zip"
+  },
+  {
+    "card_id": "opp-041",
+    "card_name": "الفسحة المدرسية للطلاب المحتاجين",
+    "path": "docs/opp-041/opp-041-project-package.zip"
+  },
+  {
+    "card_id": "opp-042",
+    "card_name": "الزي المدرسي للطلاب المحتاجين",
+    "path": "docs/opp-042/opp-042-project-package.zip"
+  },
+  {
+    "card_id": "opp-043",
+    "card_name": "الكفالة التعليمية لطالب جامعي",
+    "path": "docs/opp-043/opp-043-project-package.zip"
+  },
+  {
+    "card_id": "opp-044",
+    "card_name": "أجهزة التدفئة للأسر المتعففة",
+    "path": "docs/opp-044/opp-044-project-package.zip"
+  },
+  {
+    "card_id": "opp-045",
+    "card_name": "شحنات المياه للأسر المحتاجة",
+    "path": "docs/opp-045/opp-045-project-package.zip"
+  },
+  {
+    "card_id": "opp-046",
+    "card_name": "سداد فواتير الأسر",
+    "path": "docs/opp-046/opp-046-project-package.zip"
+  },
+  {
+    "card_id": "opp-047",
+    "card_name": "إكرام الموتى",
+    "path": "docs/opp-047/opp-047-project-package.zip"
+  },
+  {
+    "card_id": "opp-048",
+    "card_name": "تفريج كربة محتاج",
+    "path": "docs/opp-048/opp-048-project-package.zip"
+  },
+  {
+    "card_id": "opp-049",
+    "card_name": "جلسات الإصلاح الأسري",
+    "path": "docs/opp-049/opp-049-project-package.zip"
+  },
+  {
+    "card_id": "opp-050",
+    "card_name": "رعاية أطفال الأسر المنفصلة",
+    "path": "docs/opp-050/opp-050-project-package.zip"
+  },
+  {
+    "card_id": "opp-051",
+    "card_name": "دعم قضايا الأسر المنفصلة",
+    "path": "docs/opp-051/opp-051-project-package.zip"
+  },
+  {
+    "card_id": "opp-052",
+    "card_name": "غرس الأشجار لمكافحة التصحر",
+    "path": "docs/opp-052/opp-052-project-package.zip"
+  },
+  {
+    "card_id": "opp-053",
+    "card_name": "زراعة الأشجار",
+    "path": "docs/opp-053/opp-053-project-package.zip"
+  },
+  {
+    "card_id": "opp-054",
+    "card_name": "الأجهزة الطبية للمحتاجين",
+    "path": "docs/opp-054/opp-054-project-package.zip"
+  },
+  {
+    "card_id": "opp-055",
+    "card_name": "برامج التوعية الصحية",
+    "path": "docs/opp-055/opp-055-project-package.zip"
+  },
+  {
+    "card_id": "opp-056",
+    "card_name": "الأطراف الصناعية للمتعففين",
+    "path": "docs/opp-056/opp-056-project-package.zip"
+  },
+  {
+    "card_id": "opp-057",
+    "card_name": "جلسات غسيل الكلى",
+    "path": "docs/opp-057/opp-057-project-package.zip"
+  },
+  {
+    "card_id": "opp-058",
+    "card_name": "البرنامج التوعوي لمكافحة التدخين",
+    "path": "docs/opp-058/opp-058-project-package.zip"
+  },
+  {
+    "card_id": "opp-059",
+    "card_name": "توفير أدوية الإقلاع عن التدخين",
+    "path": "docs/opp-059/opp-059-project-package.zip"
+  },
+  {
+    "card_id": "opp-060",
+    "card_name": "الرعاية الصحية الطارئة",
+    "path": "docs/opp-060/opp-060-project-package.zip"
+  },
+  {
+    "card_id": "opp-061",
+    "card_name": "العيادة الصحية المتنقلة",
+    "path": "docs/opp-061/opp-061-project-package.zip"
+  },
+  {
+    "card_id": "opp-062",
+    "card_name": "إنشاء مرافق طبية",
+    "path": "docs/opp-062/opp-062-project-package.zip"
+  },
+  {
+    "card_id": "opp-063",
+    "card_name": "سداد إيجارات المستفيدين",
+    "path": "docs/opp-063/opp-063-project-package.zip"
+  },
+  {
+    "card_id": "opp-064",
+    "card_name": "تأثيث منازل الأسر المحتاجة",
+    "path": "docs/opp-064/opp-064-project-package.zip"
+  },
+  {
+    "card_id": "opp-065",
+    "card_name": "دعم المصاريف التشغيلية",
+    "path": "docs/opp-065/opp-065-project-package.zip"
+  },
+  {
+    "card_id": "opp-066",
+    "card_name": "دعم رواتب الموظفين",
+    "path": "docs/opp-066/opp-066-project-package.zip"
+  },
+  {
+    "card_id": "opp-067",
+    "card_name": "كفالة الأرامل والمطلقات (زكاة)",
+    "path": "docs/opp-067/opp-067-project-package.zip"
+  },
+  {
+    "card_id": "opp-068",
+    "card_name": "رعاية كبار السن (زكاة)",
+    "path": "docs/opp-068/opp-068-project-package.zip"
+  },
+  {
+    "card_id": "opp-069",
+    "card_name": "ترميم مساكن الأسر (زكاة)",
+    "path": "docs/opp-069/opp-069-project-package.zip"
+  },
+  {
+    "card_id": "opp-070",
+    "card_name": "سداد إيجارات المستفيدين (زكاة)",
+    "path": "docs/opp-070/opp-070-project-package.zip"
+  },
+  {
+    "card_id": "opp-071",
+    "card_name": "العمليات الجراحية للمحتاجين (زكاة)",
+    "path": "docs/opp-071/opp-071-project-package.zip"
+  },
+  {
+    "card_id": "opp-072",
+    "card_name": "بطاقات تموينية (زكاة)",
+    "path": "docs/opp-072/opp-072-project-package.zip"
+  },
+  {
+    "card_id": "opp-073",
+    "card_name": "الكفالة التعليمية لطالب جامعي (زكاة)",
+    "path": "docs/opp-073/opp-073-project-package.zip"
+  },
+  {
+    "card_id": "opp-074",
+    "card_name": "دعم التعليم الإلكتروني",
+    "path": "docs/opp-074/opp-074-project-package.zip"
+  },
+  {
+    "card_id": "opp-075",
+    "card_name": "تأهيل وتدريب ذوي الإعاقة (زكاة)",
+    "path": "docs/opp-075/opp-075-project-package.zip"
+  },
+  {
+    "card_id": "opp-076",
+    "card_name": "الأجهزة التعليمية (زكاة)",
+    "path": "docs/opp-076/opp-076-project-package.zip"
+  },
+  {
+    "card_id": "opp-077",
+    "card_name": "تأمين الأدوية للمرضى (زكاة)",
+    "path": "docs/opp-077/opp-077-project-package.zip"
+  },
+  {
+    "card_id": "opp-078",
+    "card_name": "جلسات غسيل الكلى (زكاة)",
+    "path": "docs/opp-078/opp-078-project-package.zip"
+  },
+  {
+    "card_id": "opp-079",
+    "card_name": "إعانة أسر السجناء (زكاة)",
+    "path": "docs/opp-079/opp-079-project-package.zip"
+  },
+  {
+    "card_id": "opp-080",
+    "card_name": "كسوة (زكاة)",
+    "path": "docs/opp-080/opp-080-project-package.zip"
+  },
+  {
+    "card_id": "opp-081",
+    "card_name": "تأمين عربات بيع الطعام للمحتاجين",
+    "path": "docs/opp-081/opp-081-project-package.zip"
+  },
+  {
+    "card_id": "opp-082",
+    "card_name": "دعم الأسر المنتجة (زكاة)",
+    "path": "docs/opp-082/opp-082-project-package.zip"
+  },
+  {
+    "card_id": "opp-083",
+    "card_name": "دعم الأسر المنتجة",
+    "path": "docs/opp-083/opp-083-project-package.zip"
+  },
+  {
+    "card_id": "opp-084",
+    "card_name": "صهاريج مياه",
+    "path": "docs/opp-084/opp-084-project-package.zip"
+  },
+  {
+    "card_id": "opp-085",
+    "card_name": "توفير خزانات مياه",
+    "path": "docs/opp-085/opp-085-project-package.zip"
+  },
+  {
+    "card_id": "opp-086",
+    "card_name": "توفير برادات المياه",
+    "path": "docs/opp-086/opp-086-project-package.zip"
+  },
+  {
+    "card_id": "opp-087",
+    "card_name": "عوائد صندوق إحسان الوقفي",
+    "path": "docs/opp-087/opp-087-project-package.zip"
+  },
+  {
+    "card_id": "opp-088",
+    "card_name": "كفارة محظورات الإحرام",
+    "path": "docs/opp-088/opp-088-project-package.zip"
+  },
+  {
+    "card_id": "opp-089",
+    "card_name": "دورات تدريبية معتمدة",
+    "path": "docs/opp-089/opp-089-project-package.zip"
+  },
+  {
+    "card_id": "opp-090",
+    "card_name": "الزي المدرسي للطلاب المحتاجين (زكاة)",
+    "path": "docs/opp-090/opp-090-project-package.zip"
+  },
+  {
+    "card_id": "opp-091",
+    "card_name": "الحقيبة المدرسية للطلاب (زكاة)",
+    "path": "docs/opp-091/opp-091-project-package.zip"
+  },
+  {
+    "card_id": "opp-092",
+    "card_name": "الفسحة المدرسية (زكاة)",
+    "path": "docs/opp-092/opp-092-project-package.zip"
+  },
+  {
+    "card_id": "opp-093",
+    "card_name": "برامج القدرات والتحصيلي",
+    "path": "docs/opp-093/opp-093-project-package.zip"
+  },
+  {
+    "card_id": "opp-094",
+    "card_name": "تأثيث مساكن الأسر (زكاة)",
+    "path": "docs/opp-094/opp-094-project-package.zip"
+  },
+  {
+    "card_id": "opp-095",
+    "card_name": "الأجهزة والأدوات الطبية (زكاة)",
+    "path": "docs/opp-095/opp-095-project-package.zip"
+  },
+  {
+    "card_id": "opp-096",
+    "card_name": "رعاية وتأهيل صحي (زكاة)",
+    "path": "docs/opp-096/opp-096-project-package.zip"
+  },
+  {
+    "card_id": "app-001",
+    "card_name": "الأحزمة الخضراء لتثبيت الرمال",
+    "path": "docs/app-001/app-001-project-package.zip"
+  },
+  {
+    "card_id": "app-002",
+    "card_name": "استعادة الأراضي المتدهورة",
+    "path": "docs/app-002/app-002-project-package.zip"
+  },
+  {
+    "card_id": "app-003",
+    "card_name": "مصدات الرياح النباتية",
+    "path": "docs/app-003/app-003-project-package.zip"
+  },
+  {
+    "card_id": "app-004",
+    "card_name": "تأهيل الأودية المتصحرة",
+    "path": "docs/app-004/app-004-project-package.zip"
+  },
+  {
+    "card_id": "app-005",
+    "card_name": "حماية المراعي بالتشجير الرعوي",
+    "path": "docs/app-005/app-005-project-package.zip"
+  },
+  {
+    "card_id": "app-006",
+    "card_name": "تشجير جوانب الطرق المعرضة لزحف الرمال",
+    "path": "docs/app-006/app-006-project-package.zip"
+  },
+  {
+    "card_id": "app-007",
+    "card_name": "حصاد الأمطار والتشجير",
+    "path": "docs/app-007/app-007-project-package.zip"
+  },
+  {
+    "card_id": "app-008",
+    "card_name": "جزر نباتية لاستعادة الصحراء",
+    "path": "docs/app-008/app-008-project-package.zip"
+  },
+  {
+    "card_id": "app-009",
+    "card_name": "مدارس ضد التصحر",
+    "path": "docs/app-009/app-009-project-package.zip"
+  },
+  {
+    "card_id": "app-010",
+    "card_name": "بنك الشتلات المحلية",
+    "path": "docs/app-010/app-010-project-package.zip"
+  },
+  {
+    "card_id": "app-011",
+    "card_name": "ظلال المدارس",
+    "path": "docs/app-011/app-011-project-package.zip"
+  },
+  {
+    "card_id": "app-012",
+    "card_name": "ممرات المشاة الخضراء",
+    "path": "docs/app-012/app-012-project-package.zip"
+  },
+  {
+    "card_id": "app-013",
+    "card_name": "حدائق الأحياء الصغيرة",
+    "path": "docs/app-013/app-013-project-package.zip"
+  },
+  {
+    "card_id": "app-014",
+    "card_name": "أشجار المساجد",
+    "path": "docs/app-014/app-014-project-package.zip"
+  },
+  {
+    "card_id": "app-015",
+    "card_name": "الأشجار المثمرة للأسر",
+    "path": "docs/app-015/app-015-project-package.zip"
+  },
+  {
+    "card_id": "app-016",
+    "card_name": "تشجير مرافق الرعاية الصحية",
+    "path": "docs/app-016/app-016-project-package.zip"
+  },
+  {
+    "card_id": "app-017",
+    "card_name": "تشجير مداخل القرى",
+    "path": "docs/app-017/app-017-project-package.zip"
+  },
+  {
+    "card_id": "app-018",
+    "card_name": "شجرة لكل متطوع",
+    "path": "docs/app-018/app-018-project-package.zip"
+  },
+  {
+    "card_id": "app-019",
+    "card_name": "تشجير ساحات الجمعيات",
+    "path": "docs/app-019/app-019-project-package.zip"
+  },
+  {
+    "card_id": "app-020",
+    "card_name": "مشتل مجتمعي للأشجار الحضرية",
+    "path": "docs/app-020/app-020-project-package.zip"
+  },
+  {
+    "card_id": "app-021",
+    "card_name": "استعادة الحركة — الأطراف السفلية",
+    "path": "docs/app-021/app-021-project-package.zip"
+  },
+  {
+    "card_id": "app-022",
+    "card_name": "أطراف صناعية للأطفال",
+    "path": "docs/app-022/app-022-project-package.zip"
+  },
+  {
+    "card_id": "app-023",
+    "card_name": "أطراف صناعية علوية وظيفية",
+    "path": "docs/app-023/app-023-project-package.zip"
+  },
+  {
+    "card_id": "app-024",
+    "card_name": "الطرف والتأهيل المتكامل",
+    "path": "docs/app-024/app-024-project-package.zip"
+  },
+  {
+    "card_id": "app-025",
+    "card_name": "صيانة وتجديد الأطراف",
+    "path": "docs/app-025/app-025-project-package.zip"
+  },
+  {
+    "card_id": "app-026",
+    "card_name": "عيادة متنقلة لتقييم مبتوري الأطراف",
+    "path": "docs/app-026/app-026-project-package.zip"
+  },
+  {
+    "card_id": "app-027",
+    "card_name": "أطراف صناعية لكبار السن",
+    "path": "docs/app-027/app-027-project-package.zip"
+  },
+  {
+    "card_id": "app-028",
+    "card_name": "تمكين المرأة بالأطراف الصناعية",
+    "path": "docs/app-028/app-028-project-package.zip"
+  },
+  {
+    "card_id": "app-029",
+    "card_name": "العودة للعمل بعد البتر",
+    "path": "docs/app-029/app-029-project-package.zip"
+  },
+  {
+    "card_id": "app-030",
+    "card_name": "صندوق الاستجابة السريعة لحالات البتر",
+    "path": "docs/app-030/app-030-project-package.zip"
+  },
+  {
+    "card_id": "app-031",
+    "card_name": "سقيا الأسر بالمناطق النائية",
+    "path": "docs/app-031/app-031-project-package.zip"
+  },
+  {
+    "card_id": "app-032",
+    "card_name": "سقيا الطوارئ",
+    "path": "docs/app-032/app-032-project-package.zip"
+  },
+  {
+    "card_id": "app-033",
+    "card_name": "صهريج شهري للأسرة",
+    "path": "docs/app-033/app-033-project-package.zip"
+  },
+  {
+    "card_id": "app-034",
+    "card_name": "سقيا كبار السن وذوي الإعاقة",
+    "path": "docs/app-034/app-034-project-package.zip"
+  },
+  {
+    "card_id": "app-035",
+    "card_name": "صهاريج القرى الموسمية",
+    "path": "docs/app-035/app-035-project-package.zip"
+  },
+  {
+    "card_id": "app-036",
+    "card_name": "سقيا التجمعات السكنية",
+    "path": "docs/app-036/app-036-project-package.zip"
+  },
+  {
+    "card_id": "app-037",
+    "card_name": "سقيا المدارس الريفية",
+    "path": "docs/app-037/app-037-project-package.zip"
+  },
+  {
+    "card_id": "app-038",
+    "card_name": "بطاقة سقيا إلكترونية",
+    "path": "docs/app-038/app-038-project-package.zip"
+  },
+  {
+    "card_id": "app-039",
+    "card_name": "سقيا متعددة الموردين",
+    "path": "docs/app-039/app-039-project-package.zip"
+  },
+  {
+    "card_id": "app-040",
+    "card_name": "سقيا الشتاء والصيف المبنية على الطلب",
+    "path": "docs/app-040/app-040-project-package.zip"
+  },
+  {
+    "card_id": "app-041",
+    "card_name": "رعاية المرضى المتعففين",
+    "path": "docs/app-041/app-041-project-package.zip"
+  },
+  {
+    "card_id": "app-042",
+    "card_name": "سقيا الماء المستدامة",
+    "path": "docs/app-042/app-042-project-package.zip"
+  },
+  {
+    "card_id": "app-043",
+    "card_name": "الكفالة التعليمية من الريع",
+    "path": "docs/app-043/app-043-project-package.zip"
+  },
+  {
+    "card_id": "app-044",
+    "card_name": "دعم السكن الآمن للأسر",
+    "path": "docs/app-044/app-044-project-package.zip"
+  },
+  {
+    "card_id": "app-045",
+    "card_name": "الأمن الغذائي الشهري",
+    "path": "docs/app-045/app-045-project-package.zip"
+  },
+  {
+    "card_id": "app-046",
+    "card_name": "رعاية الأيتام من العوائد",
+    "path": "docs/app-046/app-046-project-package.zip"
+  },
+  {
+    "card_id": "app-047",
+    "card_name": "خدمة ضيوف الرحمن من العوائد",
+    "path": "docs/app-047/app-047-project-package.zip"
+  },
+  {
+    "card_id": "app-048",
+    "card_name": "رعاية كبار السن من العوائد",
+    "path": "docs/app-048/app-048-project-package.zip"
+  },
+  {
+    "card_id": "app-049",
+    "card_name": "تمكين الأسر اقتصاديًا من الريع",
+    "path": "docs/app-049/app-049-project-package.zip"
+  },
+  {
+    "card_id": "app-050",
+    "card_name": "صندوق التدخلات الإنسانية العاجلة",
+    "path": "docs/app-050/app-050-project-package.zip"
+  },
+  {
+    "card_id": "app-051",
+    "card_name": "كفالة عام غسيل كلوي",
+    "path": "docs/app-051/app-051-project-package.zip"
+  },
+  {
+    "card_id": "app-052",
+    "card_name": "جلسة للمتعففين",
+    "path": "docs/app-052/app-052-project-package.zip"
+  },
+  {
+    "card_id": "app-053",
+    "card_name": "جلسات الغسيل لكبار السن",
+    "path": "docs/app-053/app-053-project-package.zip"
+  },
+  {
+    "card_id": "app-054",
+    "card_name": "جلسات الغسيل للنساء المتعففات",
+    "path": "docs/app-054/app-054-project-package.zip"
+  },
+  {
+    "card_id": "app-055",
+    "card_name": "الغسيل والنقل",
+    "path": "docs/app-055/app-055-project-package.zip"
+  },
+  {
+    "card_id": "app-056",
+    "card_name": "جلسات المحافظات الطرفية",
+    "path": "docs/app-056/app-056-project-package.zip"
+  },
+  {
+    "card_id": "app-057",
+    "card_name": "صندوق منع انقطاع الغسيل",
+    "path": "docs/app-057/app-057-project-package.zip"
+  },
+  {
+    "card_id": "app-058",
+    "card_name": "كفالة مريض كلى لمدة ستة أشهر",
+    "path": "docs/app-058/app-058-project-package.zip"
+  },
+  {
+    "card_id": "app-059",
+    "card_name": "الشراء الجماعي لجلسات الغسيل",
+    "path": "docs/app-059/app-059-project-package.zip"
+  },
+  {
+    "card_id": "app-060",
+    "card_name": "متابعة الالتزام بجلسات الغسيل",
+    "path": "docs/app-060/app-060-project-package.zip"
+  },
+  {
+    "card_id": "app-061",
+    "card_name": "خزانات منزلية للأسر المتعففة",
+    "path": "docs/app-061/app-061-project-package.zip"
+  },
+  {
+    "card_id": "app-062",
+    "card_name": "استبدال الخزانات المتهالكة",
+    "path": "docs/app-062/app-062-project-package.zip"
+  },
+  {
+    "card_id": "app-063",
+    "card_name": "خزانات القرى النائية",
+    "path": "docs/app-063/app-063-project-package.zip"
+  },
+  {
+    "card_id": "app-064",
+    "card_name": "خزانات كبار السن وذوي الإعاقة",
+    "path": "docs/app-064/app-064-project-package.zip"
+  },
+  {
+    "card_id": "app-065",
+    "card_name": "خزانات ذكية ضد الفائض",
+    "path": "docs/app-065/app-065-project-package.zip"
+  },
+  {
+    "card_id": "app-066",
+    "card_name": "تنظيف وتأهيل الخزانات",
+    "path": "docs/app-066/app-066-project-package.zip"
+  },
+  {
+    "card_id": "app-067",
+    "card_name": "خزانات مشتركة للتجمعات الصغيرة",
+    "path": "docs/app-067/app-067-project-package.zip"
+  },
+  {
+    "card_id": "app-068",
+    "card_name": "خزانات المدارس المحتاجة",
+    "path": "docs/app-068/app-068-project-package.zip"
+  },
+  {
+    "card_id": "app-069",
+    "card_name": "خزانات المرافق الاجتماعية",
+    "path": "docs/app-069/app-069-project-package.zip"
+  },
+  {
+    "card_id": "app-070",
+    "card_name": "حزمة الخزان والمنظومة المنزلية",
+    "path": "docs/app-070/app-070-project-package.zip"
+  },
+  {
+    "card_id": "app-071",
+    "card_name": "محطة تنقية مياه لقرية نائية",
+    "path": "docs/app-071/app-071-project-package.zip"
+  },
+  {
+    "card_id": "app-072",
+    "card_name": "محطة مياه تعمل بالطاقة الشمسية",
+    "path": "docs/app-072/app-072-project-package.zip"
+  },
+  {
+    "card_id": "app-073",
+    "card_name": "محطات تعبئة مياه للأسر المستحقة",
+    "path": "docs/app-073/app-073-project-package.zip"
+  },
+  {
+    "card_id": "app-074",
+    "card_name": "محطة سقيا للمرافق العامة",
+    "path": "docs/app-074/app-074-project-package.zip"
+  },
+  {
+    "card_id": "app-075",
+    "card_name": "تأهيل محطة مياه قائمة",
+    "path": "docs/app-075/app-075-project-package.zip"
+  },
+  {
+    "card_id": "app-076",
+    "card_name": "محطة متنقلة للطوارئ",
+    "path": "docs/app-076/app-076-project-package.zip"
+  },
+  {
+    "card_id": "app-077",
+    "card_name": "محطة مياه مدرسية مركزية",
+    "path": "docs/app-077/app-077-project-package.zip"
+  },
+  {
+    "card_id": "app-078",
+    "card_name": "محطة مياه لمجمع اجتماعي",
+    "path": "docs/app-078/app-078-project-package.zip"
+  },
+  {
+    "card_id": "app-079",
+    "card_name": "محطة خيرية بنظام القياس الذكي",
+    "path": "docs/app-079/app-079-project-package.zip"
+  },
+  {
+    "card_id": "app-080",
+    "card_name": "محطة مياه مستدامة بعقد تشغيل خمس سنوات",
+    "path": "docs/app-080/app-080-project-package.zip"
+  }
+]
