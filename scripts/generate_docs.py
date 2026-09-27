@@ -184,10 +184,29 @@ def write_docx(path,card,t):
         z.writestr('[Content_Types].xml',CT); z.writestr('_rels/.rels',RELS); z.writestr('word/document.xml',docxml); z.writestr('word/_rels/document.xml.rels',DOCRELS); z.writestr('word/styles.xml',STYLES); z.writestr('docProps/core.xml',CORE); z.writestr('docProps/app.xml',APP)
 
 manifest=[]
+packages=[]
 for card in CARDS:
+    card_files=[]
     for t in TEMPLATES:
         fp=OUT/card['id']/(t['key']+'.docx')
         write_docx(fp,card,t)
+        card_files.append(fp)
         manifest.append({'card_id':card['id'],'card_name':card['name'],'template':t['key'],'label':t['label'],'path':str(fp.relative_to(ROOT)).replace('\\','/')})
+
+    package_path=OUT/card['id']/(card['id']+'-project-package.zip')
+    with zipfile.ZipFile(package_path,'w',zipfile.ZIP_DEFLATED) as z:
+        for fp in card_files:
+            z.write(fp,arcname=fp.name)
+        readme = (
+            f"حزمة مشروع: {card['name']}\n"
+            f"رمز البطاقة: {card['id']}\n\n"
+            "تحتوي الحزمة على 11 نموذج Word لإدارة دورة المشروع من الفكرة حتى الإغلاق.\n"
+            "يتضمن كل نموذج في نهايته ملحق مطالبة احترافية للذكاء الاصطناعي لتصميم المشروع.\n"
+            "هذه القوالب أدوات عمل داخلية قابلة للتخصيص وليست نماذج رسمية صادرة عن منصة إحسان.\n"
+        )
+        z.writestr('اقرأني.txt', readme.encode('utf-8'))
+    packages.append({'card_id':card['id'],'card_name':card['name'],'path':str(package_path.relative_to(ROOT)).replace('\\','/')})
+
 (OUT/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
-print(f'Generated {len(manifest)} DOCX files')
+(OUT/'packages.json').write_text(json.dumps(packages,ensure_ascii=False,indent=2),encoding='utf-8')
+print(f'Generated {len(manifest)} DOCX files and {len(packages)} project ZIP packages')
