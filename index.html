@@ -376,6 +376,40 @@ li { margin-bottom: 5px; }
 .project-tools { margin-top:14px; border:1px dashed var(--border); border-radius:10px; padding:12px; background:#fbfbfb; }
 .tool-section { margin-top:10px; }
 .tool-section:first-child { margin-top:0; }
+.ai-toolbox {
+  position:relative;
+  overflow:hidden;
+  padding:14px;
+  border:1px solid #cfc1e7;
+  border-radius:14px;
+  background:linear-gradient(135deg,#faf7ff 0%,#f1ebfb 58%,#f8fbff 100%);
+  box-shadow:0 6px 18px rgba(89,63,133,.08);
+}
+.ai-toolbox::before {
+  content:"";
+  position:absolute;
+  top:0; right:0; left:0;
+  height:3px;
+  background:linear-gradient(90deg,#7756a8,#9c7bc8,#5f7ea9);
+}
+.ai-toolbox .tool-section-title {
+  color:#553d79;
+  border-bottom-color:#d9ccec;
+  margin-bottom:10px;
+}
+.ai-toolbox .tool-grid {
+  gap:10px;
+}
+.ai-toolbox .tool-ai {
+  background:#fff;
+  border-color:#c8b5e3;
+  color:#533d74;
+  box-shadow:0 2px 8px rgba(92,66,132,.06);
+}
+.ai-toolbox .tool-ai:hover {
+  border-color:#8e70ba;
+  box-shadow:0 5px 14px rgba(92,66,132,.12);
+}
 .tool-section-title { font-weight:bold; color:var(--primary); font-size:11.5pt; margin-bottom:7px; padding-bottom:5px; border-bottom:1px solid #e2e2e2; }
 .tool-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; }
 .tool-btn, .package-link {
@@ -1318,7 +1352,7 @@ function downloadCloseReport() {
     <h1>تقرير إغلاق المشروع</h1>
     <p class="subtitle">
       مقدم إلى: <strong>منصة إحسان</strong><br>
-      الوثيقة الرسمية لإغلاق المشروع ماليًا وفنيًا<br>
+      نموذج عمل لإغلاق المشروع ماليًا وفنيًا<br>
       تاريخ الإعداد: ${dateStr}
     </p>
 
@@ -1651,6 +1685,9 @@ function openReviewTool(card, mode) {
   });
 }
 
+const readinessSessionStore = {};
+const evidenceSessionStore = {};
+
 const READINESS_ITEMS = [
   'إثبات الحاجة والمشكلة بأدلة قابلة للتحقق',
   'تعريف الفئة المستهدفة وعدد المستفيدين',
@@ -1667,12 +1704,11 @@ const READINESS_ITEMS = [
 function readinessKey(id){ return 'ehsan-readiness-'+id; }
 
 function getReadiness(id) {
-  try { return JSON.parse(localStorage.getItem(readinessKey(id)) || '[]'); }
-  catch(e){ return []; }
+  return readinessSessionStore[id] || [];
 }
 
 function saveReadiness(id, values) {
-  localStorage.setItem(readinessKey(id), JSON.stringify(values));
+  readinessSessionStore[id] = values.slice();
   buildDashboard();
 }
 
@@ -1714,13 +1750,13 @@ function evidenceKey(id){ return 'ehsan-evidence-'+id; }
 function openEvidenceRegister(card) {
   const x=cardContext(card);
   const seed='الادعاء | الدليل المطلوب | المصدر | تاريخ التحقق | المسؤول | الحالة\n';
-  const saved=localStorage.getItem(evidenceKey(x.id)) || seed;
+  const saved=evidenceSessionStore[x.id] || seed;
   const html='<div class="modal-field"><label>سجل الأدلة والمصادر</label><textarea id="evidence-text" style="min-height:300px;">'+saved.replace(/</g,'&lt;')+'</textarea></div>'+
     '<div class="modal-actions"><button class="primary-action" id="save-evidence">حفظ</button><button class="secondary-action" id="export-evidence">تصدير CSV</button></div>'+
-    '<div class="local-note">استخدم سطرًا لكل ادعاء بصيغة: الادعاء | الدليل المطلوب | المصدر | تاريخ التحقق | المسؤول | الحالة. الحفظ محلي في هذا المتصفح.</div>';
+    '<div class="local-note">استخدم سطرًا لكل ادعاء بصيغة: الادعاء | الدليل المطلوب | المصدر | تاريخ التحقق | المسؤول | الحالة. البيانات مؤقتة داخل الصفحة الحالية ولا تُحفظ بعد تحديث الصفحة أو إغلاقها.</div>';
   const root=openPortfolioModal(iconLabel('archive-book','سجل الأدلة والمصادر — '+x.name,22),html);
   root.querySelector('#save-evidence').addEventListener('click',function(){
-    localStorage.setItem(evidenceKey(x.id),root.querySelector('#evidence-text').value);
+    evidenceSessionStore[x.id]=root.querySelector('#evidence-text').value;
     const b=root.querySelector('#save-evidence'); const old=b.textContent; b.textContent='تم الحفظ'; setTimeout(function(){b.textContent=old;},1500);
   });
   root.querySelector('#export-evidence').addEventListener('click',function(){
@@ -1811,8 +1847,8 @@ function addButtonsToCards() {
     stages.forEach(function(s){ const span=document.createElement('span'); span.className='lifecycle-step'; span.textContent=s; life.appendChild(span); });
     wrap.appendChild(life);
 
-    const aiSec=document.createElement('div'); aiSec.className='tool-section';
-    aiSec.innerHTML='<div class="tool-section-title">'+iconLabel('magic-wand','الذكاء الاصطناعي',18)+'</div><div class="tool-grid"></div>';
+    const aiSec=document.createElement('div'); aiSec.className='tool-section ai-toolbox';
+    aiSec.innerHTML='<div class="tool-section-title">'+iconLabel('magic-wand','أدوات الذكاء الاصطناعي',18)+'</div><div class="tool-grid"></div>';
     const aiGrid=aiSec.querySelector('.tool-grid');
     [
       ['wand-sparkle','تصميم مشروع',function(){openDesignAssistant(card);}],
