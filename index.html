@@ -6,8 +6,19 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>محفظة مشاريع وفرص منصة إحسان</title>
-<meta name="description" content="محفظة مشاريع وفرص منصة إحسان — 96 فرصة + بنك أفكار + 80 مشروعًا مطورًا">
+<title>محفظة مشاريع وفرص منصة إحسان | دليل عمل مستقل</title>
+<meta name="description" content="محفظة عمل مستقلة للجمعيات الأهلية تضم 96 فرصة، بنك أفكار، 80 مشروعًا مطورًا، ونماذج تنفيذية قابلة للتحميل. ليست صادرة عن منصة إحسان.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0d5c4a">
+<link rel="canonical" href="https://ehsan.alalmaiesa.site/">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:type" content="website">
+<meta property="og:title" content="محفظة مشاريع وفرص منصة إحسان | دليل عمل مستقل">
+<meta property="og:description" content="محفظة عمل مستقلة للجمعيات الأهلية: فرص، أفكار، مشاريع مطورة، ونماذج تنفيذية قابلة للتحميل.">
+<meta property="og:url" content="https://ehsan.alalmaiesa.site/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="محفظة مشاريع وفرص منصة إحسان | دليل عمل مستقل">
+<meta name="twitter:description" content="محفظة عمل مستقلة للجمعيات الأهلية: فرص، أفكار، مشاريع مطورة، ونماذج تنفيذية قابلة للتحميل.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1735,8 +1746,6 @@ tbody td { color:#26342f; font-weight:500; }
 }
 .tool-btn:hover, .package-link:hover { transform:translateY(-1px); box-shadow:0 2px 8px rgba(0,0,0,.1); }
 .tool-ai { border-color:#8167a9; color:#4f3b74; background:#f4effb; }
-.tool-ready { border-color:#8db9ae; background:#e8f3ef; }
-.tool-evidence { border-color:#c9a227; color:#725b08; background:#faf3dd; }
 .tool-package { border-color:#2f75b5; color:#22598a; background:#edf5fc; }
 
 .lifecycle { display:flex; flex-wrap:wrap; gap:5px; margin:10px 0 12px; }
@@ -1763,9 +1772,6 @@ tbody td { color:#26342f; font-weight:500; }
 .modal-actions button { border:0; border-radius:7px; padding:9px 14px; font-family:inherit; font-weight:bold; cursor:pointer; }
 .primary-action { background:var(--primary); color:#fff; }
 .secondary-action { background:#eee; color:#333; }
-.readiness-list { display:grid; grid-template-columns:1fr; gap:8px; margin-top:12px; }
-.readiness-item { display:flex; gap:8px; align-items:flex-start; background:#fafafa; border:1px solid #e5e5e5; border-radius:7px; padding:8px; }
-.readiness-badge { display:inline-block; padding:4px 9px; border-radius:999px; background:#e8f3ef; color:#0d5c4a; font-weight:bold; }
 .local-note { margin-top:10px; padding:9px 11px; background:#f6f6f6; border-right:4px solid #999; color:#555; font-size:10pt; }
 @media print {
   .project-tools .tool-btn, .project-tools .package-link { display:none !important; }
@@ -3561,91 +3567,6 @@ function openReviewTool(card, mode) {
   });
   root.querySelector('#review-copy').addEventListener('click',function(){
     copyTextValue(root.querySelector('#review-output').value,root.querySelector('#review-copy'));
-  });
-}
-
-const readinessSessionStore = {};
-const evidenceSessionStore = {};
-
-const READINESS_ITEMS = [
-  'إثبات الحاجة والمشكلة بأدلة قابلة للتحقق',
-  'تعريف الفئة المستهدفة وعدد المستفيدين',
-  'معايير الاستحقاق ومنع الازدواجية',
-  'نطاق المشروع والمخرجات ومعايير القبول',
-  'ميزانية قابلة للتدقيق وعروض/دراسة سوق عند الحاجة',
-  'مسؤول تنفيذ وحوكمة وأدوار واضحة',
-  'مؤشرات أداء ومصادر تحقق وخط أساس عند الحاجة',
-  'سجل مخاطر بمالك وإجراء استجابة',
-  'خطة توثيق وأدلة وخصوصية البيانات',
-  'خطة إغلاق واستدامة وما بعد التنفيذ'
-];
-
-function readinessKey(id){ return 'ehsan-readiness-'+id; }
-
-function getReadiness(id) {
-  return readinessSessionStore[id] || [];
-}
-
-function saveReadiness(id, values) {
-  readinessSessionStore[id] = values.slice();
-  buildDashboard();
-}
-
-function updateReadinessBadge(card) {
-  const x=cardContext(card);
-  const vals=getReadiness(x.id);
-  const count=vals.filter(Boolean).length;
-  const badge=card.querySelector('.readiness-badge');
-  if(badge) badge.textContent='الجاهزية: '+count+'/10';
-}
-
-function openReadiness(card) {
-  const x=cardContext(card);
-  const vals=getReadiness(x.id);
-  const rows=READINESS_ITEMS.map(function(item,i){
-    return '<label class="readiness-item"><input type="checkbox" data-ridx="'+i+'" '+(vals[i]?'checked':'')+'><span>'+item+'</span></label>';
-  }).join('');
-  const html='<span class="readiness-badge" id="modal-ready-badge">الجاهزية: '+vals.filter(Boolean).length+'/10</span>'+
-    '<div class="readiness-list">'+rows+'</div>'+
-    '<div class="modal-actions"><button class="primary-action" id="save-ready">حفظ الحالة</button><button class="secondary-action" id="clear-ready">مسح التحديد</button></div>'+
-    '<div class="local-note">هذا الفحص أداة داخلية للجاهزية، وليس اعتمادًا أو تقييمًا رسميًا من أي جهة.</div>';
-  const root=openPortfolioModal(iconLabel('clipboard-check','فحص جاهزية المشروع — '+x.name,22),html);
-  const recalc=function(){
-    const count=Array.from(root.querySelectorAll('[data-ridx]')).filter(function(el){return el.checked;}).length;
-    root.querySelector('#modal-ready-badge').textContent='الجاهزية: '+count+'/10';
-  };
-  root.querySelectorAll('[data-ridx]').forEach(function(el){el.addEventListener('change',recalc);});
-  root.querySelector('#save-ready').addEventListener('click',function(){
-    const now=Array.from(root.querySelectorAll('[data-ridx]')).map(function(el){return el.checked;});
-    saveReadiness(x.id,now); updateReadinessBadge(card); closePortfolioModal();
-  });
-  root.querySelector('#clear-ready').addEventListener('click',function(){
-    root.querySelectorAll('[data-ridx]').forEach(function(el){el.checked=false;}); recalc();
-  });
-}
-
-function evidenceKey(id){ return 'ehsan-evidence-'+id; }
-
-function openEvidenceRegister(card) {
-  const x=cardContext(card);
-  const seed='الادعاء | الدليل المطلوب | المصدر | تاريخ التحقق | المسؤول | الحالة\n';
-  const saved=evidenceSessionStore[x.id] || seed;
-  const html='<div class="modal-field"><label>توثيق المعلومات والمصادر</label><textarea id="evidence-text" style="min-height:300px;">'+saved.replace(/</g,'&lt;')+'</textarea></div>'+
-    '<div class="modal-actions"><button class="primary-action" id="save-evidence">حفظ</button><button class="secondary-action" id="export-evidence">تصدير CSV</button></div>'+
-    '<div class="local-note">استخدم سطرًا لكل ادعاء بصيغة: الادعاء | الدليل المطلوب | المصدر | تاريخ التحقق | المسؤول | الحالة. البيانات مؤقتة داخل الصفحة الحالية ولا تُحفظ بعد تحديث الصفحة أو إغلاقها.</div>';
-  const root=openPortfolioModal(iconLabel('archive-book','توثيق المعلومات والمصادر — '+x.name,22),html);
-  root.querySelector('#save-evidence').addEventListener('click',function(){
-    evidenceSessionStore[x.id]=root.querySelector('#evidence-text').value;
-    const b=root.querySelector('#save-evidence'); const old=b.textContent; b.textContent='تم الحفظ'; setTimeout(function(){b.textContent=old;},1500);
-  });
-  root.querySelector('#export-evidence').addEventListener('click',function(){
-    const lines=root.querySelector('#evidence-text').value.split('\n').filter(Boolean);
-    const csv=lines.map(function(line){
-      return line.split('|').map(function(v){return '"'+v.trim().replace(/"/g,'""')+'"';}).join(',');
-    }).join('\n');
-    const blob=new Blob(['\ufeff',csv],{type:'text/csv;charset=utf-8'});
-    const url=URL.createObjectURL(blob); const a=document.createElement('a');
-    a.href=url; a.download=x.id+'-evidence-register.csv'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){URL.revokeObjectURL(url);},100);
   });
 }
 
