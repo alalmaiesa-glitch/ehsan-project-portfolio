@@ -145,6 +145,43 @@ li { margin-bottom: 5px; }
 }
 .study-download-btn::before { content: '📄  '; }
 .close-download-btn::before { content: '📋  '; }
+.study-download-btn, .close-download-btn { text-decoration: none; }
+
+.github-forms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+  padding: 12px;
+  background: var(--bg-alt);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+}
+.github-forms-title {
+  grid-column: 1 / -1;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 11.5pt;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+}
+.github-form-link {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 7px;
+  padding: 8px 7px;
+  font-size: 10pt;
+  font-weight: bold;
+  border: 1px solid;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.github-form-link:hover { transform: translateY(-2px); box-shadow: 0 3px 10px rgba(0,0,0,.12); }
+.phase-idea { background:#e8f3ef; color:#0d5c4a; border-color:#8db9ae; }
+.phase-verify { background:#faf3dd; color:#8a6814; border-color:#d8bd62; }
+.phase-execute { background:#e8f0f8; color:#1e5a8a; border-color:#8fb0cc; }
+.phase-close { background:#f1e8f7; color:#6a3d9a; border-color:#bea3d2; }
+.github-folder-link { background:#f3f3f3; color:#444; border-color:#bbb; }
 
 /* الأزرار العائمة */
 .floating-buttons {
@@ -178,7 +215,9 @@ li { margin-bottom: 5px; }
   .cover { border-radius: 0; page-break-after: always; }
   h1, h2, h3 { page-break-after: avoid; }
   table, .project-card, .opp-card { page-break-inside: avoid; }
-  .floating-buttons, .study-download-btn, .close-download-btn { display: none !important; }
+  .floating-buttons { display: none !important; }
+  .github-forms-grid { display: grid !important; }
+  .github-form-link, .study-download-btn, .close-download-btn { display: inline-block !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 </style>
 </head>
@@ -189,8 +228,8 @@ li { margin-bottom: 5px; }
   <button class="floating-btn print-btn" onclick="window.print()">
     🖨️ طباعة / حفظ PDF
   </button>
-  <button class="floating-btn generate-all-btn" id="generateAllBtn">
-    📦 توليد كل النماذج (96 ملف)
+  <button class="floating-btn generate-all-btn" onclick="window.open('https://github.com/alalmaiesa-glitch/ehsan-project-portfolio/tree/main/docs','_blank')">
+    📦 ملفات Word على GitHub
   </button>
 </div>
 
@@ -200,7 +239,7 @@ li { margin-bottom: 5px; }
   <h2>بالشراكة مع الجمعيات الأهلية</h2>
   <p>بنك الفرص + بنك الأفكار + دورة المشروع من الفكرة إلى الإغلاق</p>
   <div class="meta">
-    إعداد: عيسى بن عبدالله الأميع<br>
+    إعداد: عيسى بن عبدالله الألمعي<br>
     alalmaiesa.site<br>
     الإصدار 2.0 | 26 سبتمبر 2026
   </div>
@@ -333,9 +372,9 @@ li { margin-bottom: 5px; }
 
 <h2>7.3 تقرير الإغلاق</h2>
 <p>حمّل نموذج تقرير الإغلاق الكامل بصيغة Word:</p>
-<button class="close-download-btn" onclick="downloadCloseReport()">
-  تحميل نموذج تقرير الإغلاق (Word)
-</button>
+<a class="close-download-btn" href="https://github.com/alalmaiesa-glitch/ehsan-project-portfolio/tree/main/docs" target="_blank" rel="noopener">
+  فتح نماذج تقرير الإغلاق في GitHub
+</a>
 
 <!-- ============ الفصل 8 ============ -->
 <h1 id="ch8">8. مصفوفة التقييم قبل الرفع</h1>
@@ -633,7 +672,7 @@ function buildIdeasBank() {
     const ideas = COMMON_IDEAS[o.field] || COMMON_IDEAS["أسري واجتماعي"];
     
     html += `
-    <div class="project-card" data-name="${o.name}" data-field="${o.field}" data-fund="${o.fund}">
+    <div class="project-card" data-doc-id="opp-${String(o.n).padStart(3, '0')}" data-name="${o.name}" data-field="${o.field}" data-fund="${o.fund}">
       <h3>4.${o.n} ${cleanName}</h3>
       <div class="meta-bar">المجال: ${o.field} | التمويل: ${o.fund}</div>
       <table>
@@ -764,7 +803,7 @@ function buildAppendix() {
     html += `<h2>${section.title}</h2>`;
     section.projects.forEach(p => {
       html += `
-      <div class="project-card" data-name="${p.name}" data-field="" data-fund="">
+      <div class="project-card" data-doc-id="app-${String(p.n).padStart(3, '0')}" data-name="${p.name}" data-field="" data-fund="">
         <h3>${p.n}. ${p.name}</h3>
         <p><strong>الوصف:</strong> ${p.desc}</p>
         <p><strong>الميزانية التقديرية:</strong> ${p.budget}</p>
@@ -1130,44 +1169,60 @@ function downloadBlob(content, filename) {
    إضافة الأزرار تحت كل بطاقة
    ===================================================== */
 function addButtonsToCards() {
-  document.querySelectorAll('.project-card, .opp-card').forEach(function (card) {
-    const h3 = card.querySelector('h3');
-    if (!h3) return;
-    
-    // استخراج اسم الفرصة
-    const oppName = h3.textContent.trim()
-      .replace(/^\d+(\.\d+)?\s*[\.\-–]?\s*/, '').trim();
-    
-    // استخراج المجال والتمويل
-    let field = card.dataset.field || '';
-    let funding = card.dataset.fund || '';
-    
-    if (!field || !funding) {
-      const metaEl = card.querySelector('.meta-bar, .meta');
-      if (metaEl) {
-        const text = metaEl.textContent;
-        const m1 = text.match(/المجال\s*:\s*([^|]+?)(?=\s*[|]|$)/);
-        const m2 = text.match(/التمويل\s*:\s*([^|]+?)(?=\s*[|]|$)/);
-        if (m1) field = m1[1].trim();
-        if (m2) funding = m2[1].trim();
-      }
+  const RAW_BASE = 'https://raw.githubusercontent.com/alalmaiesa-glitch/ehsan-project-portfolio/main/docs';
+  const TREE_BASE = 'https://github.com/alalmaiesa-glitch/ehsan-project-portfolio/tree/main/docs';
+  const templates = [
+    { file:'idea-card.docx',          label:'بطاقة الفكرة',        icon:'🟢', phase:'phase-idea' },
+    { file:'project-study.docx',      label:'دراسة المشروع',       icon:'🟢', phase:'phase-idea' },
+    { file:'project-charter.docx',    label:'ميثاق المشروع',       icon:'🟢', phase:'phase-idea' },
+    { file:'eligibility.docx',        label:'معايير الاستحقاق',    icon:'🟡', phase:'phase-verify' },
+    { file:'social-research.docx',    label:'البحث الاجتماعي',     icon:'🟡', phase:'phase-verify' },
+    { file:'offers-comparison.docx',  label:'مقارنة العروض',       icon:'🔵', phase:'phase-execute' },
+    { file:'acceptance-minutes.docx', label:'محضر الاستلام',       icon:'🔵', phase:'phase-execute' },
+    { file:'progress-report.docx',    label:'التقرير المرحلي',     icon:'🔵', phase:'phase-execute' },
+    { file:'risk-register.docx',      label:'سجل المخاطر',         icon:'🔵', phase:'phase-execute' },
+    { file:'closure-report.docx',     label:'تقرير الإغلاق',       icon:'🟣', phase:'phase-close' },
+    { file:'evidence-checklist.docx', label:'قائمة الأدلة',        icon:'🟣', phase:'phase-close' }
+  ];
+
+  const cards = Array.from(document.querySelectorAll('.project-card, .opp-card'));
+  cards.forEach(function(card, index) {
+    let docId = card.dataset.docId;
+    // Fallback preserves compatibility if an older card has no data-doc-id.
+    if (!docId) {
+      docId = index < 96
+        ? 'opp-' + String(index + 1).padStart(3, '0')
+        : 'app-' + String(index - 95).padStart(3, '0');
     }
-    
-    // زر دراسة المشروع
-    const studyBtn = document.createElement('button');
-    studyBtn.type = 'button';
-    studyBtn.className = 'study-download-btn';
-    studyBtn.textContent = 'تحميل نموذج دراسة المشروع (Word)';
-    studyBtn.addEventListener('click', () => generateStudyTemplate(oppName, field, funding));
-    card.appendChild(studyBtn);
-    
-    // زر تقرير الإغلاق
-    const closeBtn = document.createElement('button');
-    closeBtn.type = 'button';
-    closeBtn.className = 'close-download-btn';
-    closeBtn.textContent = 'تحميل نموذج تقرير الإغلاق (Word)';
-    closeBtn.addEventListener('click', downloadCloseReport);
-    card.appendChild(closeBtn);
+
+    const grid = document.createElement('div');
+    grid.className = 'github-forms-grid';
+
+    const title = document.createElement('div');
+    title.className = 'github-forms-title';
+    title.textContent = 'نماذج Word المرتبطة بالمستودع — 11 نموذج';
+    grid.appendChild(title);
+
+    templates.forEach(function(t) {
+      const a = document.createElement('a');
+      a.className = 'github-form-link ' + t.phase;
+      a.href = RAW_BASE + '/' + docId + '/' + t.file;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = t.icon + ' ' + t.label;
+      a.setAttribute('aria-label', 'تحميل ' + t.label + ' بصيغة Word');
+      grid.appendChild(a);
+    });
+
+    const folder = document.createElement('a');
+    folder.className = 'github-form-link github-folder-link';
+    folder.href = TREE_BASE + '/' + docId;
+    folder.target = '_blank';
+    folder.rel = 'noopener';
+    folder.textContent = '📁 فتح مجلد المشروع في GitHub';
+    grid.appendChild(folder);
+
+    card.appendChild(grid);
   });
 }
 
@@ -1175,46 +1230,7 @@ function addButtonsToCards() {
    زر توليد الكل
    ===================================================== */
 function initGenerateAll() {
-  const btn = document.getElementById('generateAllBtn');
-  btn.addEventListener('click', async function () {
-    const cards = document.querySelectorAll('.project-card, .opp-card');
-    const total = cards.length;
-    btn.disabled = true;
-    
-    let index = 0;
-    for (const card of cards) {
-      const h3 = card.querySelector('h3');
-      if (!h3) continue;
-      
-      const oppName = h3.textContent.trim()
-        .replace(/^\d+(\.\d+)?\s*[\.\-–]?\s*/, '').trim();
-      
-      let field = card.dataset.field || '';
-      let funding = card.dataset.fund || '';
-      
-      if (!field || !funding) {
-        const metaEl = card.querySelector('.meta-bar, .meta');
-        if (metaEl) {
-          const text = metaEl.textContent;
-          const m1 = text.match(/المجال\s*:\s*([^|]+?)(?=\s*[|]|$)/);
-          const m2 = text.match(/التمويل\s*:\s*([^|]+?)(?=\s*[|]|$)/);
-          if (m1) field = m1[1].trim();
-          if (m2) funding = m2[1].trim();
-        }
-      }
-      
-      generateStudyTemplate(oppName, field, funding);
-      index++;
-      btn.textContent = `⏳ جاري التوليد... (${index}/${total})`;
-      
-      // انتظار قصير بين كل ملف
-      await new Promise(r => setTimeout(r, 250));
-    }
-    
-    btn.textContent = `✅ تم توليد ${index} ملف`;
-    btn.style.background = '#0d5c4a';
-    btn.disabled = false;
-  });
+  // لم يعد مطلوبًا: النماذج أصبحت ملفات DOCX فعلية مرتبطة مباشرة بمستودع GitHub.
 }
 
 /* =====================================================
