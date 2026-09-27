@@ -231,10 +231,7 @@ li { margin-bottom: 5px; }
   <button class="floating-btn print-btn" onclick="window.print()">
     🖨️ طباعة / حفظ PDF
   </button>
-  <button class="floating-btn generate-all-btn" onclick="window.open('https://github.com/alalmaiesa-glitch/ehsan-project-portfolio/tree/main/docs','_blank')">
-    📦 ملفات Word على GitHub
-  </button>
-</div>
+  </div>
 
 <!-- ============ الغلاف ============ -->
 <div class="cover">
@@ -374,10 +371,7 @@ li { margin-bottom: 5px; }
 </table>
 
 <h2>7.3 تقرير الإغلاق</h2>
-<p>حمّل نموذج تقرير الإغلاق الكامل بصيغة Word:</p>
-<a class="close-download-btn" href="https://github.com/alalmaiesa-glitch/ehsan-project-portfolio/tree/main/docs" target="_blank" rel="noopener">
-  فتح نماذج تقرير الإغلاق في GitHub
-</a>
+<p>نموذج تقرير الإغلاق متاح مباشرة تحت كل فرصة ومشروع ضمن مجموعة نماذج Word الخاصة به.</p>
 
 <!-- ============ الفصل 8 ============ -->
 <h1 id="ch8">8. مصفوفة التقييم قبل الرفع</h1>
@@ -1172,7 +1166,7 @@ function downloadBlob(content, filename) {
    إضافة الأزرار تحت كل بطاقة
    ===================================================== */
 function addButtonsToCards() {
-  const RAW_BASE = 'https://raw.githubusercontent.com/alalmaiesa-glitch/ehsan-project-portfolio/main/docs';
+  const DOCS_BASE = 'docs';
   const templates = [
     { file:'idea-card.docx',          label:'بطاقة الفكرة',        icon:'🟢', phase:'phase-idea' },
     { file:'project-study.docx',      label:'دراسة المشروع',       icon:'🟢', phase:'phase-idea' },
@@ -1202,15 +1196,14 @@ function addButtonsToCards() {
 
     const title = document.createElement('div');
     title.className = 'github-forms-title';
-    title.textContent = 'نماذج Word المرتبطة بالمستودع — 11 نموذج';
+    title.textContent = 'نماذج Word — 11 نموذج';
     grid.appendChild(title);
 
     templates.forEach(function(t) {
       const a = document.createElement('a');
       a.className = 'github-form-link ' + t.phase;
-      a.href = RAW_BASE + '/' + docId + '/' + t.file;
-      a.target = '_blank';
-      a.rel = 'noopener';
+      a.href = DOCS_BASE + '/' + docId + '/' + t.file;
+      a.setAttribute('download', '');
       a.textContent = t.icon + ' ' + t.label;
       a.setAttribute('aria-label', 'تحميل ' + t.label + ' بصيغة Word');
       grid.appendChild(a);
@@ -1224,7 +1217,7 @@ function addButtonsToCards() {
    زر توليد الكل
    ===================================================== */
 function initGenerateAll() {
-  // لم يعد مطلوبًا: النماذج أصبحت ملفات DOCX فعلية مرتبطة مباشرة بمستودع GitHub.
+  // لم يعد مطلوبًا: النماذج أصبحت ملفات DOCX فعلية مرتبطة مباشرة بالبطاقات.
 }
 
 /* =====================================================
