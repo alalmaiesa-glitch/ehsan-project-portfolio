@@ -308,6 +308,76 @@ li { margin-bottom: 5px; }
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
   page-break-inside: avoid;
 }
+.idea-card-heading {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin:0 0 14px;
+  padding:0 0 13px;
+  border-bottom:1px solid #dfe8e4;
+}
+.idea-card-title-wrap {
+  min-width:0;
+}
+.idea-card-kicker {
+  display:block;
+  margin-bottom:3px;
+  color:#6b7974;
+  font-size:9.2pt;
+  font-weight:700;
+  letter-spacing:.1px;
+}
+.idea-card-heading h3 {
+  margin:0;
+  padding:0;
+  border:0;
+  color:#123f33;
+  font-size:17.5pt;
+  line-height:1.45;
+  font-weight:800;
+}
+.idea-card-path {
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:5px 10px;
+  border-radius:999px;
+  border:1px solid #d7e3df;
+  background:#f5f8f7;
+  color:#41514b;
+  font-size:9.2pt;
+  font-weight:700;
+}
+.idea-card-path.zakat {
+  background:#fbf6e8;
+  border-color:#e5d39a;
+  color:#705818;
+}
+.idea-card-meta {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 16px;
+  margin-bottom:14px;
+  color:#3b4c46;
+  font-size:10.5pt;
+  font-weight:600;
+}
+.idea-card-meta span {
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+}
+.idea-card-meta strong {
+  color:#173f34;
+  font-weight:800;
+}
+@media (max-width:620px) {
+  .idea-card-heading { align-items:flex-start; }
+  .idea-card-heading h3 { font-size:15.5pt; }
+}
+
 .project-card .meta-bar {
   background: var(--primary-light);
   color: var(--primary); padding: 8px 14px;
@@ -1563,7 +1633,7 @@ tbody td { color:#26342f; font-weight:500; }
 <div id="opportunities-table"></div>
 
 <!-- ============ الفصل 4 ============ -->
-<h1 id="ch4">4. بنك الأفكار لكل فرصة</h1>
+<h1 id="ch4">بنك الأفكار لكل فرصة</h1>
 <p>تحت كل فرصة تظهر الأفكار القابلة للاختيار مع المسار الموحد. يمكنك تحميل نموذج Word لكل فرصة بضغطة.</p>
 <div id="ideas-bank"></div>
 
@@ -1965,8 +2035,17 @@ function buildIdeasBank() {
     
     html += `
     <div class="project-card" id="opp-card-${String(o.n).padStart(3, '0')}" data-doc-id="opp-${String(o.n).padStart(3, '0')}" data-name="${o.name}" data-field="${o.field}" data-fund="${o.fund}">
-      <h3>4.${o.n} ${cleanName}</h3>
-      <div class="meta-bar">المجال: ${o.field} | التمويل: ${o.fund}</div>
+      <div class="idea-card-heading">
+        <div class="idea-card-title-wrap">
+          <span class="idea-card-kicker">فرصة مشروع</span>
+          <h3>${cleanName}</h3>
+        </div>
+        <span class="idea-card-path ${o.fund === "زكاة" ? "zakat" : ""}">${o.fund === "زكاة" ? "مسار الزكاة" : o.fund}</span>
+      </div>
+      <div class="idea-card-meta">
+        <span><strong>المجال</strong> ${o.field}</span>
+        <span><strong>مسار التمويل</strong> ${o.fund}</span>
+      </div>
       <table>
         <thead><tr><th>#</th><th>فكرة مشروع</th><th>القيمة/الوصف</th></tr></thead>
         <tbody>
