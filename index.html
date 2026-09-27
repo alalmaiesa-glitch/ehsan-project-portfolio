@@ -181,7 +181,6 @@ li { margin-bottom: 5px; }
 .phase-verify { background:#faf3dd; color:#8a6814; border-color:#d8bd62; }
 .phase-execute { background:#e8f0f8; color:#1e5a8a; border-color:#8fb0cc; }
 .phase-close { background:#f1e8f7; color:#6a3d9a; border-color:#bea3d2; }
-.github-folder-link { background:#f3f3f3; color:#444; border-color:#bbb; }
 
 /* الأزرار العائمة */
 .floating-buttons {
@@ -1170,7 +1169,6 @@ function downloadBlob(content, filename) {
    ===================================================== */
 function addButtonsToCards() {
   const RAW_BASE = 'https://raw.githubusercontent.com/alalmaiesa-glitch/ehsan-project-portfolio/main/docs';
-  const TREE_BASE = 'https://github.com/alalmaiesa-glitch/ehsan-project-portfolio/tree/main/docs';
   const templates = [
     { file:'idea-card.docx',          label:'بطاقة الفكرة',        icon:'🟢', phase:'phase-idea' },
     { file:'project-study.docx',      label:'دراسة المشروع',       icon:'🟢', phase:'phase-idea' },
@@ -1213,14 +1211,6 @@ function addButtonsToCards() {
       a.setAttribute('aria-label', 'تحميل ' + t.label + ' بصيغة Word');
       grid.appendChild(a);
     });
-
-    const folder = document.createElement('a');
-    folder.className = 'github-form-link github-folder-link';
-    folder.href = TREE_BASE + '/' + docId;
-    folder.target = '_blank';
-    folder.rel = 'noopener';
-    folder.textContent = '📁 فتح مجلد المشروع في GitHub';
-    grid.appendChild(folder);
 
     card.appendChild(grid);
   });
