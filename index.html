@@ -29,15 +29,225 @@ body {
   padding: 40px 30px; line-height: 1.9; font-size: 15pt;
 }
 .cover {
-  text-align: center; padding: 70px 30px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: white; border-radius: 12px; margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  min-height: 760px;
+  padding: 34px 38px 30px;
+  background:
+    radial-gradient(circle at 14% 12%, rgba(201,162,39,.16), transparent 28%),
+    radial-gradient(circle at 88% 82%, rgba(255,255,255,.07), transparent 30%),
+    linear-gradient(145deg, #0a4638 0%, #0d5c4a 52%, #083d31 100%);
+  color: #fff;
+  border-radius: 22px;
+  margin-bottom: 40px;
   page-break-after: always;
+  box-shadow: 0 22px 60px rgba(5,55,43,.18);
 }
-.cover h1 { font-size: 38pt; margin: 0 0 15px; color: #fff; border: none; }
-.cover h2 { font-size: 22pt; color: var(--accent); margin: 20px 0; background: none; border: none; padding: 0; }
-.cover p { font-size: 16pt; color: #e8f3ef; }
-.cover .meta { margin-top: 40px; font-size: 13pt; color: #d4e8e2; }
+.cover::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.75),transparent 82%);
+  pointer-events:none;
+}
+.cover::after {
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  left:-110px;
+  bottom:-120px;
+  border:1px solid rgba(201,162,39,.25);
+  border-radius:50%;
+  box-shadow:
+    0 0 0 38px rgba(201,162,39,.04),
+    0 0 0 78px rgba(201,162,39,.025);
+  pointer-events:none;
+}
+.cover > * { position:relative; z-index:1; }
+.cover-topbar {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-bottom:42px;
+  font-size:10pt;
+  color:#d9ebe5;
+}
+.cover-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 11px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:999px;
+  background:rgba(255,255,255,.07);
+  backdrop-filter:blur(8px);
+}
+.cover-version { color:#e8d9a6; font-weight:bold; }
+.cover-hero {
+  max-width:820px;
+  margin:0 auto;
+  text-align:center;
+}
+.cover-eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:14px;
+  color:#e4cc78;
+  font-size:11pt;
+  font-weight:700;
+}
+.cover h1 {
+  font-size:36pt;
+  line-height:1.35;
+  margin:0 auto 12px;
+  color:#fff;
+  border:none;
+  letter-spacing:-.3px;
+}
+.cover h2 {
+  font-size:18pt;
+  color:#e0bd42;
+  margin:0 0 15px;
+  background:none;
+  border:none;
+  padding:0;
+}
+.cover-lead {
+  max-width:700px;
+  margin:0 auto;
+  color:#dcece7;
+  font-size:12.5pt;
+  line-height:1.75;
+}
+.cover-stats {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  margin:28px auto 20px;
+  max-width:800px;
+}
+.cover-stat {
+  padding:13px 10px 11px;
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:14px;
+  background:rgba(255,255,255,.075);
+  backdrop-filter:blur(10px);
+  text-align:center;
+}
+.cover-stat re-icon {
+  display:block;
+  margin:0 auto 5px;
+  color:#e2c253;
+}
+.cover-stat strong {
+  display:block;
+  font-size:21pt;
+  line-height:1.1;
+  color:#fff;
+}
+.cover-stat span {
+  display:block;
+  margin-top:5px;
+  color:#cfe2dc;
+  font-size:9pt;
+}
+.cover-actions {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:9px;
+  margin:19px 0 22px;
+}
+.cover-action {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  min-height:40px;
+  padding:9px 14px;
+  border-radius:10px;
+  text-decoration:none;
+  font-size:10pt;
+  font-weight:800;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.cover-action:hover { transform:translateY(-2px); }
+.cover-action.primary {
+  background:#d0aa2d;
+  color:#17372d;
+  box-shadow:0 6px 18px rgba(0,0,0,.13);
+}
+.cover-action.secondary {
+  color:#f3faf7;
+  border:1px solid rgba(255,255,255,.19);
+  background:rgba(255,255,255,.075);
+}
+.cover-status {
+  max-width:820px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:12px;
+  align-items:stretch;
+}
+.cover-status-card,
+.cover-owner-card {
+  border:1px solid rgba(255,255,255,.13);
+  border-radius:15px;
+  background:rgba(4,41,32,.30);
+  backdrop-filter:blur(10px);
+  padding:14px 16px;
+}
+.cover-status-card { text-align:right; }
+.cover-status-title {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:#f2d876;
+  font-size:10.5pt;
+  font-weight:800;
+  margin-bottom:8px;
+}
+.cover-status-list {
+  display:grid;
+  gap:6px;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.cover-status-list li {
+  display:flex;
+  align-items:flex-start;
+  gap:7px;
+  margin:0;
+  color:#dbeae5;
+  font-size:8.8pt;
+  line-height:1.55;
+}
+.cover-status-list re-icon { flex:0 0 auto; margin-top:2px; color:#9fd2c0; }
+.cover-owner-card {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  text-align:center;
+  color:#dcebe6;
+}
+.cover-owner-card .owner-label { color:#9fc8ba; font-size:8.5pt; }
+.cover-owner-card .owner-name { color:#fff; font-size:11.5pt; font-weight:800; margin:3px 0; }
+.cover-owner-card .owner-site { color:#e4cb72; font-size:9.5pt; }
+@media (max-width:760px) {
+  .cover { padding:26px 18px 24px; min-height:auto; }
+  .cover-topbar { margin-bottom:30px; }
+  .cover h1 { font-size:27pt; }
+  .cover-stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .cover-status { grid-template-columns:1fr; }
+}
 h1 {
   color: var(--primary); font-size: 22pt;
   border-bottom: 3px solid var(--accent);
@@ -572,7 +782,24 @@ li { margin-bottom: 5px; }
 
 @media print {
   body { padding: 15mm; font-size: 11pt; max-width: 100%; }
-  .cover { border-radius: 0; page-break-after: always; }
+  .cover {
+    border-radius:0;
+    page-break-after:always;
+    min-height:auto;
+    padding:16mm 12mm 12mm;
+    box-shadow:none;
+  }
+  .cover-topbar { margin-bottom:18px; }
+  .cover h1 { font-size:29pt; }
+  .cover h2 { font-size:16pt; }
+  .cover-lead { font-size:10.5pt; }
+  .cover-stats { margin:18px auto 12px; gap:7px; }
+  .cover-stat { padding:8px 6px; }
+  .cover-stat strong { font-size:17pt; }
+  .cover-actions { display:none !important; }
+  .cover-status { gap:8px; }
+  .cover-status-card, .cover-owner-card { padding:9px 11px; }
+  .cover-status-list li { font-size:7.8pt; }
   h1, h2, h3 { page-break-after: avoid; }
   table, .project-card, .opp-card { page-break-inside: avoid; }
   .floating-buttons { display: none !important; }
@@ -593,25 +820,92 @@ li { margin-bottom: 5px; }
   </div>
 
 <!-- ============ الغلاف ============ -->
-<div class="cover">
-  <h1>محفظة مشاريع وفرص منصة إحسان</h1>
-  <h2>بالشراكة مع الجمعيات الأهلية</h2>
-  <p>بنك الفرص + بنك الأفكار + دورة المشروع من الفكرة إلى الإغلاق</p>
-  <div class="meta">
-    إعداد: عيسى بن عبدالله الألمعي<br>
-    alalmaiesa.site<br>
-    الإصدار 2.0 | 26 سبتمبر 2026
+<section class="cover" aria-label="غلاف محفظة مشاريع وفرص منصة إحسان">
+  <div class="cover-topbar">
+    <div class="cover-badge">
+      <re-icon icon="shield-check" weight="Outline" size="16" color="currentColor"></re-icon>
+      <span>وثيقة عمل داخلية</span>
+    </div>
+    <div class="cover-version">الإصدار 2.0 · سبتمبر 2026</div>
   </div>
-</div>
 
-<div class="callout">
-  <strong>صفة الوثيقة:</strong>
-  <ul style="margin:10px 0 0; padding-right:22px;">
-    <li>وثيقة عمل داخلية لإعداد مشاريع قابلة للتقديم عبر فرص منصة إحسان والمانحين. ليست وثيقة صادرة عن منصة إحسان، وتخضع كل فرصة للتوفر الفعلي وضوابط المنصة والجهة والأنظمة وقت التقديم.</li>
-    <li>لا يتطلب هذا النموذج أي بيانات دخول، ولا توجد آلية لحفظ بيانات المستخدمين أو الجهات على الموقع.</li>
-    <li>هذا العمل غير ربحي، ولا نسمح باستخدامه تجاريًا أو تحقيق منفعة مالية منه تحت أي ذريعة.</li>
-  </ul>
-</div>
+  <div class="cover-hero">
+    <div class="cover-eyebrow">
+      <re-icon icon="folder-files" weight="Outline" size="18" color="currentColor"></re-icon>
+      <span>محفظة تنفيذية للجمعيات الأهلية</span>
+    </div>
+
+    <h1>محفظة مشاريع وفرص منصة إحسان</h1>
+    <h2>من الفرصة إلى مشروع قابل للتنفيذ والقياس والإغلاق</h2>
+    <p class="cover-lead">
+      دليل عملي يجمع الفرص والأفكار والنماذج وأدوات تصميم المشروع،
+      ويحوّلها إلى مسار تنفيذي منظم يخدم الجمعيات الأهلية والجهات التنموية.
+    </p>
+
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <re-icon icon="folder-open" weight="Outline" size="22" color="currentColor"></re-icon>
+        <strong>96</strong><span>فرصة</span>
+      </div>
+      <div class="cover-stat">
+        <re-icon icon="chart-square" weight="Outline" size="22" color="currentColor"></re-icon>
+        <strong>80</strong><span>مشروعًا مطورًا</span>
+      </div>
+      <div class="cover-stat">
+        <re-icon icon="file-text" weight="Outline" size="22" color="currentColor"></re-icon>
+        <strong>176</strong><span>بطاقة مشروع وفرصة</span>
+      </div>
+      <div class="cover-stat">
+        <re-icon icon="document-download" weight="Outline" size="22" color="currentColor"></re-icon>
+        <strong>1,936</strong><span>نموذج Word</span>
+      </div>
+    </div>
+
+    <div class="cover-actions">
+      <a class="cover-action primary" href="#portfolio-dashboard">
+        <re-icon icon="grid" weight="Outline" size="17" color="currentColor"></re-icon>
+        <span>ابدأ من لوحة المحفظة</span>
+      </a>
+      <a class="cover-action secondary" href="#ch3">
+        <re-icon icon="search3" weight="Outline" size="17" color="currentColor"></re-icon>
+        <span>استعرض دليل الفرص</span>
+      </a>
+      <a class="cover-action secondary" href="#ch4">
+        <re-icon icon="wand-sparkle" weight="Outline" size="17" color="currentColor"></re-icon>
+        <span>اختر فرصة وابدأ التصميم</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="cover-status">
+    <div class="cover-status-card">
+      <div class="cover-status-title">
+        <re-icon icon="shield-security" weight="Outline" size="18" color="currentColor"></re-icon>
+        <span>صفة الوثيقة والاستخدام</span>
+      </div>
+      <ul class="cover-status-list">
+        <li>
+          <re-icon icon="document-text" weight="Outline" size="15" color="currentColor"></re-icon>
+          <span>وثيقة عمل داخلية لإعداد مشاريع قابلة للتقديم عبر فرص منصة إحسان والمانحين، وليست وثيقة صادرة عن منصة إحسان.</span>
+        </li>
+        <li>
+          <re-icon icon="lock" weight="Outline" size="15" color="currentColor"></re-icon>
+          <span>لا تتطلب بيانات دخول، ولا توجد آلية لحفظ بيانات المستخدمين أو الجهات على الموقع.</span>
+        </li>
+        <li>
+          <re-icon icon="hand-heart" weight="Outline" size="15" color="currentColor"></re-icon>
+          <span>هذا العمل غير ربحي، ولا نسمح باستخدامه تجاريًا أو لتحقيق منفعة مالية منه.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="cover-owner-card">
+      <span class="owner-label">إعداد</span>
+      <span class="owner-name">عيسى بن عبدالله الألمعي</span>
+      <span class="owner-site">alalmaiesa.site</span>
+    </div>
+  </div>
+</section>
 
 <div id="portfolio-dashboard" class="portfolio-dashboard">
   <div class="dashboard-title">لوحة المحفظة</div>
