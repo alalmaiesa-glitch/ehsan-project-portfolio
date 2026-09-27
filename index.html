@@ -146,9 +146,30 @@ li { margin-bottom: 5px; }
 .study-download-btn:hover, .close-download-btn:hover {
   transform: translateY(-2px);
 }
-.study-download-btn::before { content: '📄  '; }
-.close-download-btn::before { content: '📋  '; }
 .study-download-btn, .close-download-btn { text-decoration: none; }
+.reicon-inline {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  vertical-align:middle;
+  margin-left:6px;
+  line-height:1;
+}
+.reicon-inline re-icon { display:block; }
+.icon-button-content {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+}
+.tool-btn, .package-link, .floating-btn, .study-download-btn, .close-download-btn {
+  align-items:center;
+  justify-content:center;
+}
+.tool-btn re-icon, .package-link re-icon, .floating-btn re-icon,
+.study-download-btn re-icon, .close-download-btn re-icon {
+  flex:0 0 auto;
+}
 
 .github-forms-grid {
   display: grid;
@@ -419,7 +440,7 @@ li { margin-bottom: 5px; }
 <!-- ============ الأزرار العائمة ============ -->
 <div class="floating-buttons">
   <button class="floating-btn print-btn" onclick="window.print()">
-    🖨️ طباعة / حفظ PDF
+    <span class="icon-button-content"><re-icon icon="printer" weight="Outline" size="20" color="currentColor"></re-icon><span>طباعة / حفظ PDF</span></span>
   </button>
   </div>
 
@@ -513,7 +534,7 @@ li { margin-bottom: 5px; }
     <li><a href="#ch6">الملحق التفصيلي — 80 مشروعًا</a></li>
     <li><a href="#ch7">قوالب الإدارة</a></li>
     <li><a href="#ch8">مصفوفة التقييم</a></li>
-    <li><a href="#attachments">📄 نماذج جاهزة للتحميل</a></li>
+    <li><a href="#attachments"><span class="reicon-inline"><re-icon icon="document-download" weight="Outline" size="17" color="currentColor"></re-icon></span>نماذج جاهزة للتحميل</a></li>
   </ol>
 </div>
 
@@ -625,7 +646,7 @@ li { margin-bottom: 5px; }
 <h2>7.3 تقرير الإغلاق</h2>
 <p>نموذج تقرير الإغلاق متاح مباشرة تحت كل فرصة ومشروع ضمن مجموعة نماذج Word الخاصة به.</p>
 <button class="close-download-btn" type="button" onclick="downloadCloseReport()">
-  📥 تحميل نموذج تقرير الإغلاق (Word)
+  <span class="icon-button-content"><re-icon icon="document-download" weight="Outline" size="19" color="currentColor"></re-icon><span>تحميل نموذج تقرير الإغلاق (Word)</span></span>
 </button>
 
 <!-- ============ الفصل 8 ============ -->
@@ -655,7 +676,7 @@ li { margin-bottom: 5px; }
   <h1 style="
     color: #0d5c4a; font-size: 28pt; margin: 0 0 10px;
     border-bottom: 3px solid #c9a227; padding-bottom: 15px;">
-    📄 نماذج جاهزة للتحميل
+    <span class="reicon-inline"><re-icon icon="folder-files" weight="Outline" size="30" color="currentColor"></re-icon></span>نماذج جاهزة للتحميل
   </h1>
 
   <p style="font-size: 13pt; color: #555; margin: 20px 0 40px;">
@@ -669,7 +690,7 @@ li { margin-bottom: 5px; }
     border: 2px solid #0d5c4a; border-radius: 12px;
     margin-bottom: 30px; text-align: right;
     box-shadow: 0 4px 12px rgba(13, 92, 74, 0.1);">
-    <div style="font-size: 32pt; color: #0d5c4a; margin-bottom: 8px;">📄</div>
+    <div style="color:#0d5c4a;margin-bottom:8px;"><re-icon icon="document-text" weight="Outline" size="42" color="currentColor"></re-icon></div>
     <h2 style="color: #0d5c4a; margin: 0 0 10px; font-size: 18pt;">
       نموذج دراسة المشروع
     </h2>
@@ -678,7 +699,7 @@ li { margin-bottom: 5px; }
     </p>
     <button class="study-download-btn" type="button"
       onclick="generateStudyTemplate('مشروع جديد','يحدد حسب المشروع','يحدد حسب الفرصة')">
-      📥 تحميل نموذج دراسة المشروع (Word)
+      <span class="icon-button-content"><re-icon icon="document-download" weight="Outline" size="19" color="currentColor"></re-icon><span>تحميل نموذج دراسة المشروع (Word)</span></span>
     </button>
   </div>
 
@@ -688,7 +709,7 @@ li { margin-bottom: 5px; }
     border: 2px solid #c9a227; border-radius: 12px;
     text-align: right;
     box-shadow: 0 4px 12px rgba(201, 162, 39, 0.1);">
-    <div style="font-size: 32pt; color: #c9a227; margin-bottom: 8px;">📋</div>
+    <div style="color:#c9a227;margin-bottom:8px;"><re-icon icon="clipboard-text" weight="Outline" size="42" color="currentColor"></re-icon></div>
     <h2 style="color: #c9a227; margin: 0 0 10px; font-size: 18pt;">
       نموذج تقرير الإغلاق
     </h2>
@@ -696,8 +717,8 @@ li { margin-bottom: 5px; }
       تقرير إغلاق شامل لتوثيق الإنجاز المالي والفني والأثر والدروس المستفادة.
     </p>
     <button class="close-download-btn" type="button" onclick="downloadCloseReport()">
-      📥 تحميل نموذج تقرير الإغلاق (Word)
-    </button>
+  <span class="icon-button-content"><re-icon icon="document-download" weight="Outline" size="19" color="currentColor"></re-icon><span>تحميل نموذج تقرير الإغلاق (Word)</span></span>
+</button>
   </div>
 
   <div style="
@@ -1520,11 +1541,19 @@ function getAIPromptTextFromCard(card) {
 ابدأ الآن بإنتاج الدراسة كاملة من الفكرة حتى الإغلاق.`;
 }
 
+function iconHTML(name, size) {
+  return '<re-icon icon="'+name+'" weight="Outline" size="'+(size||18)+'" color="currentColor"></re-icon>';
+}
+
+function iconLabel(name, label, size) {
+  return '<span class="icon-button-content">'+iconHTML(name,size||18)+'<span>'+label+'</span></span>';
+}
+
 function copyTextValue(text, successButton) {
   const done = function() {
     if (!successButton) return;
     const old = successButton.textContent;
-    successButton.textContent = '✅ تم النسخ';
+    successButton.textContent = 'تم النسخ';
     setTimeout(function(){ successButton.textContent = old; }, 1800);
   };
   if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -1580,7 +1609,7 @@ function openDesignAssistant(card) {
     '<div class="modal-actions"><button class="primary-action" id="ai-build">إنشاء المطالبة</button></div>'+
     '<div class="modal-field" id="ai-output-wrap" style="display:none;margin-top:14px;"><label>المطالبة الجاهزة</label><textarea id="ai-output" style="min-height:280px;"></textarea><div class="modal-actions"><button class="primary-action" id="ai-copy">نسخ المطالبة</button></div></div>'+
     '<div class="local-note">البيانات التي تكتبها هنا تبقى في المتصفح حتى تقوم أنت بنسخ المطالبة واستخدامها في نموذج ذكاء اصطناعي.</div>';
-  const root=openPortfolioModal('🤖 مساعد تصميم المشروع — '+x.name, html);
+  const root=openPortfolioModal(iconLabel('wand-sparkle','مساعد تصميم المشروع — '+x.name,22), html);
   root.querySelector('#ai-build').addEventListener('click', function(){
     const extra =
       '\n\nبيانات إضافية من الجمعية:\n'+
@@ -1601,7 +1630,7 @@ function openDesignAssistant(card) {
 function openReviewTool(card, mode) {
   const x=cardContext(card);
   const isReview=mode==='review';
-  const title=isReview ? '🔍 مراجعة مشروع — '+x.name : '🧠 استكمال النواقص — '+x.name;
+  const title=isReview ? iconLabel('search-status','مراجعة مشروع — '+x.name,22) : iconLabel('check-list-square','استكمال النواقص — '+x.name,22);
   const instruction=isReview
     ? 'راجع الدراسة التالية مراجعة مهنية نقدية دون إعادة كتابتها بالكامل. اكتشف الثغرات والادعاءات غير الموثقة والأرقام بلا مصدر وضعف المؤشرات وتعارض النطاق ونواقص الميزانية والمخاطر والإغلاق. صنف كل ملاحظة إلى: حرجة / مهمة / تحسين، وحدد الإجراء المطلوب والدليل المطلوب.'
     : 'حلل الدراسة التالية ولا تعِد كتابتها. استخرج فقط البيانات الناقصة والأسئلة التي يجب أن تجيب عنها الجمعية قبل اعتماد المشروع. رتبها بحسب ما يمنع الاعتماد أولًا، وضع لكل نقص: سبب أهميته، من يملكه، والدليل المطلوب. لا تزيد الأسئلة الحرجة على 12 سؤالًا.';
@@ -1665,7 +1694,7 @@ function openReadiness(card) {
     '<div class="readiness-list">'+rows+'</div>'+
     '<div class="modal-actions"><button class="primary-action" id="save-ready">حفظ الحالة</button><button class="secondary-action" id="clear-ready">مسح التحديد</button></div>'+
     '<div class="local-note">هذا الفحص أداة داخلية للجاهزية، وليس اعتمادًا أو تقييمًا رسميًا من أي جهة.</div>';
-  const root=openPortfolioModal('✅ فحص جاهزية المشروع — '+x.name,html);
+  const root=openPortfolioModal(iconLabel('clipboard-check','فحص جاهزية المشروع — '+x.name,22),html);
   const recalc=function(){
     const count=Array.from(root.querySelectorAll('[data-ridx]')).filter(function(el){return el.checked;}).length;
     root.querySelector('#modal-ready-badge').textContent='الجاهزية: '+count+'/10';
@@ -1689,10 +1718,10 @@ function openEvidenceRegister(card) {
   const html='<div class="modal-field"><label>سجل الأدلة والمصادر</label><textarea id="evidence-text" style="min-height:300px;">'+saved.replace(/</g,'&lt;')+'</textarea></div>'+
     '<div class="modal-actions"><button class="primary-action" id="save-evidence">حفظ</button><button class="secondary-action" id="export-evidence">تصدير CSV</button></div>'+
     '<div class="local-note">استخدم سطرًا لكل ادعاء بصيغة: الادعاء | الدليل المطلوب | المصدر | تاريخ التحقق | المسؤول | الحالة. الحفظ محلي في هذا المتصفح.</div>';
-  const root=openPortfolioModal('📚 سجل الأدلة والمصادر — '+x.name,html);
+  const root=openPortfolioModal(iconLabel('archive-book','سجل الأدلة والمصادر — '+x.name,22),html);
   root.querySelector('#save-evidence').addEventListener('click',function(){
     localStorage.setItem(evidenceKey(x.id),root.querySelector('#evidence-text').value);
-    const b=root.querySelector('#save-evidence'); const old=b.textContent; b.textContent='✅ تم الحفظ'; setTimeout(function(){b.textContent=old;},1500);
+    const b=root.querySelector('#save-evidence'); const old=b.textContent; b.textContent='تم الحفظ'; setTimeout(function(){b.textContent=old;},1500);
   });
   root.querySelector('#export-evidence').addEventListener('click',function(){
     const lines=root.querySelector('#evidence-text').value.split('\n').filter(Boolean);
@@ -1759,17 +1788,17 @@ function initWorkDomainSelector() {
 function addButtonsToCards() {
   const DOCS_BASE='docs';
   const templates=[
-    { file:'idea-card.docx',label:'بطاقة الفكرة',icon:'🟢',phase:'phase-idea' },
-    { file:'project-study.docx',label:'دراسة المشروع',icon:'🟢',phase:'phase-idea' },
-    { file:'project-charter.docx',label:'ميثاق المشروع',icon:'🟢',phase:'phase-idea' },
-    { file:'eligibility.docx',label:'معايير الاستحقاق',icon:'🟡',phase:'phase-verify' },
-    { file:'social-research.docx',label:'البحث الاجتماعي',icon:'🟡',phase:'phase-verify' },
-    { file:'offers-comparison.docx',label:'مقارنة العروض',icon:'🔵',phase:'phase-execute' },
-    { file:'acceptance-minutes.docx',label:'محضر الاستلام',icon:'🔵',phase:'phase-execute' },
-    { file:'progress-report.docx',label:'التقرير المرحلي',icon:'🔵',phase:'phase-execute' },
-    { file:'risk-register.docx',label:'سجل المخاطر',icon:'🔵',phase:'phase-execute' },
-    { file:'closure-report.docx',label:'تقرير الإغلاق',icon:'🟣',phase:'phase-close' },
-    { file:'evidence-checklist.docx',label:'قائمة الأدلة',icon:'🟣',phase:'phase-close' }
+    { file:'idea-card.docx',label:'بطاقة الفكرة',icon:'lightbulb',phase:'phase-idea' },
+    { file:'project-study.docx',label:'دراسة المشروع',icon:'document-text',phase:'phase-idea' },
+    { file:'project-charter.docx',label:'ميثاق المشروع',icon:'clipboard-text',phase:'phase-idea' },
+    { file:'eligibility.docx',label:'معايير الاستحقاق',icon:'user-check',phase:'phase-verify' },
+    { file:'social-research.docx',label:'البحث الاجتماعي',icon:'users',phase:'phase-verify' },
+    { file:'offers-comparison.docx',label:'مقارنة العروض',icon:'receipt-search',phase:'phase-execute' },
+    { file:'acceptance-minutes.docx',label:'محضر الاستلام',icon:'clipboard-check',phase:'phase-execute' },
+    { file:'progress-report.docx',label:'التقرير المرحلي',icon:'chart-line',phase:'phase-execute' },
+    { file:'risk-register.docx',label:'سجل المخاطر',icon:'shield-alert',phase:'phase-execute' },
+    { file:'closure-report.docx',label:'تقرير الإغلاق',icon:'archive-check',phase:'phase-close' },
+    { file:'evidence-checklist.docx',label:'قائمة الأدلة',icon:'folder-check',phase:'phase-close' }
   ];
   const stages=['الفكرة','التحقق','التصميم','الاعتماد','التعاقد','التنفيذ','القياس','الإغلاق'];
   const cards=Array.from(document.querySelectorAll('.project-card, .opp-card'));
@@ -1783,34 +1812,34 @@ function addButtonsToCards() {
     wrap.appendChild(life);
 
     const aiSec=document.createElement('div'); aiSec.className='tool-section';
-    aiSec.innerHTML='<div class="tool-section-title">🤖 الذكاء الاصطناعي</div><div class="tool-grid"></div>';
+    aiSec.innerHTML='<div class="tool-section-title">'+iconLabel('magic-wand','الذكاء الاصطناعي',18)+'</div><div class="tool-grid"></div>';
     const aiGrid=aiSec.querySelector('.tool-grid');
     [
-      ['🤖 تصميم مشروع',function(){openDesignAssistant(card);}],
-      ['🔍 مراجعة مشروع',function(){openReviewTool(card,'review');}],
-      ['🧠 استكمال النواقص',function(){openReviewTool(card,'gaps');}]
-    ].forEach(function(def){ const b=document.createElement('button'); b.type='button'; b.className='tool-btn tool-ai'; b.textContent=def[0]; b.addEventListener('click',def[1]); aiGrid.appendChild(b); });
+      ['wand-sparkle','تصميم مشروع',function(){openDesignAssistant(card);}],
+      ['search-status','مراجعة مشروع',function(){openReviewTool(card,'review');}],
+      ['check-list-square','استكمال النواقص',function(){openReviewTool(card,'gaps');}]
+    ].forEach(function(def){ const b=document.createElement('button'); b.type='button'; b.className='tool-btn tool-ai'; b.innerHTML=iconLabel(def[0],def[1],18); b.addEventListener('click',def[2]); aiGrid.appendChild(b); });
     wrap.appendChild(aiSec);
 
     const docsSec=document.createElement('div'); docsSec.className='tool-section';
-    docsSec.innerHTML='<div class="tool-section-title">📑 مستندات المشروع</div><div class="tool-grid"></div>';
+    docsSec.innerHTML='<div class="tool-section-title">'+iconLabel('folder-files','مستندات المشروع',18)+'</div><div class="tool-grid"></div>';
     const docsGrid=docsSec.querySelector('.tool-grid');
     templates.forEach(function(t){
       const a=document.createElement('a'); a.className='github-form-link '+t.phase;
       a.href=DOCS_BASE+'/'+docId+'/'+t.file+'?v=ai-appendix-2'; a.setAttribute('download','');
-      a.textContent=t.icon+' '+t.label; a.setAttribute('aria-label','تحميل '+t.label+' بصيغة Word'); docsGrid.appendChild(a);
+      a.innerHTML=iconLabel(t.icon,t.label,17); a.setAttribute('aria-label','تحميل '+t.label+' بصيغة Word'); docsGrid.appendChild(a);
     });
     const pkg=document.createElement('a'); pkg.className='package-link tool-package';
     pkg.href=DOCS_BASE+'/'+docId+'/'+docId+'-project-package.zip?v=package-1'; pkg.setAttribute('download','');
-    pkg.textContent='📦 إنشاء/تحميل حزمة المشروع'; docsGrid.appendChild(pkg);
+    pkg.innerHTML=iconLabel('file-zip','إنشاء/تحميل حزمة المشروع',18); docsGrid.appendChild(pkg);
     wrap.appendChild(docsSec);
 
     const readySec=document.createElement('div'); readySec.className='tool-section';
-    readySec.innerHTML='<div class="tool-section-title">✅ إدارة الجاهزية <span class="readiness-badge">الجاهزية: 0/10</span></div><div class="tool-grid"></div>';
+    readySec.innerHTML='<div class="tool-section-title">'+iconLabel('clipboard-check','إدارة الجاهزية',18)+' <span class="readiness-badge">الجاهزية: 0/10</span></div><div class="tool-grid"></div>';
     const readyGrid=readySec.querySelector('.tool-grid');
-    const rb=document.createElement('button'); rb.type='button'; rb.className='tool-btn tool-ready'; rb.textContent='✅ فحص الجاهزية'; rb.addEventListener('click',function(){openReadiness(card);});
-    const eb=document.createElement('button'); eb.type='button'; eb.className='tool-btn tool-evidence'; eb.textContent='📚 سجل الأدلة والمصادر'; eb.addEventListener('click',function(){openEvidenceRegister(card);});
-    const gb=document.createElement('button'); gb.type='button'; gb.className='tool-btn'; gb.textContent='🧠 تحليل النواقص'; gb.addEventListener('click',function(){openReviewTool(card,'gaps');});
+    const rb=document.createElement('button'); rb.type='button'; rb.className='tool-btn tool-ready'; rb.innerHTML=iconLabel('checklist','فحص الجاهزية',17); rb.addEventListener('click',function(){openReadiness(card);});
+    const eb=document.createElement('button'); eb.type='button'; eb.className='tool-btn tool-evidence'; eb.innerHTML=iconLabel('archive-book','سجل الأدلة والمصادر',17); eb.addEventListener('click',function(){openEvidenceRegister(card);});
+    const gb=document.createElement('button'); gb.type='button'; gb.className='tool-btn'; gb.innerHTML=iconLabel('search-status','تحليل النواقص',17); gb.addEventListener('click',function(){openReviewTool(card,'gaps');});
     readyGrid.appendChild(rb); readyGrid.appendChild(eb); readyGrid.appendChild(gb);
     wrap.appendChild(readySec);
 
