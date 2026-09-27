@@ -8,6 +8,9 @@
 <meta http-equiv="Expires" content="0">
 <title>محفظة مشاريع وفرص منصة إحسان</title>
 <meta name="description" content="محفظة مشاريع وفرص منصة إحسان — 96 فرصة + بنك أفكار + 80 مشروعًا مطورًا">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --primary: #0d5c4a;
@@ -15,18 +18,18 @@
   --primary-light: #e8f3ef;
   --accent: #c9a227;
   --accent-light: #faf3dd;
-  --text: #1a1a1a;
-  --muted: #555;
+  --text: #17211e;
+  --muted: #3f4b46;
   --border: #d4d4d4;
   --bg: #ffffff;
   --bg-alt: #f8f9fa;
 }
 * { box-sizing: border-box; }
 body {
-  font-family: 'Traditional Arabic','Sakkal Majalla','Arial',sans-serif;
+  font-family: 'Cairo','IBM Plex Sans Arabic','Tahoma','Arial',sans-serif;
   direction: rtl; text-align: right; color: var(--text);
   background: var(--bg); max-width: 1000px; margin: 0 auto;
-  padding: 40px 30px; line-height: 1.9; font-size: 15pt;
+  padding: 40px 30px; line-height: 1.85; font-size: 16pt; font-weight: 500;
 }
 .cover {
   position: relative;
@@ -498,7 +501,7 @@ li { margin-bottom: 5px; }
   color:#173f34;
   font-size:12pt;
   font-weight:800;
-  margin-bottom:9px;
+  margin:10px 0 12px;
 }
 .journey-question {
   min-height:48px;
@@ -649,8 +652,8 @@ li { margin-bottom: 5px; }
 }
 .opportunity-link-card {
   position:relative;
-  min-height:168px;
-  padding:15px;
+  min-height:150px;
+  padding:20px 15px 15px;
   border:1px solid #dce5e1;
   border-radius:16px;
   background:#fff;
@@ -662,7 +665,7 @@ li { margin-bottom: 5px; }
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:flex-start;
+  justify-content:center;
 }
 .opportunity-link-card:hover {
   transform:translateY(-3px);
@@ -683,16 +686,6 @@ li { margin-bottom: 5px; }
   place-items:center;
   font-size:9pt;
   font-weight:800;
-}
-.opportunity-icon {
-  width:44px;
-  height:44px;
-  border-radius:13px;
-  display:grid;
-  place-items:center;
-  margin:2px auto 9px;
-  background:#eef6f3;
-  color:var(--primary);
 }
 .opportunity-name {
   display:block;
@@ -832,6 +825,64 @@ li { margin-bottom: 5px; }
 .phase-verify { background:#faf3dd; color:#8a6814; border-color:#d8bd62; }
 .phase-execute { background:#e8f0f8; color:#1e5a8a; border-color:#8fb0cc; }
 .phase-close { background:#f1e8f7; color:#6a3d9a; border-color:#bea3d2; }
+
+/* ===== Global readability pass ===== */
+body, button, input, textarea, select {
+  font-family:'Cairo','IBM Plex Sans Arabic','Tahoma','Arial',sans-serif;
+}
+p, li, td, th, .meta, .meta-bar, .callout, .gate {
+  color:#25312d;
+}
+h1 { font-size:24pt; font-weight:800; }
+h2 { font-size:19pt; font-weight:800; }
+h3 { font-size:16.5pt; font-weight:800; }
+
+.callout { font-size:13.5pt; }
+.gate { font-size:13.5pt; }
+table { font-size:13.5pt; }
+thead th { font-weight:800; }
+tbody td { color:#26342f; font-weight:500; }
+
+.toc-head p { color:#46544f; font-size:11.5pt; }
+.toc-group-title { color:#183d33; font-size:12pt; }
+.toc-link { color:#263d35; font-size:11.2pt; font-weight:600; }
+.toc-link-index { font-size:9.2pt; }
+
+.work-domain-title { font-size:17pt; }
+.work-domain-subtitle { color:#45524d; font-size:11.5pt; }
+.work-domain-label { color:#18372f; font-size:11.5pt; }
+.work-domain-count { color:#4e5b56; font-size:9.7pt; }
+
+.chapter-intro p { color:#34443e; font-size:12pt; font-weight:500; }
+.journey-title { color:#173c32; font-size:12.8pt; }
+.journey-question { color:#3e5049; font-size:10.4pt; font-weight:500; }
+.journey-output { color:#263b33; font-size:9.8pt; }
+.journey-output-label { color:#55665f; font-size:8.7pt; }
+.portfolio-rule p { color:#f2f8f5; font-size:11.2pt; }
+.governance-card h3 { color:#183f34; font-size:12.2pt; }
+.governance-card p { color:#3e5049; font-size:10.5pt; font-weight:500; }
+
+.opportunity-section-title { color:#123d31; font-size:15pt; }
+.opportunity-name { color:#14382f; font-size:12.3pt; font-weight:800; }
+.opportunity-pill { color:#34443e; font-size:9.4pt; font-weight:600; background:#eef2f0; }
+.opportunity-open { color:#0b5a48; font-size:9.8pt; }
+.opportunity-number { color:#0b5a48; font-size:9.7pt; }
+
+.project-card .meta-bar { color:#123f33; font-size:12.8pt; }
+.project-card h3 { font-size:17pt; }
+.opp-card h3 { font-size:15pt; }
+.opp-card .meta { color:#3e4b46; font-size:11.5pt; }
+
+.tool-section-title { color:#123f33; font-size:12.5pt; }
+.tool-btn, .package-link, .github-form-link, .ai-prompt-btn {
+  font-size:10.8pt;
+  font-weight:700;
+}
+.lifecycle-step { color:#334740; font-size:9.8pt; font-weight:600; }
+
+.modal-field label { color:#263831; font-size:11pt; }
+.modal-field input, .modal-field textarea, .modal-field select { color:#1d2c27; font-size:11.5pt; }
+.local-note { color:#3b4944; font-size:10.5pt; }
 
 /* الأزرار العائمة */
 .floating-buttons {
@@ -1713,32 +1764,17 @@ function buildOpportunitiesTable() {
     { title: "3.5 الفرص من 81 إلى 96", from: 81, to: 96 }
   ];
 
-  const fieldIcons = {
-    "أسري واجتماعي": "people",
-    "سكني ومعيشي": "home4",
-    "صحي وتأهيلي": "stethoscope",
-    "تعليمي وتنموي": "graduation-cap",
-    "ديني وضيوف الرحمن": "kaaba",
-    "بيئي ومائي": "leaf",
-    "اجتماعي عام": "hand-heart",
-    "مؤسسي وتشغيلي": "office",
-    "تمكين اقتصادي": "briefcase-dollar",
-    "وقف وتنمية مستدامة": "building-coins"
-  };
-
   let html = '<div class="opportunity-directory">';
   sections.forEach(sec => {
     const rows = OPPORTUNITIES.filter(o => o.n >= sec.from && o.n <= sec.to);
     html += '<section class="opportunity-section">';
-    html += '<div class="opportunity-section-title"><span>'+sec.title+'</span><span style="font-size:9pt;color:#708078;">'+rows.length+' فرصة</span></div>';
+    html += '<div class="opportunity-section-title"><span>'+sec.title+'</span><span style="font-size:10pt;color:#42544d;font-weight:700;">'+rows.length+' فرصة</span></div>';
     html += '<div class="opportunity-cards">';
     rows.forEach(o => {
       const target = 'opp-card-' + String(o.n).padStart(3,'0');
-      const icon = fieldIcons[o.field] || 'document-text';
       html += `
         <a class="opportunity-link-card" href="#${target}" aria-label="فتح بطاقة ${o.name}">
           <span class="opportunity-number">${o.n}</span>
-          <span class="opportunity-icon"><re-icon icon="${icon}" weight="Outline" size="25" color="currentColor"></re-icon></span>
           <span class="opportunity-name">${o.name}</span>
           <span class="opportunity-meta">
             <span class="opportunity-pill">${o.field}</span>
