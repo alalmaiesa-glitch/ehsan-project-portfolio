@@ -355,6 +355,188 @@ li { margin-bottom: 5px; }
   border-color:#e5d39a;
   color:#705818;
 }
+.idea-options-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  margin:14px 0 16px;
+}
+.idea-option-card {
+  position:relative;
+  min-height:150px;
+  padding:16px 15px 15px;
+  border:1px solid #dfe7e3;
+  border-radius:15px;
+  background:#fbfcfb;
+  text-align:right;
+}
+.idea-option-number {
+  display:inline-grid;
+  place-items:center;
+  min-width:30px;
+  height:30px;
+  padding:0 8px;
+  border-radius:9px;
+  background:#eaf3ef;
+  color:#0d5c4a;
+  font-size:9.5pt;
+  font-weight:800;
+  margin-bottom:10px;
+}
+.idea-option-title {
+  display:block;
+  color:#173d33;
+  font-size:11.8pt;
+  font-weight:800;
+  line-height:1.5;
+  margin-bottom:7px;
+}
+.idea-option-desc {
+  margin:0;
+  color:#46554f;
+  font-size:9.9pt;
+  line-height:1.75;
+  font-weight:500;
+}
+
+.feature-grid,
+.template-fields-grid,
+.activation-grid,
+.evaluation-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin:16px 0 22px;
+}
+.feature-card,
+.template-field-card,
+.activation-card,
+.evaluation-card {
+  border:1px solid #dfe7e3;
+  border-radius:15px;
+  background:#fff;
+  padding:15px;
+  box-shadow:0 4px 14px rgba(19,63,49,.035);
+}
+.feature-card {
+  min-height:145px;
+}
+.feature-number,
+.field-tag,
+.activation-state,
+.evaluation-weight {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:28px;
+  padding:4px 9px;
+  border-radius:999px;
+  background:#eef5f2;
+  color:#0d5c4a;
+  font-size:9pt;
+  font-weight:800;
+}
+.feature-card h3,
+.template-field-card h3,
+.activation-card h3,
+.evaluation-card h3 {
+  margin:9px 0 6px;
+  padding:0;
+  border:0;
+  color:#173d33;
+  font-size:11.8pt;
+  line-height:1.5;
+}
+.feature-card p,
+.template-field-card p,
+.activation-card p,
+.evaluation-card p {
+  margin:0;
+  color:#46554f;
+  font-size:9.8pt;
+  line-height:1.7;
+}
+.template-field-card {
+  display:grid;
+  grid-template-columns:150px 1fr;
+  gap:12px;
+  align-items:center;
+}
+.template-field-card h3 {
+  margin:0;
+}
+.activation-card {
+  display:grid;
+  gap:10px;
+}
+.activation-card .activation-footer {
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+.activation-state.yesno {
+  background:#f5f7f6;
+  color:#45544f;
+}
+.activation-state.evidence {
+  background:#fbf5e3;
+  color:#765d18;
+}
+.evaluation-card {
+  position:relative;
+  padding-top:18px;
+}
+.evaluation-card .evaluation-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:10px;
+}
+.evaluation-card .evaluation-score {
+  margin-top:12px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:6px;
+}
+.evaluation-card .evaluation-score span {
+  height:8px;
+  border-radius:999px;
+  background:#e9efec;
+}
+.evaluation-card .evaluation-evidence {
+  margin-top:10px;
+  min-height:36px;
+  padding:8px 10px;
+  border-radius:9px;
+  background:#f7f9f8;
+  color:#65726d;
+  font-size:9pt;
+}
+@media (max-width:760px) {
+  .idea-options-grid,
+  .feature-grid,
+  .template-fields-grid,
+  .activation-grid,
+  .evaluation-grid {
+    grid-template-columns:1fr;
+  }
+  .template-field-card {
+    grid-template-columns:1fr;
+  }
+}
+@media print {
+  .idea-options-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .feature-grid,
+  .template-fields-grid,
+  .activation-grid,
+  .evaluation-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .idea-option-card,
+  .feature-card,
+  .template-field-card,
+  .activation-card,
+  .evaluation-card { break-inside:avoid; box-shadow:none; }
+}
+
 .idea-card-meta {
   display:flex;
   flex-wrap:wrap;
@@ -1640,23 +1822,20 @@ tbody td { color:#26342f; font-weight:500; }
 <!-- ============ الفصل 5 ============ -->
 <h1 id="ch5">5. محفظة نوعية لذوي الإعاقة</h1>
 <p>مسار عابر للفرص يجمع أفكارًا نوعية يمكن مواءمتها مع فرص متعددة.</p>
-<table>
-  <thead><tr><th>#</th><th>الفكرة</th><th>الوصف النوعي</th></tr></thead>
-  <tbody>
-    <tr><td>1</td><td>بيتي باستقلالية</td><td>تهيئة المنزل وظيفيًا: وصول، حمام، أبواب، مسارات، سلامة وتحكم بسيط.</td></tr>
-    <tr><td>2</td><td>زواج واستقرار</td><td>حزمة زواج وسكن مهيأ وإرشاد أسري ومالي.</td></tr>
-    <tr><td>3</td><td>مركبتي باستقلال</td><td>تعديل مركبة قائمة أو توفير حلول نقل مهيأ.</td></tr>
-    <tr><td>4</td><td>منزلي الذكي</td><td>حلول تحكم وإضاءة وأبواب وتنبيهات.</td></tr>
-    <tr><td>5</td><td>حمام آمن</td><td>تهيئة دورات المياه لتقليل السقوط.</td></tr>
-    <tr><td>6</td><td>مطبخي المستقل</td><td>تعديل ارتفاعات ومساحات وأدوات المطبخ.</td></tr>
-    <tr><td>7</td><td>عودة للعمل</td><td>تقييم وظيفي وتدريب وأدوات مساعدة.</td></tr>
-    <tr><td>8</td><td>أول بيت</td><td>تهيئة سكن مستقل للشباب القادرين.</td></tr>
-    <tr><td>9</td><td>أبوة وأمومة مهيأة</td><td>تعديلات منزلية لرعاية الأطفال.</td></tr>
-    <tr><td>10</td><td>نسك ميسر</td><td>خدمة عمرة/حج مهيأة بالنقل والمرافقة.</td></tr>
-    <tr><td>11</td><td>راحة مقدم الرعاية</td><td>ساعات رعاية بديلة أو خدمة إسناد مؤقت.</td></tr>
-    <tr><td>12</td><td>وصول تعليمي</td><td>أجهزة وبرمجيات مساعدة ووصول رقمي.</td></tr>
-  </tbody>
-</table>
+<div class="feature-grid">
+  <article class="feature-card"><span class="feature-number">01</span><h3>بيتي باستقلالية</h3><p>تهيئة المنزل وظيفيًا: وصول، حمام، أبواب، مسارات، سلامة وتحكم بسيط.</p></article>
+  <article class="feature-card"><span class="feature-number">02</span><h3>زواج واستقرار</h3><p>حزمة زواج وسكن مهيأ وإرشاد أسري ومالي.</p></article>
+  <article class="feature-card"><span class="feature-number">03</span><h3>مركبتي باستقلال</h3><p>تعديل مركبة قائمة أو توفير حلول نقل مهيأ.</p></article>
+  <article class="feature-card"><span class="feature-number">04</span><h3>منزلي الذكي</h3><p>حلول تحكم وإضاءة وأبواب وتنبيهات.</p></article>
+  <article class="feature-card"><span class="feature-number">05</span><h3>حمام آمن</h3><p>تهيئة دورات المياه لتقليل السقوط.</p></article>
+  <article class="feature-card"><span class="feature-number">06</span><h3>مطبخي المستقل</h3><p>تعديل ارتفاعات ومساحات وأدوات المطبخ.</p></article>
+  <article class="feature-card"><span class="feature-number">07</span><h3>عودة للعمل</h3><p>تقييم وظيفي وتدريب وأدوات مساعدة.</p></article>
+  <article class="feature-card"><span class="feature-number">08</span><h3>أول بيت</h3><p>تهيئة سكن مستقل للشباب القادرين.</p></article>
+  <article class="feature-card"><span class="feature-number">09</span><h3>أبوة وأمومة مهيأة</h3><p>تعديلات منزلية لرعاية الأطفال.</p></article>
+  <article class="feature-card"><span class="feature-number">10</span><h3>نسك ميسر</h3><p>خدمة عمرة/حج مهيأة بالنقل والمرافقة.</p></article>
+  <article class="feature-card"><span class="feature-number">11</span><h3>راحة مقدم الرعاية</h3><p>ساعات رعاية بديلة أو خدمة إسناد مؤقت.</p></article>
+  <article class="feature-card"><span class="feature-number">12</span><h3>وصول تعليمي</h3><p>أجهزة وبرمجيات مساعدة ووصول رقمي.</p></article>
+</div>
 
 <div class="gate">معيار الاختيار — الأولوية للمشروع الذي يرفع الاستقلال والاندماج ويملك نتيجة قابلة للقياس.</div>
 
@@ -1668,39 +1847,33 @@ tbody td { color:#26342f; font-weight:500; }
 <!-- ============ الفصل 7 ============ -->
 <h1 id="ch7">7. قوالب الإدارة</h1>
 
-<h2>7.1 بطاقة الفكرة</h2>
-<table>
-  <thead><tr><th>الحقل</th><th>المطلوب</th></tr></thead>
-  <tbody>
-    <tr><td>اسم الفرصة</td><td>يُستكمل قبل الانتقال للمرحلة التالية</td></tr>
-    <tr><td>اسم الفكرة</td><td>يُستكمل</td></tr>
-    <tr><td>المشكلة</td><td>يُستكمل</td></tr>
-    <tr><td>الفئة المستهدفة</td><td>يُستكمل</td></tr>
-    <tr><td>حجم الاحتياج</td><td>يُستكمل</td></tr>
-    <tr><td>الحل المقترح</td><td>يُستكمل</td></tr>
-    <tr><td>النتيجة المتوقعة</td><td>يُستكمل</td></tr>
-    <tr><td>تقدير أولي للتكلفة</td><td>يُستكمل</td></tr>
-    <tr><td>المخاطر الأولية</td><td>يُستكمل</td></tr>
-    <tr><td>مصدر البيانات</td><td>يُستكمل</td></tr>
-  </tbody>
-</table>
+<h2>بطاقة الفكرة</h2>
+<div class="template-fields-grid">
+  <article class="template-field-card"><span class="field-tag">01</span><div><h3>اسم الفرصة</h3><p>يُستكمل قبل الانتقال للمرحلة التالية</p></div></article>
+  <article class="template-field-card"><span class="field-tag">02</span><div><h3>اسم الفكرة</h3><p>يُستكمل</p></div></article>
+  <article class="template-field-card"><span class="field-tag">03</span><div><h3>المشكلة</h3><p>يُستكمل</p></div></article>
+  <article class="template-field-card"><span class="field-tag">04</span><div><h3>الفئة المستهدفة</h3><p>يُستكمل</p></div></article>
+  <article class="template-field-card"><span class="field-tag">05</span><div><h3>حجم الاحتياج</h3><p>يُستكمل</p></div></article>
+  <article class="template-field-card"><span class="field-tag">06</span><div><h3>الحل المقترح</h3><p>يُستكمل</p></div></article>
+  <article class="template-field-card"><span class="field-tag">07</span><div><h3>النتيجة المتوقعة</h3><p>يُستكمل</p></div></article>
+  <article class="template-field-card"><span class="field-tag">08</span><div><h3>تقدير أولي للتكلفة</h3><p>يُستكمل</p></div></article>
+  <article class="template-field-card"><span class="field-tag">09</span><div><h3>المخاطر الأولية</h3><p>يُستكمل</p></div></article>
+  <article class="template-field-card"><span class="field-tag">10</span><div><h3>مصدر البيانات</h3><p>يُستكمل</p></div></article>
+</div>
 
-<h2>7.2 بوابة قرار التفعيل</h2>
-<table>
-  <thead><tr><th>السؤال</th><th>نعم/لا</th><th>الدليل</th></tr></thead>
-  <tbody>
-    <tr><td>هل الفرصة متاحة وقت التقديم؟</td><td></td><td></td></tr>
-    <tr><td>هل المستفيد/الموقع مؤهل؟</td><td></td><td></td></tr>
-    <tr><td>هل الحاجة موثقة؟</td><td></td><td></td></tr>
-    <tr><td>هل توجد موافقات لازمة؟</td><td></td><td></td></tr>
-    <tr><td>هل الميزانية مدعومة بعروض؟</td><td></td><td></td></tr>
-    <tr><td>هل المؤشرات قابلة للقياس؟</td><td></td><td></td></tr>
-    <tr><td>هل توجد جهة تتحمل التشغيل؟</td><td></td><td></td></tr>
-    <tr><td>هل مخاطر السلامة مضبوطة؟</td><td></td><td></td></tr>
-  </tbody>
-</table>
+<h2>بوابة قرار التفعيل</h2>
+<div class="activation-grid">
+  <article class="activation-card"><h3>هل الفرصة متاحة وقت التقديم؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
+  <article class="activation-card"><h3>هل المستفيد/الموقع مؤهل؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
+  <article class="activation-card"><h3>هل الحاجة موثقة؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
+  <article class="activation-card"><h3>هل توجد موافقات لازمة؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
+  <article class="activation-card"><h3>هل الميزانية مدعومة بعروض؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
+  <article class="activation-card"><h3>هل المؤشرات قابلة للقياس؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
+  <article class="activation-card"><h3>هل توجد جهة تتحمل التشغيل؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
+  <article class="activation-card"><h3>هل مخاطر السلامة مضبوطة؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
+</div>
 
-<h2>7.3 تقرير الإغلاق</h2>
+<h2>تقرير الإغلاق</h2>
 <p>نموذج تقرير الإغلاق متاح مباشرة تحت كل فرصة ومشروع ضمن مجموعة نماذج Word الخاصة به.</p>
 <button class="close-download-btn" type="button" onclick="downloadCloseReport()">
   <span class="icon-button-content"><re-icon icon="document-download" weight="Outline" size="19" color="currentColor"></re-icon><span>تحميل نموذج تقرير الإغلاق (Word)</span></span>
@@ -1708,20 +1881,53 @@ tbody td { color:#26342f; font-weight:500; }
 
 <!-- ============ الفصل 8 ============ -->
 <h1 id="ch8">8. مصفوفة التقييم قبل الرفع</h1>
-<table>
-  <thead><tr><th>المعيار</th><th>الوزن المقترح</th><th>الدرجة 1-5</th><th>الدليل</th></tr></thead>
-  <tbody>
-    <tr><td>وضوح المشكلة</td><td>10%</td><td></td><td></td></tr>
-    <tr><td>وضوح المستفيد والاستحقاق</td><td>10%</td><td></td><td></td></tr>
-    <tr><td>جودة التصميم وقابلية القياس</td><td>15%</td><td></td><td></td></tr>
-    <tr><td>واقعية الميزانية</td><td>15%</td><td></td><td></td></tr>
-    <tr><td>جودة الشراء والتعاقد</td><td>10%</td><td></td><td></td></tr>
-    <tr><td>خطة التنفيذ والرقابة</td><td>10%</td><td></td><td></td></tr>
-    <tr><td>مؤشرات الأثر وخط الأساس</td><td>10%</td><td></td><td></td></tr>
-    <tr><td>خطة الإغلاق والاستدامة</td><td>10%</td><td></td><td></td></tr>
-    <tr><td>إدارة المخاطر والخصوصية</td><td>10%</td><td></td><td></td></tr>
-  </tbody>
-</table>
+<div class="evaluation-grid">
+  <article class="evaluation-card">
+    <div class="evaluation-top"><h3>وضوح المشكلة</h3><span class="evaluation-weight">10%</span></div>
+    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="evaluation-evidence">الدليل / الملاحظة</div>
+  </article>
+  <article class="evaluation-card">
+    <div class="evaluation-top"><h3>وضوح المستفيد والاستحقاق</h3><span class="evaluation-weight">10%</span></div>
+    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="evaluation-evidence">الدليل / الملاحظة</div>
+  </article>
+  <article class="evaluation-card">
+    <div class="evaluation-top"><h3>جودة التصميم وقابلية القياس</h3><span class="evaluation-weight">15%</span></div>
+    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="evaluation-evidence">الدليل / الملاحظة</div>
+  </article>
+  <article class="evaluation-card">
+    <div class="evaluation-top"><h3>واقعية الميزانية</h3><span class="evaluation-weight">15%</span></div>
+    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="evaluation-evidence">الدليل / الملاحظة</div>
+  </article>
+  <article class="evaluation-card">
+    <div class="evaluation-top"><h3>جودة الشراء والتعاقد</h3><span class="evaluation-weight">10%</span></div>
+    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="evaluation-evidence">الدليل / الملاحظة</div>
+  </article>
+  <article class="evaluation-card">
+    <div class="evaluation-top"><h3>خطة التنفيذ والرقابة</h3><span class="evaluation-weight">10%</span></div>
+    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="evaluation-evidence">الدليل / الملاحظة</div>
+  </article>
+  <article class="evaluation-card">
+    <div class="evaluation-top"><h3>مؤشرات الأثر وخط الأساس</h3><span class="evaluation-weight">10%</span></div>
+    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="evaluation-evidence">الدليل / الملاحظة</div>
+  </article>
+  <article class="evaluation-card">
+    <div class="evaluation-top"><h3>خطة الإغلاق والاستدامة</h3><span class="evaluation-weight">10%</span></div>
+    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="evaluation-evidence">الدليل / الملاحظة</div>
+  </article>
+  <article class="evaluation-card">
+    <div class="evaluation-top"><h3>إدارة المخاطر والخصوصية</h3><span class="evaluation-weight">10%</span></div>
+    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="evaluation-evidence">الدليل / الملاحظة</div>
+  </article>
+</div>
 
 <!-- ============ نماذج جاهزة للتحميل ============ -->
 <div id="attachments" style="
@@ -2046,14 +2252,15 @@ function buildIdeasBank() {
         <span><strong>المجال</strong> ${o.field}</span>
         <span><strong>مسار التمويل</strong> ${o.fund}</span>
       </div>
-      <table>
-        <thead><tr><th>#</th><th>فكرة مشروع</th><th>القيمة/الوصف</th></tr></thead>
-        <tbody>
-          ${ideas.map((idea, i) => 
-            `<tr><td>${i+1}</td><td>${idea[0]}</td><td>${idea[1]}</td></tr>`
-          ).join('')}
-        </tbody>
-      </table>
+      <div class="idea-options-grid">
+        ${ideas.map((idea, i) => 
+          `<article class="idea-option-card">
+            <span class="idea-option-number">${i+1}</span>
+            <span class="idea-option-title">${idea[0]}</span>
+            <p class="idea-option-desc">${idea[1]}</p>
+          </article>`
+        ).join('')}
+      </div>
       ${o.fund === "زكاة" ? 
         `<div class="callout"><strong>تنبيه زكوي:</strong> التحقق من أهلية الزكاة إلزامي قبل الصرف.</div>` : 
         ''}
