@@ -645,6 +645,28 @@ li { margin-bottom: 5px; }
   font-size:14.5pt;
   font-weight:800;
 }
+.opportunity-section.is-zakat .opportunity-section-title {
+  background:#fbf6e8;
+  border-color:#e8d59a;
+  color:#6f5717;
+}
+.opportunity-section.is-zakat .opportunity-link-card {
+  border-color:#e6dcc0;
+}
+.opportunity-section.is-zakat .opportunity-link-card:hover {
+  background:#6f5717;
+  border-color:#6f5717;
+  box-shadow:0 12px 28px rgba(111,87,23,.14);
+}
+.opportunity-section.is-zakat .opportunity-link-card:hover .opportunity-card-footer {
+  background:#d0aa2d;
+  border-top-color:#d0aa2d;
+}
+.opportunity-section.is-waqf .opportunity-section-title {
+  background:#f3f1e9;
+  border-color:#ddd4b8;
+  color:#5b512f;
+}
 .opportunity-section-count {
   color:#46554f;
   font-size:10pt;
@@ -1810,22 +1832,38 @@ const OPPORTUNITIES = [
    ===================================================== */
 function buildOpportunitiesTable() {
   const container = document.getElementById('opportunities-table');
+
   const sections = [
-    { title: "3.1 الفرص من 1 إلى 15", from: 1, to: 15 },
-    { title: "3.2 الفرص من 16 إلى 38", from: 16, to: 38 },
-    { title: "3.3 الفرص من 39 إلى 66", from: 39, to: 66 },
-    { title: "3.4 الفرص من 67 إلى 80 (مسار الزكاة)", from: 67, to: 80 },
-    { title: "3.5 الفرص من 81 إلى 96", from: 81, to: 96 }
+    {
+      title: "الفرص العامة",
+      subtitle: "تبرعات / عام",
+      className: "is-general",
+      rows: OPPORTUNITIES.filter(o => o.fund === "تبرعات/عام")
+    },
+    {
+      title: "مسار الزكاة",
+      subtitle: "فرص مخصصة لمسار الزكاة",
+      className: "is-zakat",
+      rows: OPPORTUNITIES.filter(o => o.fund === "زكاة")
+    },
+    {
+      title: "الوقف والعوائد",
+      subtitle: "وقف / عوائد",
+      className: "is-waqf",
+      rows: OPPORTUNITIES.filter(o => o.fund === "وقف/عوائد")
+    }
   ];
 
   let html = '<div class="opportunity-directory">';
+
   sections.forEach(sec => {
-    const rows = OPPORTUNITIES.filter(o => o.n >= sec.from && o.n <= sec.to);
-    html += '<section class="opportunity-section">';
-    html += '<div class="opportunity-section-title"><span>'+sec.title+'</span><span class="opportunity-section-count">'+rows.length+' فرصة</span></div>';
+    if (!sec.rows.length) return;
+
+    html += '<section class="opportunity-section '+sec.className+'">';
+    html += '<div class="opportunity-section-title"><div><span>'+sec.title+'</span><span style="display:block;font-size:9.2pt;font-weight:600;color:inherit;opacity:.78;margin-top:2px;">'+sec.subtitle+'</span></div><span class="opportunity-section-count">'+sec.rows.length+' فرصة</span></div>';
     html += '<div class="opportunity-cards">';
 
-    rows.forEach(o => {
+    sec.rows.forEach(o => {
       const target = 'opp-card-' + String(o.n).padStart(3,'0');
       html += `
         <a class="opportunity-link-card" href="#${target}" aria-label="فتح بطاقة ${o.name}">
@@ -1852,6 +1890,7 @@ function buildOpportunitiesTable() {
 
     html += '</div></section>';
   });
+
   html += '</div>';
   container.innerHTML = html;
 }
