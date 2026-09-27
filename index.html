@@ -1841,6 +1841,51 @@ tbody td { color:#26342f; font-weight:500; }
   opacity:1 !important;
   font-weight:600 !important;
 }
+
+.readiness-management-actions{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-top:10px;
+}
+.readiness-management-btn,
+.readiness-excel-btn{
+  min-height:44px;
+  padding:10px 14px;
+  border-radius:10px;
+  font-family:inherit;
+  font-size:10.5pt;
+  font-weight:800;
+  text-align:center;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+.readiness-management-btn{
+  background:#0d5c4a;
+  border:1px solid #0d5c4a;
+  color:#fff;
+}
+.readiness-excel-btn{
+  background:#fbf6e8;
+  border:1px solid #d7bd67;
+  color:#6f5514;
+}
+.readiness-management-note{
+  margin-top:10px;
+  padding:11px 13px;
+  border-radius:10px;
+  background:#f7faf8;
+  border:1px solid #dfe8e4;
+  color:#344940;
+  font-size:9.8pt;
+  line-height:1.75;
+}
+@media(max-width:620px){
+  .readiness-management-actions{grid-template-columns:1fr;}
+}
 </style>
 <!-- build: remove-project-folder-link-v2 -->
 <script src="https://unpkg.com/reicon/cdn/reicon.js"></script>
@@ -2240,8 +2285,7 @@ tbody td { color:#26342f; font-weight:500; }
   <div class="excel-workbook-grid">
     <div class="excel-workbook-item"><strong>بطاقة الفكرة</strong><span>تجميع بيانات الفكرة والاحتياج والمصدر والحالة.</span></div>
     <div class="excel-workbook-item"><strong>مراجعة قبل البدء</strong><span>قائمة تحقق داخلية للحاجة والاستحقاق والموافقات والميزانية والمؤشرات.</span></div>
-    <div class="excel-workbook-item"><strong>فحص ذاتي للجاهزية</strong><span>درجات من 1 إلى 5 مع أوزان وحساب تلقائي للنتيجة من 100.</span></div>
-    <div class="excel-workbook-item"><strong>توثيق المعلومات والمصادر</strong><span>ورقة داخل ملف Excel لتسجيل المعلومات المهمة ومصادر إثباتها. لا يوجد إدخال أو حفظ لهذه البيانات داخل الموقع.</span></div>
+    <div class="excel-workbook-item"><strong>إدارة الجاهزية</strong><span>مراجعة داخلية تجمع فحص الجاهزية، توثيق المعلومات والمصادر، وتحليل النواقص قبل الرفع.</span></div>
   </div>
 
   <a class="excel-download-btn" href="downloads/project-workbook-v2.xlsx" download>
@@ -3493,20 +3537,37 @@ function addButtonsToCards() {
     wrap.appendChild(docsSec);
 
     const readySec=document.createElement('div'); readySec.className='tool-section';
-    readySec.innerHTML='<div class="tool-section-title">'+iconLabel('clipboard-check','إدارة الجاهزية',18)+' <span class="readiness-badge">الجاهزية: 0/10</span></div><div class="tool-grid"></div>';
-    const readyGrid=readySec.querySelector('.tool-grid');
-    const rb=document.createElement('button'); rb.type='button'; rb.className='tool-btn tool-ready'; rb.innerHTML=iconLabel('checklist','فحص الجاهزية',17); rb.addEventListener('click',function(){openReadiness(card);});
-    const gb=document.createElement('button'); gb.type='button'; gb.className='tool-btn'; gb.innerHTML=iconLabel('search-status','تحليل النواقص',17); gb.addEventListener('click',function(){openReviewTool(card,'gaps');});
-    readyGrid.appendChild(rb); readyGrid.appendChild(gb);
+    readySec.innerHTML='<div class="tool-section-title">إدارة الجاهزية</div><div class="readiness-management-actions"></div><div class="readiness-management-note"><strong>ما المقصود بإدارة الجاهزية؟</strong> مراجعة داخلية للتأكد من اكتمال المشروع قبل الرفع، وتشمل فحص الجاهزية، توثيق المعلومات والمصادر، وتحليل النواقص وتحديد ما يحتاج استكمالًا. الإدخال والحفظ يتمان داخل ملف Excel فقط.</div>';
+
+    const readyGrid=readySec.querySelector('.readiness-management-actions');
+
+    const manageBtn=document.createElement('button');
+    manageBtn.type='button';
+    manageBtn.className='readiness-management-btn';
+    manageBtn.textContent='إدارة الجاهزية';
+    manageBtn.addEventListener('click',function(){
+      const x=cardContext(card);
+      const html='<div class="callout" style="margin:0 0 12px;"><strong>إدارة الجاهزية</strong> هي مراجعة داخلية قبل رفع المشروع، وليست تقييمًا أو اعتمادًا من منصة إحسان أو أي جهة مانحة.</div>'+
+        '<div style="display:grid;gap:8px;">'+
+        '<div><strong>فحص الجاهزية:</strong> مراجعة المعايير الأساسية وحساب النتيجة داخليًا.</div>'+
+        '<div><strong>توثيق المعلومات والمصادر:</strong> ربط المعلومات والأرقام بالمستندات التي تثبتها.</div>'+
+        '<div><strong>تحليل النواقص:</strong> تحديد ما يحتاج استكمالًا وترتيب الأولويات قبل الرفع.</div>'+
+        '</div>'+
+        '<div class="local-note" style="margin-top:12px;">لا توجد حقول إدخال أو حفظ لهذه البيانات داخل الموقع. استخدم ملف Excel بجوار هذا الزر للعمل والحفظ على جهازك.</div>';
+      openPortfolioModal('إدارة الجاهزية — '+x.name,html);
+    });
+
+    const excelBtn=document.createElement('a');
+    excelBtn.className='readiness-excel-btn';
+    excelBtn.href='downloads/project-workbook-v2.xlsx';
+    excelBtn.setAttribute('download','');
+    excelBtn.textContent='ملف Excel';
+
+    readyGrid.appendChild(manageBtn);
+    readyGrid.appendChild(excelBtn);
     wrap.appendChild(readySec);
 
-    const evidenceNote=document.createElement('div');
-    evidenceNote.className='local-note';
-    evidenceNote.innerHTML='توثيق المعلومات يتم داخل ملف Excel المرفق فقط؛ لا يوجد إدخال أو حفظ لهذه البيانات داخل الموقع.';
-    wrap.appendChild(evidenceNote);
-
     card.appendChild(wrap);
-    updateReadinessBadge(card);
   });
   buildDashboard();
 }
