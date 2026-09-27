@@ -81,7 +81,7 @@ def context(card):
 def body(card,t):
     key=t['key']; label=t['label']; stage=t['stage']; desc,budget,duration=context(card)
     stage_color={'idea':GREEN,'verify':GOLD,'execute':BLUE,'close':PURPLE}[stage]
-    out=[p(label,True,stage_color,36,True,80),p(card['name'],True,PRIMARY,30,True,60),p(f"رمز البطاقة: {card['id']} | وثيقة عمل داخلية",False,'666666',20,True,100),identity(card)]
+    out=[p(label,True,stage_color,36,True,80),p(card['name'],True,PRIMARY,30,True,60),p(f"رمز البطاقة: {card['id']} | وثيقة عمل داخلية",False,'666666',20,True,100),identity(card),p('يتضمن هذا النموذج في صفحاته الأخيرة ملحقًا بعنوان: مطالبة احترافية للذكاء الاصطناعي لتوليد دراسة المشروع من الفكرة إلى الإغلاق.',True,PRIMARY,22,False,120)]
     if key=='idea-card':
         out += [heading('ملخص الفكرة',GREEN),p(desc),table(['العنصر','المطلوب'],[[x,'[يستكمل]'] for x in ['المشكلة','الدليل على الاحتياج','الفئة المستهدفة','الحل المقترح','المخرجات','النتائج المتوقعة','التكلفة الأولية','الشركاء','المخاطر الأولية','قرار الانتقال للدراسة']],GREEN)]
     elif key=='project-study':
@@ -164,7 +164,7 @@ def ai_prompt_appendix(card):
         '',
         'ابدأ الآن بإنتاج الدراسة كاملة وفق ما سبق، ولا تحذف أي مرحلة من مراحل دورة المشروع من الفكرة حتى الإغلاق.'
     ]
-    out=[heading('ملحق: مطالبة احترافية للذكاء الاصطناعي',PRIMARY),
+    out=[heading('ملحق: مطالبة احترافية للذكاء الاصطناعي',PRIMARY),p('إصدار الملحق: AI-APPENDIX-2 | مخصص تلقائيًا لهذه الفرصة/المشروع.',True,GOLD,20,False,60),
          p('الغرض: نسخ النص التالي إلى أي نموذج ذكاء اصطناعي لتوليد دراسة مشروع تنفيذية متكاملة ومخصصة لهذه الفرصة/المشروع.',False,'555555',22,False,100)]
     for line in prompt_lines:
         if line == '':
