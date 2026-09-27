@@ -1,0 +1,68 @@
+[
+  {
+    "key": "idea-card",
+    "label": "بطاقة الفكرة",
+    "stage": "idea",
+    "emoji": "🟢"
+  },
+  {
+    "key": "project-study",
+    "label": "دراسة المشروع",
+    "stage": "idea",
+    "emoji": "🟢"
+  },
+  {
+    "key": "project-charter",
+    "label": "ميثاق المشروع",
+    "stage": "idea",
+    "emoji": "🟢"
+  },
+  {
+    "key": "eligibility",
+    "label": "معايير الاستحقاق",
+    "stage": "verify",
+    "emoji": "🟡"
+  },
+  {
+    "key": "social-research",
+    "label": "البحث الاجتماعي",
+    "stage": "verify",
+    "emoji": "🟡"
+  },
+  {
+    "key": "offers-comparison",
+    "label": "مقارنة العروض",
+    "stage": "execute",
+    "emoji": "🔵"
+  },
+  {
+    "key": "acceptance-minutes",
+    "label": "محضر الاستلام",
+    "stage": "execute",
+    "emoji": "🔵"
+  },
+  {
+    "key": "progress-report",
+    "label": "التقرير المرحلي",
+    "stage": "execute",
+    "emoji": "🔵"
+  },
+  {
+    "key": "risk-register",
+    "label": "سجل المخاطر",
+    "stage": "execute",
+    "emoji": "🔵"
+  },
+  {
+    "key": "closure-report",
+    "label": "تقرير الإغلاق",
+    "stage": "close",
+    "emoji": "🟣"
+  },
+  {
+    "key": "evidence-checklist",
+    "label": "قائمة الأدلة",
+    "stage": "close",
+    "emoji": "🟣"
+  }
+]
