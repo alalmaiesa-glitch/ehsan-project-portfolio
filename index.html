@@ -416,6 +416,216 @@ li { margin-bottom: 5px; }
   .toc-groups { grid-template-columns:1fr; }
 }
 
+.chapter-shell {
+  margin:28px 0 42px;
+}
+.chapter-intro {
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:16px;
+  align-items:center;
+  margin:0 0 20px;
+  padding:18px 20px;
+  border:1px solid #dce8e4;
+  border-radius:16px;
+  background:linear-gradient(135deg,#f8fbfa 0%,#eef6f3 100%);
+}
+.chapter-intro-icon {
+  width:54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  border-radius:16px;
+  background:#fff;
+  color:var(--primary);
+  box-shadow:0 5px 15px rgba(24,70,55,.07);
+}
+.chapter-intro p {
+  margin:0;
+  color:#4e625b;
+  font-size:11.2pt;
+  line-height:1.85;
+}
+.journey-grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  counter-reset:journey;
+}
+.journey-card {
+  counter-increment:journey;
+  position:relative;
+  min-height:205px;
+  padding:16px 14px 14px;
+  border:1px solid #dde7e3;
+  border-radius:16px;
+  background:#fff;
+  box-shadow:0 5px 18px rgba(18,62,49,.05);
+  text-align:center;
+  overflow:hidden;
+}
+.journey-card::before {
+  content:"0" counter(journey);
+  position:absolute;
+  top:10px;
+  left:11px;
+  color:#9aa9a4;
+  font-size:8.5pt;
+  font-weight:800;
+  letter-spacing:.4px;
+}
+.journey-card::after {
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  left:0;
+  height:3px;
+  background:var(--journey-color,#0d5c4a);
+}
+.journey-icon {
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  margin:3px auto 9px;
+  border-radius:14px;
+  background:var(--journey-soft,#edf6f3);
+  color:var(--journey-color,#0d5c4a);
+}
+.journey-title {
+  display:block;
+  color:#173f34;
+  font-size:12pt;
+  font-weight:800;
+  margin-bottom:9px;
+}
+.journey-question {
+  min-height:48px;
+  margin:0 0 10px;
+  color:#566a63;
+  font-size:9.5pt;
+  line-height:1.55;
+}
+.journey-output {
+  display:block;
+  padding:8px 9px;
+  border-radius:9px;
+  background:#f6f8f7;
+  color:#344b44;
+  font-size:8.8pt;
+  line-height:1.45;
+  font-weight:700;
+}
+.journey-output-label {
+  display:block;
+  margin-bottom:2px;
+  color:#82918c;
+  font-size:7.8pt;
+  font-weight:600;
+}
+.journey-card[data-tone="idea"] { --journey-color:#0d5c4a; --journey-soft:#e9f5f0; }
+.journey-card[data-tone="verify"] { --journey-color:#9a761d; --journey-soft:#fbf5e3; }
+.journey-card[data-tone="design"] { --journey-color:#456f9b; --journey-soft:#edf4fb; }
+.journey-card[data-tone="budget"] { --journey-color:#8c6328; --journey-soft:#faf2e6; }
+.journey-card[data-tone="submit"] { --journey-color:#6c5b9e; --journey-soft:#f2eef9; }
+.journey-card[data-tone="execute"] { --journey-color:#2f7392; --journey-soft:#edf7fa; }
+.journey-card[data-tone="impact"] { --journey-color:#4a7d57; --journey-soft:#eef7f0; }
+.journey-card[data-tone="close"] { --journey-color:#79558a; --journey-soft:#f6eff8; }
+
+.portfolio-rule {
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:12px;
+  align-items:center;
+  padding:14px 16px;
+  border-radius:14px;
+  background:linear-gradient(90deg,#0d5c4a,#0a4b3c);
+  color:#fff;
+  box-shadow:0 7px 20px rgba(13,92,74,.12);
+}
+.portfolio-rule-icon {
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:rgba(255,255,255,.11);
+  color:#e7cd74;
+}
+.portfolio-rule strong {
+  color:#f0d77c;
+}
+.portfolio-rule p {
+  margin:0;
+  color:#e5f0ec;
+  font-size:10.5pt;
+  line-height:1.7;
+}
+
+.governance-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.governance-card {
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:12px;
+  align-items:start;
+  padding:15px;
+  border:1px solid #dde7e3;
+  border-radius:15px;
+  background:#fff;
+  box-shadow:0 4px 15px rgba(18,62,49,.045);
+}
+.governance-icon {
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:#edf6f3;
+  color:var(--primary);
+}
+.governance-card h3 {
+  margin:0 0 4px;
+  padding:0;
+  border:0;
+  color:#21483d;
+  font-size:11.5pt;
+}
+.governance-card p {
+  margin:0;
+  color:#586a64;
+  font-size:9.7pt;
+  line-height:1.65;
+}
+.governance-card:nth-child(2n) .governance-icon { background:#faf4e5; color:#8a6814; }
+.governance-card:nth-child(3n) .governance-icon { background:#edf4fb; color:#3f709a; }
+.governance-card:nth-child(4n) .governance-icon { background:#f5eff8; color:#72528a; }
+
+@media (max-width:860px) {
+  .journey-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:620px) {
+  .chapter-intro { grid-template-columns:1fr; text-align:center; }
+  .chapter-intro-icon { margin:auto; }
+  .journey-grid, .governance-grid { grid-template-columns:1fr; }
+  .portfolio-rule { grid-template-columns:1fr; text-align:center; }
+  .portfolio-rule-icon { margin:auto; }
+}
+@media print {
+  .chapter-shell { margin:16px 0 24px; }
+  .journey-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; }
+  .journey-card { min-height:auto; padding:10px; break-inside:avoid; box-shadow:none; }
+  .journey-question { min-height:auto; }
+  .governance-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; }
+  .governance-card { padding:9px; break-inside:avoid; box-shadow:none; }
+  .chapter-intro, .portfolio-rule { box-shadow:none; }
+}
+
 .opportunity-directory { margin:18px 0 34px; }
 .opportunity-section { margin:28px 0 34px; }
 .opportunity-section-title {
@@ -1088,36 +1298,138 @@ li { margin-bottom: 5px; }
 
 <!-- ============ الفصل 1 ============ -->
 <h1 id="ch1">1. كيف تستخدم هذه المحفظة</h1>
-<p>هذه النسخة تعيد بناء الملف من كونه مجموعة أفكار تفصيلية في ثمانية محاور إلى نظام محفظة كامل: سجل للفرص، وبنك أفكار تحت كل فرصة، ثم مسار موحد يحوّل الفكرة المختارة إلى مشروع جاهز للتقديم والتنفيذ والقياس والإغلاق.</p>
+<section class="chapter-shell" aria-label="مسار استخدام المحفظة">
+  <div class="chapter-intro">
+    <div class="chapter-intro-icon">
+      <re-icon icon="map" weight="Outline" size="28" color="currentColor"></re-icon>
+    </div>
+    <p>
+      هذه المحفظة ليست قائمة أفكار فقط؛ بل مسار عمل متكامل يبدأ من اختيار الفرصة والفكرة،
+      ثم يمر بالتحقق والتصميم والميزانية والتقديم والتنفيذ وقياس الأثر، حتى يصل إلى الإغلاق الموثق.
+    </p>
+  </div>
 
-<table>
-  <thead><tr><th>المرحلة</th><th>بوابة القرار</th><th>المخرج الإلزامي</th></tr></thead>
-  <tbody>
-    <tr><td>الفكرة</td><td>هل تعالج مشكلة موثقة؟</td><td>مذكرة فكرة من صفحة واحدة</td></tr>
-    <tr><td>التحقق</td><td>هل المستفيد والفرصة مؤهلان؟</td><td>أدلة احتياج ومعايير استحقاق</td></tr>
-    <tr><td>التصميم</td><td>هل النطاق والمخرجات قابلة للقياس؟</td><td>ميثاق مشروع وخطة تنفيذ</td></tr>
-    <tr><td>الميزانية</td><td>هل التكلفة واقعية ويمكن تدقيقها؟</td><td>ميزانية وعروض/دراسة سوق</td></tr>
-    <tr><td>التقديم</td><td>هل الملف مكتمل ومتوافق؟</td><td>حزمة رفع واعتمادات</td></tr>
-    <tr><td>التنفيذ</td><td>هل الإنجاز مطابق للعقد؟</td><td>محاضر تقدم واستلام</td></tr>
-    <tr><td>الأثر</td><td>هل تحقق تغير قابل للإثبات؟</td><td>خط أساس وقياس بعدي</td></tr>
-    <tr><td>الإغلاق</td><td>هل أُغلقت ماليًا وفنيًا؟</td><td>تقرير ختامي ودروس واستدامة</td></tr>
-  </tbody>
-</table>
+  <div class="journey-grid">
+    <article class="journey-card" data-tone="idea">
+      <div class="journey-icon"><re-icon icon="lightbulb" weight="Outline" size="25" color="currentColor"></re-icon></div>
+      <span class="journey-title">الفكرة</span>
+      <p class="journey-question">هل تعالج مشكلة موثقة؟</p>
+      <span class="journey-output"><span class="journey-output-label">المخرج الإلزامي</span>مذكرة فكرة من صفحة واحدة</span>
+    </article>
 
-<div class="gate">قاعدة المحفظة — لا تتحول كل فكرة إلى ملف طويل. يُختار من بنك الأفكار ما يحقق أعلى جاهزية وأثر وقابلية تمويل، ثم يمر عبر بوابات القرار حتى الإغلاق.</div>
+    <article class="journey-card" data-tone="verify">
+      <div class="journey-icon"><re-icon icon="user-check" weight="Outline" size="25" color="currentColor"></re-icon></div>
+      <span class="journey-title">التحقق</span>
+      <p class="journey-question">هل المستفيد والفرصة مؤهلان؟</p>
+      <span class="journey-output"><span class="journey-output-label">المخرج الإلزامي</span>أدلة احتياج ومعايير استحقاق</span>
+    </article>
+
+    <article class="journey-card" data-tone="design">
+      <div class="journey-icon"><re-icon icon="clipboard-text" weight="Outline" size="25" color="currentColor"></re-icon></div>
+      <span class="journey-title">التصميم</span>
+      <p class="journey-question">هل النطاق والمخرجات قابلة للقياس؟</p>
+      <span class="journey-output"><span class="journey-output-label">المخرج الإلزامي</span>ميثاق مشروع وخطة تنفيذ</span>
+    </article>
+
+    <article class="journey-card" data-tone="budget">
+      <div class="journey-icon"><re-icon icon="receipt-search" weight="Outline" size="25" color="currentColor"></re-icon></div>
+      <span class="journey-title">الميزانية</span>
+      <p class="journey-question">هل التكلفة واقعية ويمكن تدقيقها؟</p>
+      <span class="journey-output"><span class="journey-output-label">المخرج الإلزامي</span>ميزانية وعروض / دراسة سوق</span>
+    </article>
+
+    <article class="journey-card" data-tone="submit">
+      <div class="journey-icon"><re-icon icon="document-upload" weight="Outline" size="25" color="currentColor"></re-icon></div>
+      <span class="journey-title">التقديم</span>
+      <p class="journey-question">هل الملف مكتمل ومتوافق؟</p>
+      <span class="journey-output"><span class="journey-output-label">المخرج الإلزامي</span>حزمة رفع واعتمادات</span>
+    </article>
+
+    <article class="journey-card" data-tone="execute">
+      <div class="journey-icon"><re-icon icon="checklist" weight="Outline" size="25" color="currentColor"></re-icon></div>
+      <span class="journey-title">التنفيذ</span>
+      <p class="journey-question">هل الإنجاز مطابق للعقد؟</p>
+      <span class="journey-output"><span class="journey-output-label">المخرج الإلزامي</span>محاضر تقدم واستلام</span>
+    </article>
+
+    <article class="journey-card" data-tone="impact">
+      <div class="journey-icon"><re-icon icon="chart-line" weight="Outline" size="25" color="currentColor"></re-icon></div>
+      <span class="journey-title">الأثر</span>
+      <p class="journey-question">هل تحقق تغير قابل للإثبات؟</p>
+      <span class="journey-output"><span class="journey-output-label">المخرج الإلزامي</span>خط أساس وقياس بعدي</span>
+    </article>
+
+    <article class="journey-card" data-tone="close">
+      <div class="journey-icon"><re-icon icon="archive-check" weight="Outline" size="25" color="currentColor"></re-icon></div>
+      <span class="journey-title">الإغلاق</span>
+      <p class="journey-question">هل أُغلقت ماليًا وفنيًا؟</p>
+      <span class="journey-output"><span class="journey-output-label">المخرج الإلزامي</span>تقرير ختامي ودروس واستدامة</span>
+    </article>
+  </div>
+
+  <div class="portfolio-rule">
+    <div class="portfolio-rule-icon">
+      <re-icon icon="shield-check" weight="Outline" size="23" color="currentColor"></re-icon>
+    </div>
+    <p><strong>قاعدة المحفظة:</strong> لا تتحول كل فكرة إلى ملف طويل. يُختار من بنك الأفكار ما يحقق أعلى جاهزية وأثر وقابلية تمويل، ثم يمر عبر بوابات القرار حتى الإغلاق.</p>
+  </div>
+</section>
 
 <!-- ============ الفصل 2 ============ -->
 <h1 id="ch2">2. الإطار التنفيذي والحوكمي المشترك</h1>
-<ul>
-  <li><strong>الاستحقاق:</strong> معايير مكتوبة ووثائق إثبات ومنع الازدواجية.</li>
-  <li><strong>الشراء والتعاقد:</strong> مواصفات فنية، مقارنة عروض أو دراسة سوق، عقد يحدد الجودة والضمان والتسليم.</li>
-  <li><strong>الصرف:</strong> دفعات مرتبطة بمراحل الإنجاز ومحاضر الاستلام، لا بالفواتير وحدها.</li>
-  <li><strong>التوثيق:</strong> ملف إلكتروني موحد للمستفيد والعقود والفواتير ومحاضر الاستلام والصور والموافقات.</li>
-  <li><strong>قياس الأثر:</strong> خط أساس قبل التنفيذ ومؤشرات مخرج ونتيجة بعد التنفيذ.</li>
-  <li><strong>المخاطر:</strong> سجل مخاطر بمالك لكل خطر وإجراء استجابة ومؤشرات إنذار.</li>
-  <li><strong>تعارض المصالح:</strong> إفصاح ومراجعة قبل الترسية أو اعتماد المورد.</li>
-  <li><strong>الإغلاق:</strong> إقفال مالي وفني، انحرافات، أثر، أصول، التزامات، دروس مستفادة، وخطة ما بعد الإغلاق.</li>
-</ul>
+<section class="chapter-shell" aria-label="الإطار التنفيذي والحوكمي">
+  <div class="chapter-intro">
+    <div class="chapter-intro-icon">
+      <re-icon icon="shield-security" weight="Outline" size="28" color="currentColor"></re-icon>
+    </div>
+    <p>
+      مجموعة ضوابط مشتركة تحكم جميع المشاريع داخل المحفظة، بهدف رفع جودة القرار،
+      وضبط التنفيذ، وحماية المستفيدين والجهة، وتحسين قابلية التحقق من النتائج والإغلاق.
+    </p>
+  </div>
+
+  <div class="governance-grid">
+    <article class="governance-card">
+      <div class="governance-icon"><re-icon icon="user-check" weight="Outline" size="23" color="currentColor"></re-icon></div>
+      <div><h3>الاستحقاق</h3><p>معايير مكتوبة ووثائق إثبات ومنع الازدواجية.</p></div>
+    </article>
+
+    <article class="governance-card">
+      <div class="governance-icon"><re-icon icon="receipt-search" weight="Outline" size="23" color="currentColor"></re-icon></div>
+      <div><h3>الشراء والتعاقد</h3><p>مواصفات فنية، مقارنة عروض أو دراسة سوق، وعقد يحدد الجودة والضمان والتسليم.</p></div>
+    </article>
+
+    <article class="governance-card">
+      <div class="governance-icon"><re-icon icon="hand-money" weight="Outline" size="23" color="currentColor"></re-icon></div>
+      <div><h3>الصرف</h3><p>دفعات مرتبطة بمراحل الإنجاز ومحاضر الاستلام، لا بالفواتير وحدها.</p></div>
+    </article>
+
+    <article class="governance-card">
+      <div class="governance-icon"><re-icon icon="folder-files" weight="Outline" size="23" color="currentColor"></re-icon></div>
+      <div><h3>التوثيق</h3><p>ملف إلكتروني موحد للمستفيد والعقود والفواتير ومحاضر الاستلام والصور والموافقات.</p></div>
+    </article>
+
+    <article class="governance-card">
+      <div class="governance-icon"><re-icon icon="chart-line" weight="Outline" size="23" color="currentColor"></re-icon></div>
+      <div><h3>قياس الأثر</h3><p>خط أساس قبل التنفيذ ومؤشرات مخرج ونتيجة بعد التنفيذ.</p></div>
+    </article>
+
+    <article class="governance-card">
+      <div class="governance-icon"><re-icon icon="shield-alert" weight="Outline" size="23" color="currentColor"></re-icon></div>
+      <div><h3>المخاطر</h3><p>سجل مخاطر بمالك لكل خطر وإجراء استجابة ومؤشرات إنذار.</p></div>
+    </article>
+
+    <article class="governance-card">
+      <div class="governance-icon"><re-icon icon="shield-user" weight="Outline" size="23" color="currentColor"></re-icon></div>
+      <div><h3>تعارض المصالح</h3><p>إفصاح ومراجعة قبل الترسية أو اعتماد المورد.</p></div>
+    </article>
+
+    <article class="governance-card">
+      <div class="governance-icon"><re-icon icon="archive-check" weight="Outline" size="23" color="currentColor"></re-icon></div>
+      <div><h3>الإغلاق</h3><p>إقفال مالي وفني، انحرافات، أثر، أصول، التزامات، دروس مستفادة، وخطة ما بعد الإغلاق.</p></div>
+    </article>
+  </div>
+</section>
 
 <!-- ============ الفصل 3 ============ -->
 <h1 id="ch3">3. دليل الفرص (96 فرصة)</h1>
