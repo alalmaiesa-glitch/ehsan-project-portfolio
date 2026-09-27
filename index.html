@@ -2241,7 +2241,7 @@ tbody td { color:#26342f; font-weight:500; }
     <div class="excel-workbook-item"><strong>بطاقة الفكرة</strong><span>تجميع بيانات الفكرة والاحتياج والمصدر والحالة.</span></div>
     <div class="excel-workbook-item"><strong>مراجعة قبل البدء</strong><span>قائمة تحقق داخلية للحاجة والاستحقاق والموافقات والميزانية والمؤشرات.</span></div>
     <div class="excel-workbook-item"><strong>فحص ذاتي للجاهزية</strong><span>درجات من 1 إلى 5 مع أوزان وحساب تلقائي للنتيجة من 100.</span></div>
-    <div class="excel-workbook-item"><strong>سجل الأدلة والمصادر</strong><span>ربط الادعاءات والأرقام بالمصادر والأدلة والمسؤول عن التحقق.</span></div>
+    <div class="excel-workbook-item"><strong>توثيق المعلومات والمصادر</strong><span>توثيق المعلومات والأرقام المهمة وربطها بالمستند أو الرابط الذي يثبتها.</span></div>
   </div>
 
   <a class="excel-download-btn" href="downloads/project-workbook.xlsx" download>
@@ -3379,10 +3379,10 @@ function openEvidenceRegister(card) {
   const x=cardContext(card);
   const seed='الادعاء | الدليل المطلوب | المصدر | تاريخ التحقق | المسؤول | الحالة\n';
   const saved=evidenceSessionStore[x.id] || seed;
-  const html='<div class="modal-field"><label>سجل الأدلة والمصادر</label><textarea id="evidence-text" style="min-height:300px;">'+saved.replace(/</g,'&lt;')+'</textarea></div>'+
+  const html='<div class="modal-field"><label>توثيق المعلومات والمصادر</label><textarea id="evidence-text" style="min-height:300px;">'+saved.replace(/</g,'&lt;')+'</textarea></div>'+
     '<div class="modal-actions"><button class="primary-action" id="save-evidence">حفظ</button><button class="secondary-action" id="export-evidence">تصدير CSV</button></div>'+
     '<div class="local-note">استخدم سطرًا لكل ادعاء بصيغة: الادعاء | الدليل المطلوب | المصدر | تاريخ التحقق | المسؤول | الحالة. البيانات مؤقتة داخل الصفحة الحالية ولا تُحفظ بعد تحديث الصفحة أو إغلاقها.</div>';
-  const root=openPortfolioModal(iconLabel('archive-book','سجل الأدلة والمصادر — '+x.name,22),html);
+  const root=openPortfolioModal(iconLabel('archive-book','توثيق المعلومات والمصادر — '+x.name,22),html);
   root.querySelector('#save-evidence').addEventListener('click',function(){
     evidenceSessionStore[x.id]=root.querySelector('#evidence-text').value;
     const b=root.querySelector('#save-evidence'); const old=b.textContent; b.textContent='تم الحفظ'; setTimeout(function(){b.textContent=old;},1500);
@@ -3496,7 +3496,7 @@ function addButtonsToCards() {
     readySec.innerHTML='<div class="tool-section-title">'+iconLabel('clipboard-check','إدارة الجاهزية',18)+' <span class="readiness-badge">الجاهزية: 0/10</span></div><div class="tool-grid"></div>';
     const readyGrid=readySec.querySelector('.tool-grid');
     const rb=document.createElement('button'); rb.type='button'; rb.className='tool-btn tool-ready'; rb.innerHTML=iconLabel('checklist','فحص الجاهزية',17); rb.addEventListener('click',function(){openReadiness(card);});
-    const eb=document.createElement('button'); eb.type='button'; eb.className='tool-btn tool-evidence'; eb.innerHTML=iconLabel('archive-book','سجل الأدلة والمصادر',17); eb.addEventListener('click',function(){openEvidenceRegister(card);});
+    const eb=document.createElement('button'); eb.type='button'; eb.className='tool-btn tool-evidence'; eb.innerHTML=iconLabel('archive-book','توثيق المعلومات والمصادر',17); eb.addEventListener('click',function(){openEvidenceRegister(card);});
     const gb=document.createElement('button'); gb.type='button'; gb.className='tool-btn'; gb.innerHTML=iconLabel('search-status','تحليل النواقص',17); gb.addEventListener('click',function(){openReviewTool(card,'gaps');});
     readyGrid.appendChild(rb); readyGrid.appendChild(eb); readyGrid.appendChild(gb);
     wrap.appendChild(readySec);
