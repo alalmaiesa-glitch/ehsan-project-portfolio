@@ -332,12 +332,89 @@ li { margin-bottom: 5px; }
   margin-bottom: 12px;
 }
 .toc {
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 20px 28px; margin: 24px 0;
+  background: linear-gradient(180deg,#fbfdfc 0%,#f6faf8 100%);
+  border: 1px solid #dce7e3;
+  border-radius: 18px;
+  padding: 24px;
+  margin: 28px 0 36px;
+  box-shadow: 0 8px 26px rgba(20,67,52,.055);
 }
-.toc a { color: var(--primary); text-decoration: none; }
+.toc-head { margin-bottom:18px; }
+.toc-head h2 {
+  margin:0 0 4px;
+  padding:0;
+  border:0;
+  background:none;
+  color:var(--primary);
+  font-size:18pt;
+}
+.toc-head p {
+  margin:0;
+  color:#718079;
+  font-size:10.5pt;
+}
+.toc-groups {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px;
+}
+.toc-group {
+  background:#fff;
+  border:1px solid #e0e8e5;
+  border-radius:14px;
+  padding:15px;
+}
+.toc-group-title {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:#244b40;
+  font-size:11pt;
+  font-weight:800;
+  padding-bottom:9px;
+  margin-bottom:7px;
+  border-bottom:1px solid #edf1ef;
+}
+.toc-links {
+  display:grid;
+  gap:4px;
+}
+.toc-link {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  min-height:39px;
+  padding:8px 9px;
+  border-radius:9px;
+  color:#344b44;
+  text-decoration:none;
+  font-size:10.3pt;
+  transition:background .17s ease,color .17s ease,transform .17s ease;
+}
+.toc-link:hover {
+  background:#eef6f3;
+  color:var(--primary);
+  transform:translateX(-2px);
+}
+.toc-link-index {
+  width:27px;
+  height:27px;
+  flex:0 0 27px;
+  display:grid;
+  place-items:center;
+  border-radius:8px;
+  background:#eef5f2;
+  color:var(--primary);
+  font-size:8.5pt;
+  font-weight:800;
+}
+.toc-link-download .toc-link-index {
+  background:#f7f0d8;
+  color:#896d17;
+}
+@media (max-width:700px) {
+  .toc-groups { grid-template-columns:1fr; }
+}
 
 .opportunity-directory { margin:18px 0 34px; }
 .opportunity-section { margin:28px 0 34px; }
@@ -967,20 +1044,47 @@ li { margin-bottom: 5px; }
 </div>
 
 <!-- ============ الدليل ============ -->
-<div class="toc">
-  <h2>الدليل</h2>
-  <ol>
-    <li><a href="#ch1">كيف تستخدم هذه المحفظة</a></li>
-    <li><a href="#ch2">الإطار التنفيذي والحوكمي المشترك</a></li>
-    <li><a href="#ch3">دليل الفرص (96 فرصة)</a></li>
-    <li><a href="#ch4">بنك الأفكار لكل فرصة</a></li>
-    <li><a href="#ch5">محفظة نوعية لذوي الإعاقة</a></li>
-    <li><a href="#ch6">الملحق التفصيلي — 80 مشروعًا</a></li>
-    <li><a href="#ch7">قوالب الإدارة</a></li>
-    <li><a href="#ch8">مصفوفة التقييم</a></li>
-    <li><a href="#attachments"><span class="reicon-inline"><re-icon icon="document-download" weight="Outline" size="17" color="currentColor"></re-icon></span>نماذج جاهزة للتحميل</a></li>
-  </ol>
-</div>
+<nav class="toc" aria-label="دليل المحفظة">
+  <div class="toc-head">
+    <h2>الدليل</h2>
+    <p>وصول سريع إلى أقسام المحفظة حسب الغرض من الاستخدام.</p>
+  </div>
+
+  <div class="toc-groups">
+    <section class="toc-group">
+      <div class="toc-group-title">ابدأ هنا</div>
+      <div class="toc-links">
+        <a class="toc-link" href="#ch1"><span class="toc-link-index">01</span><span>كيف تستخدم هذه المحفظة</span></a>
+        <a class="toc-link" href="#ch2"><span class="toc-link-index">02</span><span>الإطار التنفيذي والحوكمي المشترك</span></a>
+      </div>
+    </section>
+
+    <section class="toc-group">
+      <div class="toc-group-title">الفرص والمشاريع</div>
+      <div class="toc-links">
+        <a class="toc-link" href="#ch3"><span class="toc-link-index">03</span><span>دليل الفرص — 96 فرصة</span></a>
+        <a class="toc-link" href="#ch4"><span class="toc-link-index">04</span><span>بنك الأفكار لكل فرصة</span></a>
+        <a class="toc-link" href="#ch5"><span class="toc-link-index">05</span><span>محفظة نوعية لذوي الإعاقة</span></a>
+        <a class="toc-link" href="#ch6"><span class="toc-link-index">06</span><span>المشاريع المطورة — 80 مشروعًا</span></a>
+      </div>
+    </section>
+
+    <section class="toc-group">
+      <div class="toc-group-title">الإدارة والتقييم</div>
+      <div class="toc-links">
+        <a class="toc-link" href="#ch7"><span class="toc-link-index">07</span><span>قوالب إدارة المشروع</span></a>
+        <a class="toc-link" href="#ch8"><span class="toc-link-index">08</span><span>مصفوفة التقييم قبل الرفع</span></a>
+      </div>
+    </section>
+
+    <section class="toc-group">
+      <div class="toc-group-title">النماذج والتحميل</div>
+      <div class="toc-links">
+        <a class="toc-link toc-link-download" href="#attachments"><span class="toc-link-index">09</span><span>نماذج Word جاهزة للتحميل</span></a>
+      </div>
+    </section>
+  </div>
+</nav>
 
 <!-- ============ الفصل 1 ============ -->
 <h1 id="ch1">1. كيف تستخدم هذه المحفظة</h1>
