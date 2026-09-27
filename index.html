@@ -574,6 +574,15 @@ li { margin-bottom: 5px; }
 .floating-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
 
+.portfolio-dashboard-domains-only {
+  padding-top: 6px;
+}
+.portfolio-dashboard-domains-only .work-domain-selector {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
 .portfolio-dashboard {
   margin: 22px 0 28px;
   padding: 18px;
@@ -907,14 +916,7 @@ li { margin-bottom: 5px; }
   </div>
 </section>
 
-<div id="portfolio-dashboard" class="portfolio-dashboard">
-  <div class="dashboard-title">لوحة المحفظة</div>
-  <div class="dashboard-grid">
-    <div class="dashboard-card"><span class="dashboard-number" id="dash-opps">96</span><span class="dashboard-label">فرصة</span></div>
-    <div class="dashboard-card"><span class="dashboard-number" id="dash-developed">80</span><span class="dashboard-label">مشروع مطور</span></div>
-    <div class="dashboard-card"><span class="dashboard-number" id="dash-total">176</span><span class="dashboard-label">إجمالي البطاقات</span></div>
-    </div>
-
+<div id="portfolio-dashboard" class="portfolio-dashboard portfolio-dashboard-domains-only">
   <div id="work-domain-selector" class="work-domain-selector">
     <div class="work-domain-title">حدد مجال عملك</div>
     <div class="work-domain-subtitle">اختر المجال للوصول مباشرة إلى الفرص والمشاريع ذات الصلة.</div>
@@ -2207,13 +2209,7 @@ function openEvidenceRegister(card) {
 }
 
 function buildDashboard() {
-  const opps=typeof OPPORTUNITIES!=='undefined' ? OPPORTUNITIES.length : 96;
-  let developed=0;
-  if(typeof APPENDIX_DATA!=='undefined') APPENDIX_DATA.forEach(function(s){ developed += s.projects.length; });
-  const set=function(id,val){ const el=document.getElementById(id); if(el) el.textContent=val; };
-  set('dash-opps',opps);
-  set('dash-developed',developed);
-  set('dash-total',opps+developed);
+  // لا توجد مؤشرات رقمية في واجهة الصفحة؛ بقي اختيار مجال العمل فقط.
 }
 
 function initWorkDomainSelector() {
