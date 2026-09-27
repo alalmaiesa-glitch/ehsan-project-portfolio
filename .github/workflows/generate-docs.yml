@@ -1,0 +1,38 @@
+name: Build Ehsan portfolio
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'source/portfolio.html'
+      - 'scripts/prepare_data.py'
+      - 'scripts/generate_docs.py'
+      - 'scripts/generate_site.py'
+      - '.github/workflows/generate-docs.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/prepare_data.py
+      - run: python scripts/generate_site.py
+      - run: python scripts/generate_docs.py
+      - name: Commit generated documents
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs index.html
+          if git diff --cached --quiet; then
+            echo "No generated changes"
+          else
+            git commit -m "Build interactive portfolio and 1,936 Word templates"
+            git push
+          fi
