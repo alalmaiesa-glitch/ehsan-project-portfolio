@@ -445,6 +445,97 @@ li { margin-bottom: 5px; }
   font-weight:500;
 }
 
+.excel-workbook-section {
+  margin:32px 0 38px;
+  padding:24px;
+  border:1px solid #dce7e3;
+  border-radius:18px;
+  background:linear-gradient(135deg,#fbfdfc 0%,#f1f6f4 100%);
+  box-shadow:0 8px 24px rgba(18,62,49,.05);
+}
+.excel-workbook-head {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:18px;
+}
+.excel-workbook-title {
+  margin:0 0 6px;
+  color:#0d4f40;
+  font-size:23pt;
+  line-height:1.35;
+  font-weight:800;
+}
+.excel-workbook-subtitle {
+  margin:0;
+  color:#40504a;
+  font-size:11pt;
+  line-height:1.8;
+}
+.excel-workbook-badge {
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 11px;
+  border-radius:999px;
+  background:#e8f3ef;
+  color:#0d5c4a;
+  border:1px solid #cfe0da;
+  font-size:9.5pt;
+  font-weight:800;
+}
+.excel-workbook-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin:16px 0 18px;
+}
+.excel-workbook-item {
+  padding:12px 13px;
+  border:1px solid #e0e8e5;
+  border-radius:12px;
+  background:#fff;
+}
+.excel-workbook-item strong {
+  display:block;
+  color:#173d33;
+  font-size:11pt;
+  margin-bottom:3px;
+}
+.excel-workbook-item span {
+  display:block;
+  color:#53615c;
+  font-size:9.4pt;
+  line-height:1.55;
+}
+.excel-download-btn {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:44px;
+  padding:10px 16px;
+  border-radius:10px;
+  background:#0d5c4a;
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  font-size:10.5pt;
+  box-shadow:0 6px 16px rgba(13,92,74,.13);
+}
+.excel-download-btn:hover { background:#0a4638; transform:translateY(-1px); }
+.excel-privacy-note {
+  margin-top:12px;
+  color:#56645f;
+  font-size:9.4pt;
+  line-height:1.65;
+}
+@media(max-width:700px){
+  .excel-workbook-head { flex-direction:column; }
+  .excel-workbook-grid { grid-template-columns:1fr; }
+}
+
 .feature-grid,
 .template-fields-grid,
 .activation-grid,
@@ -1705,10 +1796,9 @@ tbody td { color:#26342f; font-weight:500; }
     </section>
 
     <section class="toc-group">
-      <div class="toc-group-title">الإدارة والتقييم</div>
+      <div class="toc-group-title">ملف العمل التنفيذي</div>
       <div class="toc-links">
-        <a class="toc-link" href="#ch7"><span class="toc-link-index">07</span><span>نماذج وأدوات إعداد المشروع</span></a>
-        <a class="toc-link" href="#ch8"><span class="toc-link-index">08</span><span>فحص ذاتي لجاهزية المشروع قبل الرفع</span></a>
+        <a class="toc-link" href="#ch7"><span class="toc-link-index">07</span><span>ملف Excel لإعداد المشروع ومراجعته</span></a>
       </div>
     </section>
 
@@ -1897,95 +1987,37 @@ tbody td { color:#26342f; font-weight:500; }
 <div id="appendix"></div>
 
 <!-- ============ الفصل 7 ============ -->
-<h1 id="ch7">نماذج وأدوات إعداد المشروع</h1>
+<section id="ch7" class="excel-workbook-section">
+  <div class="excel-workbook-head">
+    <div>
+      <h1 class="excel-workbook-title">ملف العمل التنفيذي للمشروع</h1>
+      <p class="excel-workbook-subtitle">
+        ملف Excel مستقل وقابل للتعبئة يساعد الجمعية على إعداد المشروع ومراجعته داخليًا بدل إظهار أدوات تبدو تفاعلية داخل الموقع.
+      </p>
+    </div>
+    <span class="excel-workbook-badge">
+      <re-icon icon="document-download" weight="Outline" size="17" color="currentColor"></re-icon>
+      ملف Excel
+    </span>
+  </div>
 
-<h2>بطاقة الفكرة</h2>
-<div class="template-fields-grid">
-  <article class="template-field-card"><span class="field-tag">01</span><div><h3>اسم الفرصة</h3><p>يُستكمل قبل الانتقال للمرحلة التالية</p></div></article>
-  <article class="template-field-card"><span class="field-tag">02</span><div><h3>اسم الفكرة</h3><p>يُستكمل</p></div></article>
-  <article class="template-field-card"><span class="field-tag">03</span><div><h3>المشكلة</h3><p>يُستكمل</p></div></article>
-  <article class="template-field-card"><span class="field-tag">04</span><div><h3>الفئة المستهدفة</h3><p>يُستكمل</p></div></article>
-  <article class="template-field-card"><span class="field-tag">05</span><div><h3>حجم الاحتياج</h3><p>يُستكمل</p></div></article>
-  <article class="template-field-card"><span class="field-tag">06</span><div><h3>الحل المقترح</h3><p>يُستكمل</p></div></article>
-  <article class="template-field-card"><span class="field-tag">07</span><div><h3>النتيجة المتوقعة</h3><p>يُستكمل</p></div></article>
-  <article class="template-field-card"><span class="field-tag">08</span><div><h3>تقدير أولي للتكلفة</h3><p>يُستكمل</p></div></article>
-  <article class="template-field-card"><span class="field-tag">09</span><div><h3>المخاطر الأولية</h3><p>يُستكمل</p></div></article>
-  <article class="template-field-card"><span class="field-tag">10</span><div><h3>مصدر البيانات</h3><p>يُستكمل</p></div></article>
-</div>
+  <div class="excel-workbook-grid">
+    <div class="excel-workbook-item"><strong>بطاقة الفكرة</strong><span>تجميع بيانات الفكرة والاحتياج والمصدر والحالة.</span></div>
+    <div class="excel-workbook-item"><strong>مراجعة قبل البدء</strong><span>قائمة تحقق داخلية للحاجة والاستحقاق والموافقات والميزانية والمؤشرات.</span></div>
+    <div class="excel-workbook-item"><strong>فحص ذاتي للجاهزية</strong><span>درجات من 1 إلى 5 مع أوزان وحساب تلقائي للنتيجة من 100.</span></div>
+    <div class="excel-workbook-item"><strong>سجل الأدلة والمصادر</strong><span>ربط الادعاءات والأرقام بالمصادر والأدلة والمسؤول عن التحقق.</span></div>
+  </div>
 
-<h2>قائمة تحقق داخلية قبل بدء المشروع</h2>
-<div class="callout" style="margin-bottom:16px;">
-  <strong>تنبيه:</strong> هذه القائمة للمراجعة الداخلية قبل بدء المشروع، ولا تمثل موافقة أو اعتمادًا أو قرار تفعيل صادرًا عن منصة إحسان أو أي جهة مانحة.
-</div>
-<div class="activation-grid">
-  <article class="activation-card"><h3>هل الفرصة متاحة وقت التقديم؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
-  <article class="activation-card"><h3>هل المستفيد/الموقع مؤهل؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
-  <article class="activation-card"><h3>هل الحاجة موثقة؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
-  <article class="activation-card"><h3>هل توجد موافقات لازمة؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
-  <article class="activation-card"><h3>هل الميزانية مدعومة بعروض؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
-  <article class="activation-card"><h3>هل المؤشرات قابلة للقياس؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
-  <article class="activation-card"><h3>هل توجد جهة تتحمل التشغيل؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
-  <article class="activation-card"><h3>هل مخاطر السلامة مضبوطة؟</h3><div class="activation-footer"><span class="activation-state yesno">نعم / لا</span><span class="activation-state evidence">الدليل المطلوب</span></div></article>
-</div>
+  <a class="excel-download-btn" href="downloads/project-workbook.xlsx" download>
+    <re-icon icon="document-download" weight="Outline" size="19" color="currentColor"></re-icon>
+    <span>تحميل ملف العمل التنفيذي (Excel)</span>
+  </a>
 
-<h2>تقرير الإغلاق</h2>
-<p>نموذج تقرير الإغلاق متاح مباشرة تحت كل فرصة ومشروع ضمن مجموعة نماذج Word الخاصة به.</p>
-<button class="close-download-btn" type="button" onclick="downloadCloseReport()">
-  <span class="icon-button-content"><re-icon icon="document-download" weight="Outline" size="19" color="currentColor"></re-icon><span>تحميل نموذج تقرير الإغلاق (Word)</span></span>
-</button>
-
-<!-- ============ الفصل 8 ============ -->
-<h1 id="ch8">فحص ذاتي لجاهزية المشروع قبل الرفع</h1>
-<div class="callout" style="margin-bottom:16px;">
-  <strong>تنبيه:</strong> هذا الفحص أداة مساعدة ذاتية لمراجعة جاهزية المشروع، ولا يمثل تقييمًا أو اعتمادًا أو قبولًا من منصة إحسان أو أي جهة مانحة.
-</div>
-<div class="evaluation-grid">
-  <article class="evaluation-card">
-    <div class="evaluation-top"><h3>وضوح المشكلة</h3><span class="evaluation-weight">10%</span></div>
-    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="evaluation-evidence">الدليل / الملاحظة</div>
-  </article>
-  <article class="evaluation-card">
-    <div class="evaluation-top"><h3>وضوح المستفيد والاستحقاق</h3><span class="evaluation-weight">10%</span></div>
-    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="evaluation-evidence">الدليل / الملاحظة</div>
-  </article>
-  <article class="evaluation-card">
-    <div class="evaluation-top"><h3>جودة التصميم وقابلية القياس</h3><span class="evaluation-weight">15%</span></div>
-    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="evaluation-evidence">الدليل / الملاحظة</div>
-  </article>
-  <article class="evaluation-card">
-    <div class="evaluation-top"><h3>واقعية الميزانية</h3><span class="evaluation-weight">15%</span></div>
-    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="evaluation-evidence">الدليل / الملاحظة</div>
-  </article>
-  <article class="evaluation-card">
-    <div class="evaluation-top"><h3>جودة الشراء والتعاقد</h3><span class="evaluation-weight">10%</span></div>
-    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="evaluation-evidence">الدليل / الملاحظة</div>
-  </article>
-  <article class="evaluation-card">
-    <div class="evaluation-top"><h3>خطة التنفيذ والرقابة</h3><span class="evaluation-weight">10%</span></div>
-    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="evaluation-evidence">الدليل / الملاحظة</div>
-  </article>
-  <article class="evaluation-card">
-    <div class="evaluation-top"><h3>مؤشرات الأثر وخط الأساس</h3><span class="evaluation-weight">10%</span></div>
-    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="evaluation-evidence">الدليل / الملاحظة</div>
-  </article>
-  <article class="evaluation-card">
-    <div class="evaluation-top"><h3>خطة الإغلاق والاستدامة</h3><span class="evaluation-weight">10%</span></div>
-    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="evaluation-evidence">الدليل / الملاحظة</div>
-  </article>
-  <article class="evaluation-card">
-    <div class="evaluation-top"><h3>إدارة المخاطر والخصوصية</h3><span class="evaluation-weight">10%</span></div>
-    <div class="evaluation-score" aria-label="درجة من 1 إلى 5"><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="evaluation-evidence">الدليل / الملاحظة</div>
-  </article>
-</div>
+  <div class="excel-privacy-note">
+    يعمل الملف محليًا على جهاز المستخدم. لا يرسل الموقع محتوى الملف ولا يحفظ بيانات المستخدم أو الجهة.
+    كما أن نتيجة فحص الجاهزية داخل الملف تقدير ذاتي داخلي وليست تقييمًا أو اعتمادًا من منصة إحسان أو أي جهة مانحة.
+  </div>
+</section>
 
 <!-- ============ نماذج جاهزة للتحميل ============ -->
 <div id="attachments" style="
@@ -2004,6 +2036,23 @@ tbody td { color:#26342f; font-weight:500; }
     لا توجد مرفقات مخفية داخل الصفحة أو ملف PDF.
     استخدم الأزرار التالية لتنزيل النماذج مباشرة بصيغة Word.
   </p>
+
+  <div style="
+    display: inline-block; width: 80%; max-width: 550px;
+    padding: 30px 40px; background: white;
+    border: 2px solid #0d5c4a; border-radius: 12px;
+    margin-bottom: 30px; text-align: right;
+    box-shadow: 0 4px 12px rgba(13, 92, 74, 0.1);">
+    <div style="color:#0d5c4a;margin-bottom:8px;"><re-icon icon="document-download" weight="Outline" size="42" color="currentColor"></re-icon></div>
+    <h2 style="color:#0d5c4a;margin:0 0 10px;font-size:18pt;">ملف العمل التنفيذي للمشروع</h2>
+    <p style="color:#3f4b46;font-size:12pt;margin:0 0 15px;">
+      ملف Excel قابل للتعبئة يضم بطاقة الفكرة، المراجعة قبل البدء، فحص الجاهزية الذاتي، وسجل الأدلة.
+    </p>
+    <a class="excel-download-btn" href="downloads/project-workbook.xlsx" download>
+      <re-icon icon="document-download" weight="Outline" size="19" color="currentColor"></re-icon>
+      <span>تحميل ملف العمل التنفيذي (Excel)</span>
+    </a>
+  </div>
 
   <div style="
     display: inline-block; width: 80%; max-width: 550px;
