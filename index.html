@@ -180,6 +180,22 @@ li { margin-bottom: 5px; }
   transition: transform .2s ease, box-shadow .2s ease;
 }
 .github-form-link:hover { transform: translateY(-2px); box-shadow: 0 3px 10px rgba(0,0,0,.12); }
+.ai-prompt-btn {
+  display:block;
+  text-align:center;
+  width:100%;
+  border-radius:7px;
+  padding:8px 7px;
+  font-size:10pt;
+  font-weight:bold;
+  border:1px solid #6f5b91;
+  background:#f2ecfb;
+  color:#4f3b74;
+  cursor:pointer;
+  font-family:inherit;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.ai-prompt-btn:hover { transform:translateY(-2px); box-shadow:0 3px 10px rgba(0,0,0,.12); }
 .phase-idea { background:#e8f3ef; color:#0d5c4a; border-color:#8db9ae; }
 .phase-verify { background:#faf3dd; color:#8a6814; border-color:#d8bd62; }
 .phase-execute { background:#e8f0f8; color:#1e5a8a; border-color:#8fb0cc; }
@@ -1216,6 +1232,81 @@ function downloadBlob(content, filename) {
   setTimeout(() => URL.revokeObjectURL(url), 100);
 }
 
+function getAIPromptTextFromCard(card) {
+  const project = card.dataset.name || 'مشروع جديد';
+  const field = card.dataset.field || '[يحدد حسب المشروع]';
+  const funding = card.dataset.fund || '[يحدد حسب الفرصة]';
+
+  return `أنت مستشار أول في تصميم وإدارة المشاريع التنموية وغير الربحية وقياس الأثر. حوّل الفكرة التالية إلى دراسة مشروع تنفيذية متكاملة من الفكرة حتى الإغلاق.
+
+بيانات المشروع:
+- اسم الفرصة/المشروع: ${project}
+- المجال: ${field}
+- مسار التمويل: ${funding}
+
+قواعد إلزامية:
+1) لا تختلق أرقامًا أو نسبًا أو اشتراطات أو مصادر أو موافقات.
+2) ضع [يحتاج تحقق] لأي معلومة غير متاحة، و[افتراض عمل] لأي افتراض تستخدمه لاستكمال المسودة.
+3) لا تنسب أي متطلب إلى منصة إحسان أو جهة تنظيمية إلا إذا كان ضمن مصدر موثق مقدم لك.
+4) لمسارات الزكاة افصل بوضوح بين أهلية المصرف، أهلية المستفيد، والبيانات التي تحتاج تحققًا.
+5) اربط كل هدف بمؤشر ومصدر تحقق، وكل خطر بمالك وإجراء استجابة.
+6) ميّز بين المخرجات Outputs والنتائج Outcomes والأثر Impact.
+7) راعِ الخصوصية وتقليل البيانات الحساسة.
+
+أنشئ الدراسة بالترتيب التالي:
+1. الملخص التنفيذي.
+2. المشكلة والاحتياج والأدلة المطلوبة.
+3. الفئة المستهدفة ومعايير الاستحقاق ومنع الازدواجية.
+4. نظرية التغيير.
+5. الهدف العام والأهداف التفصيلية SMART.
+6. نطاق المشروع وما هو خارج النطاق.
+7. نموذج التدخل ورحلة المستفيد/الخدمة.
+8. خطة التنفيذ والجدول الزمني والمعالم الرئيسية.
+9. أصحاب المصلحة والحوكمة ومصفوفة RACI.
+10. الميزانية التفصيلية مع فصل التقديرات عما يحتاج عروض أسعار.
+11. الشراء والتعاقد ومعايير الترسية والضمان والاستلام.
+12. سجل المخاطر: الاحتمال، الأثر، الاستجابة، المالك ومؤشرات الإنذار.
+13. مؤشرات الأداء وقياس الأثر: خط الأساس، المستهدف، طريقة الحساب، المصدر والدورية.
+14. الجودة والمتابعة والتقارير وإدارة التغيير.
+15. الاستدامة والتشغيل والصيانة وخطة الخروج.
+16. خطة الإغلاق المالي والفني والتعاقدي وقياس النتائج.
+17. قائمة الأدلة المطلوبة من الاحتياج حتى الإغلاق.
+18. بوابات القرار Go / Revise / Stop في كل مرحلة.
+19. قائمة النواقص والأسئلة الحرجة، بحد أقصى 12 سؤالًا.
+
+صيغة الإخراج:
+- اكتب بالعربية المهنية الواضحة.
+- استخدم جداول للميزانية، الخطة الزمنية، المؤشرات، المخاطر، RACI وقائمة الأدلة.
+- لا تستخدم أرقامًا إلا إذا كانت مقدمة أو عرّفتها صراحة كافتراض قابل للتعديل.
+- ضع قسمًا بعنوان «سجل الافتراضات ونقاط التحقق».
+- اختم بصفحة «جاهزية المشروع للرفع/التمويل» تشمل ما اكتمل وما بقي وما يمنع البدء.
+
+ابدأ الآن بإنتاج الدراسة كاملة من الفكرة حتى الإغلاق.`;
+}
+
+async function copyAIPromptFromCard(button) {
+  const card = button.closest('.project-card, .opp-card');
+  if (!card) return;
+  const prompt = getAIPromptTextFromCard(card);
+  const original = button.textContent;
+
+  try {
+    await navigator.clipboard.writeText(prompt);
+    button.textContent = '✅ تم نسخ المطالبة';
+  } catch (e) {
+    const ta = document.createElement('textarea');
+    ta.value = prompt;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    ta.remove();
+    button.textContent = '✅ تم نسخ المطالبة';
+  }
+  setTimeout(() => { button.textContent = original; }, 2200);
+}
+
 /* =====================================================
    إضافة الأزرار تحت كل بطاقة
    ===================================================== */
@@ -1250,7 +1341,7 @@ function addButtonsToCards() {
 
     const title = document.createElement('div');
     title.className = 'github-forms-title';
-    title.textContent = 'نماذج Word — 11 نموذج | يتضمن كل نموذج ملحق مطالبة الذكاء الاصطناعي';
+    title.textContent = 'نماذج Word — 11 نموذج + مطالبة الذكاء الاصطناعي';
     grid.appendChild(title);
 
     templates.forEach(function(t) {
@@ -1262,6 +1353,14 @@ function addButtonsToCards() {
       a.setAttribute('aria-label', 'تحميل ' + t.label + ' بصيغة Word');
       grid.appendChild(a);
     });
+
+    const aiBtn = document.createElement('button');
+    aiBtn.type = 'button';
+    aiBtn.className = 'ai-prompt-btn';
+    aiBtn.textContent = '🤖 مطالبة الذكاء الاصطناعي';
+    aiBtn.setAttribute('aria-label', 'نسخ المطالبة الاحترافية لتوليد دراسة المشروع');
+    aiBtn.addEventListener('click', function() { copyAIPromptFromCard(aiBtn); });
+    grid.appendChild(aiBtn);
 
     card.appendChild(grid);
   });
