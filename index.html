@@ -629,100 +629,154 @@ li { margin-bottom: 5px; }
   .chapter-intro, .portfolio-rule { box-shadow:none; }
 }
 
-.opportunity-directory { margin:18px 0 34px; }
-.opportunity-section { margin:28px 0 34px; }
+.opportunity-directory { margin:18px 0 38px; }
+.opportunity-section { margin:30px 0 38px; }
 .opportunity-section-title {
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  margin:0 0 14px;
-  padding:12px 16px;
+  margin:0 0 16px;
+  padding:13px 16px;
   border-radius:12px;
-  background:linear-gradient(90deg,#edf6f2 0%,#f9fbfa 100%);
-  border:1px solid #dce9e4;
-  color:var(--primary);
-  font-size:14pt;
+  background:#f5f8f6;
+  border:1px solid #dfe8e4;
+  color:#173f34;
+  font-size:14.5pt;
   font-weight:800;
+}
+.opportunity-section-count {
+  color:#46554f;
+  font-size:10pt;
+  font-weight:700;
 }
 .opportunity-cards {
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:12px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
 }
 .opportunity-link-card {
   position:relative;
-  min-height:150px;
-  padding:20px 15px 15px;
+  min-height:148px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
   border:1px solid #dce5e1;
   border-radius:16px;
   background:#fff;
-  color:inherit;
+  color:#173a31;
   text-decoration:none;
-  text-align:center;
-  box-shadow:0 4px 16px rgba(19,67,51,.05);
-  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+  box-shadow:0 4px 14px rgba(20,63,50,.045);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .22s ease;
 }
 .opportunity-link-card:hover {
   transform:translateY(-3px);
-  box-shadow:0 10px 26px rgba(19,67,51,.10);
-  border-color:#9ebfb3;
+  border-color:#0f5b4b;
+  background:#0f5b4b;
+  box-shadow:0 12px 28px rgba(15,91,75,.15);
+}
+.opportunity-card-main {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:18px 18px 14px;
+  transition:color .2s ease;
+}
+.opportunity-card-head {
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:10px;
 }
 .opportunity-number {
-  position:absolute;
-  top:10px;
-  left:10px;
-  min-width:30px;
-  height:30px;
+  flex:0 0 auto;
+  min-width:34px;
+  height:34px;
   padding:0 8px;
-  border-radius:999px;
-  background:#eef5f2;
-  color:var(--primary);
+  border-radius:10px;
+  background:#edf4f1;
+  color:#0c5a49;
   display:grid;
   place-items:center;
-  font-size:9pt;
+  font-size:10pt;
   font-weight:800;
+  transition:background .2s ease,color .2s ease;
 }
 .opportunity-name {
   display:block;
-  color:#183f34;
-  font-size:11pt;
+  flex:1;
+  color:#153a30;
+  font-size:12.7pt;
   font-weight:800;
-  line-height:1.5;
-  margin-bottom:9px;
+  line-height:1.55;
+  text-align:right;
+  transition:color .2s ease;
 }
-.opportunity-meta {
+.opportunity-meta-line {
   display:flex;
   flex-wrap:wrap;
-  justify-content:center;
-  gap:5px;
-  margin-top:auto;
-}
-.opportunity-pill {
-  display:inline-flex;
   align-items:center;
-  justify-content:center;
-  min-height:26px;
-  padding:4px 8px;
-  border-radius:999px;
-  background:#f4f6f5;
-  color:#5e6d67;
-  border:1px solid #e1e6e4;
-  font-size:8.4pt;
-  line-height:1.25;
+  gap:7px;
+  color:#475650;
+  font-size:9.8pt;
+  font-weight:600;
+  line-height:1.5;
+  transition:color .2s ease;
+}
+.opportunity-meta-dot {
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:#93a39d;
+  transition:background .2s ease;
+}
+.opportunity-card-footer {
+  min-height:42px;
+  padding:9px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  background:#f6f8f7;
+  border-top:1px solid #e7ece9;
+  color:#0d5c4a;
+  font-size:9.7pt;
+  font-weight:800;
+  transition:background .22s ease,color .22s ease,border-color .22s ease;
 }
 .opportunity-open {
-  margin-top:9px;
   display:inline-flex;
   align-items:center;
-  gap:5px;
-  color:var(--primary);
-  font-size:8.8pt;
-  font-weight:800;
+  gap:6px;
+}
+.opportunity-ideas-count {
+  color:#596761;
+  font-weight:700;
+  transition:color .22s ease;
+}
+.opportunity-link-card:hover .opportunity-name,
+.opportunity-link-card:hover .opportunity-meta-line {
+  color:#fff;
+}
+.opportunity-link-card:hover .opportunity-number {
+  background:rgba(255,255,255,.13);
+  color:#fff;
+}
+.opportunity-link-card:hover .opportunity-meta-dot {
+  background:rgba(255,255,255,.55);
+}
+.opportunity-link-card:hover .opportunity-card-footer {
+  background:#d0aa2d;
+  border-top-color:#d0aa2d;
+  color:#17352d;
+}
+.opportunity-link-card:hover .opportunity-ideas-count {
+  color:#17352d;
+}
+@media (max-width:720px) {
+  .opportunity-cards { grid-template-columns:1fr; }
+  .opportunity-link-card { min-height:138px; }
 }
 .project-card[id^="opp-card-"] { scroll-margin-top:24px; }
 
@@ -1768,22 +1822,34 @@ function buildOpportunitiesTable() {
   sections.forEach(sec => {
     const rows = OPPORTUNITIES.filter(o => o.n >= sec.from && o.n <= sec.to);
     html += '<section class="opportunity-section">';
-    html += '<div class="opportunity-section-title"><span>'+sec.title+'</span><span style="font-size:10pt;color:#42544d;font-weight:700;">'+rows.length+' فرصة</span></div>';
+    html += '<div class="opportunity-section-title"><span>'+sec.title+'</span><span class="opportunity-section-count">'+rows.length+' فرصة</span></div>';
     html += '<div class="opportunity-cards">';
+
     rows.forEach(o => {
       const target = 'opp-card-' + String(o.n).padStart(3,'0');
       html += `
         <a class="opportunity-link-card" href="#${target}" aria-label="فتح بطاقة ${o.name}">
-          <span class="opportunity-number">${o.n}</span>
-          <span class="opportunity-name">${o.name}</span>
-          <span class="opportunity-meta">
-            <span class="opportunity-pill">${o.field}</span>
-            <span class="opportunity-pill">${o.fund}</span>
-            <span class="opportunity-pill">${o.count} أفكار</span>
-          </span>
-          <span class="opportunity-open"><re-icon icon="arrow-left" weight="Outline" size="14" color="currentColor"></re-icon><span>فتح البطاقة</span></span>
+          <div class="opportunity-card-main">
+            <div class="opportunity-card-head">
+              <span class="opportunity-number">${o.n}</span>
+              <span class="opportunity-name">${o.name}</span>
+            </div>
+            <div class="opportunity-meta-line">
+              <span>${o.field}</span>
+              <span class="opportunity-meta-dot"></span>
+              <span>${o.fund}</span>
+            </div>
+          </div>
+          <div class="opportunity-card-footer">
+            <span class="opportunity-ideas-count">${o.count} أفكار</span>
+            <span class="opportunity-open">
+              <span>فتح البطاقة</span>
+              <re-icon icon="arrow-left" weight="Outline" size="15" color="currentColor"></re-icon>
+            </span>
+          </div>
         </a>`;
     });
+
     html += '</div></section>';
   });
   html += '</div>';
