@@ -242,6 +242,22 @@ li { margin-bottom: 5px; }
 .dashboard-number { display:block; font-size:22pt; font-weight:bold; color:var(--primary); line-height:1.1; }
 .dashboard-label { display:block; color:#666; font-size:10pt; margin-top:5px; }
 
+.work-domain-selector { margin-top:20px; padding-top:16px; border-top:1px solid #dfe9e5; }
+.work-domain-title { font-size:14pt; font-weight:bold; color:var(--primary); margin-bottom:4px; }
+.work-domain-subtitle { font-size:10.5pt; color:#666; margin-bottom:12px; }
+.work-domain-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(145px,1fr)); gap:10px; }
+.work-domain-btn {
+  border:1px solid #d5e2dd; background:#fff; border-radius:10px; padding:13px 10px;
+  font-family:inherit; cursor:pointer; text-align:center; transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.work-domain-btn:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.08); border-color:#9bbdb1; }
+.work-domain-icon { display:block; font-size:25pt; line-height:1.1; margin-bottom:7px; }
+.work-domain-label { display:block; font-weight:bold; color:#244c41; font-size:10.5pt; }
+.work-domain-count { display:block; color:#777; font-size:9pt; margin-top:4px; }
+.work-domain-reset { margin-top:10px; display:none; border:0; background:#eef5f2; color:#0d5c4a; padding:7px 12px; border-radius:999px; font-family:inherit; cursor:pointer; }
+.work-domain-reset.is-visible { display:inline-block; }
+.project-card.domain-hidden { display:none !important; }
+
 .project-tools { margin-top:14px; border:1px dashed var(--border); border-radius:10px; padding:12px; background:#fbfbfb; }
 .tool-section { margin-top:10px; }
 .tool-section:first-child { margin-top:0; }
@@ -339,8 +355,44 @@ li { margin-bottom: 5px; }
     <div class="dashboard-card"><span class="dashboard-number" id="dash-opps">96</span><span class="dashboard-label">فرصة</span></div>
     <div class="dashboard-card"><span class="dashboard-number" id="dash-developed">80</span><span class="dashboard-label">مشروع مطور</span></div>
     <div class="dashboard-card"><span class="dashboard-number" id="dash-total">176</span><span class="dashboard-label">إجمالي البطاقات</span></div>
-    <div class="dashboard-card"><span class="dashboard-number" id="dash-started">0</span><span class="dashboard-label">بدأ فحص جاهزيتها</span></div>
-    <div class="dashboard-card"><span class="dashboard-number" id="dash-ready">0</span><span class="dashboard-label">مكتملة الجاهزية 10/10</span></div>
+    </div>
+
+  <div id="work-domain-selector" class="work-domain-selector">
+    <div class="work-domain-title">حدد مجال عملك</div>
+    <div class="work-domain-subtitle">اختر المجال للوصول مباشرة إلى الفرص والمشاريع ذات الصلة.</div>
+    <div class="work-domain-grid">
+      <button class="work-domain-btn" type="button" data-domain="أسري واجتماعي|اجتماعي عام">
+        <span class="work-domain-icon">👨‍👩‍👧‍👦</span><span class="work-domain-label">الأسرة والمجتمع</span><span class="work-domain-count">23 فرصة</span>
+      </button>
+      <button class="work-domain-btn" type="button" data-domain="سكني ومعيشي">
+        <span class="work-domain-icon">🏠</span><span class="work-domain-label">السكن والمعيشة</span><span class="work-domain-count">19 فرصة</span>
+      </button>
+      <button class="work-domain-btn" type="button" data-domain="صحي وتأهيلي|الأطراف الصناعية للمتعففين|جلسات غسيل الكلى">
+        <span class="work-domain-icon">🩺</span><span class="work-domain-label">الصحة والتأهيل</span><span class="work-domain-count">38 فرصة/مشروع</span>
+      </button>
+      <button class="work-domain-btn" type="button" data-domain="تعليمي وتنموي">
+        <span class="work-domain-icon">🎓</span><span class="work-domain-label">التعليم والتنمية</span><span class="work-domain-count">13 فرصة</span>
+      </button>
+      <button class="work-domain-btn" type="button" data-domain="ديني وضيوف الرحمن">
+        <span class="work-domain-icon">🕋</span><span class="work-domain-label">ضيوف الرحمن والديني</span><span class="work-domain-count">12 فرصة</span>
+      </button>
+      <button class="work-domain-btn" type="button" data-domain="بيئي ومائي|غرس الأشجار لمكافحة التصحر|زراعة الأشجار|صهاريج المياه|توفير خزانات المياه|محطات المياه">
+        <span class="work-domain-icon">🌱</span><span class="work-domain-label">البيئة والمياه</span><span class="work-domain-count">57 فرصة/مشروع</span>
+      </button>
+      <button class="work-domain-btn" type="button" data-domain="تمكين اقتصادي">
+        <span class="work-domain-icon">💼</span><span class="work-domain-label">التمكين الاقتصادي</span><span class="work-domain-count">1 فرصة</span>
+      </button>
+      <button class="work-domain-btn" type="button" data-domain="وقف وتنمية مستدامة|عوائد صندوق إحسان الوقفي">
+        <span class="work-domain-icon">🌾</span><span class="work-domain-label">الوقف والاستدامة</span><span class="work-domain-count">11 فرصة/مشروع</span>
+      </button>
+      <button class="work-domain-btn" type="button" data-domain="مؤسسي وتشغيلي">
+        <span class="work-domain-icon">🏢</span><span class="work-domain-label">المؤسسي والتشغيلي</span><span class="work-domain-count">2 فرصة</span>
+      </button>
+      <button class="work-domain-btn" type="button" data-domain="ذوي الإعاقة">
+        <span class="work-domain-icon">♿</span><span class="work-domain-label">ذوو الإعاقة</span><span class="work-domain-count">مسار نوعي</span>
+      </button>
+    </div>
+    <button id="work-domain-reset" class="work-domain-reset" type="button">عرض جميع المجالات</button>
   </div>
 </div>
 
@@ -888,7 +940,7 @@ function buildAppendix() {
     html += `<h2>${section.title}</h2>`;
     section.projects.forEach(p => {
       html += `
-      <div class="project-card" data-doc-id="app-${String(p.n).padStart(3, '0')}" data-name="${p.name}" data-field="" data-fund="">
+      <div class="project-card" data-doc-id="app-${String(p.n).padStart(3, '0')}" data-name="${p.name}" data-field="${section.title.replace(/^المحور[^:]*:\s*/, '')}" data-fund="">
         <h3>${p.n}. ${p.name}</h3>
         <p><strong>الوصف:</strong> ${p.desc}</p>
         <p><strong>الميزانية التقديرية:</strong> ${p.budget}</p>
@@ -1551,16 +1603,52 @@ function openEvidenceRegister(card) {
 function buildDashboard() {
   const opps=typeof OPPORTUNITIES!=='undefined' ? OPPORTUNITIES.length : 96;
   let developed=0;
-  if(typeof APPENDIX_DATA!=='undefined') APPENDIX_DATA.forEach(function(s){developed += s.projects.length;});
-  let started=0, ready=0;
-  document.querySelectorAll('.project-card[data-doc-id], .opp-card[data-doc-id]').forEach(function(card){
-    const vals=getReadiness(card.dataset.docId);
-    const count=vals.filter(Boolean).length;
-    if(count>0) started++;
-    if(count===10) ready++;
-  });
+  if(typeof APPENDIX_DATA!=='undefined') APPENDIX_DATA.forEach(function(s){ developed += s.projects.length; });
   const set=function(id,val){ const el=document.getElementById(id); if(el) el.textContent=val; };
-  set('dash-opps',opps); set('dash-developed',developed); set('dash-total',opps+developed); set('dash-started',started); set('dash-ready',ready);
+  set('dash-opps',opps);
+  set('dash-developed',developed);
+  set('dash-total',opps+developed);
+}
+
+function initWorkDomainSelector() {
+  const buttons=Array.from(document.querySelectorAll('.work-domain-btn'));
+  const reset=document.getElementById('work-domain-reset');
+
+  function showAll() {
+    document.querySelectorAll('.project-card').forEach(function(card){ card.classList.remove('domain-hidden'); });
+    if(reset) reset.classList.remove('is-visible');
+  }
+
+  buttons.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      const raw=(btn.dataset.domain||'').split('|').map(function(x){return x.trim();}).filter(Boolean);
+
+      if(raw.includes('ذوي الإعاقة')) {
+        showAll();
+        const target=document.getElementById('ch5');
+        if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+        return;
+      }
+
+      document.querySelectorAll('.project-card').forEach(function(card){
+        const field=(card.dataset.field||'').trim();
+        const matched=raw.some(function(domain){
+          return field===domain || field.indexOf(domain)!==-1;
+        });
+        card.classList.toggle('domain-hidden',!matched);
+      });
+
+      if(reset) reset.classList.add('is-visible');
+      const target=document.getElementById('ch4');
+      if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+
+  if(reset) reset.addEventListener('click',function(){
+    showAll();
+    const target=document.getElementById('ch4');
+    if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+  });
 }
 
 function addButtonsToCards() {
@@ -1645,6 +1733,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // انتظر قليلًا حتى تُبنى البطاقات
   setTimeout(() => {
     addButtonsToCards();
+    initWorkDomainSelector();
     initGenerateAll();
   }, 100);
 });
