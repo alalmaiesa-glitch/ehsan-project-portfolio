@@ -228,6 +228,69 @@ li { margin-bottom: 5px; }
 .generate-all-btn { background: #c9a227; }
 .floating-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
+
+.portfolio-dashboard {
+  margin: 22px 0 28px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: linear-gradient(180deg,#fbfdfc,#f5faf8);
+}
+.dashboard-title { font-size: 16pt; font-weight: bold; color: var(--primary); margin-bottom: 12px; }
+.dashboard-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; }
+.dashboard-card { background:#fff; border:1px solid #d7e4df; border-radius:9px; padding:12px; text-align:center; }
+.dashboard-number { display:block; font-size:22pt; font-weight:bold; color:var(--primary); line-height:1.1; }
+.dashboard-label { display:block; color:#666; font-size:10pt; margin-top:5px; }
+
+.project-tools { margin-top:14px; border:1px dashed var(--border); border-radius:10px; padding:12px; background:#fbfbfb; }
+.tool-section { margin-top:10px; }
+.tool-section:first-child { margin-top:0; }
+.tool-section-title { font-weight:bold; color:var(--primary); font-size:11.5pt; margin-bottom:7px; padding-bottom:5px; border-bottom:1px solid #e2e2e2; }
+.tool-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; }
+.tool-btn, .package-link {
+  display:block; width:100%; box-sizing:border-box; border-radius:7px; padding:9px 8px;
+  font-family:inherit; font-size:10pt; font-weight:bold; text-align:center; cursor:pointer;
+  border:1px solid #9ab7ad; background:#fff; color:#0d5c4a; text-decoration:none;
+}
+.tool-btn:hover, .package-link:hover { transform:translateY(-1px); box-shadow:0 2px 8px rgba(0,0,0,.1); }
+.tool-ai { border-color:#8167a9; color:#4f3b74; background:#f4effb; }
+.tool-ready { border-color:#8db9ae; background:#e8f3ef; }
+.tool-evidence { border-color:#c9a227; color:#725b08; background:#faf3dd; }
+.tool-package { border-color:#2f75b5; color:#22598a; background:#edf5fc; }
+
+.lifecycle { display:flex; flex-wrap:wrap; gap:5px; margin:10px 0 12px; }
+.lifecycle-step { flex:1 1 80px; min-width:72px; text-align:center; padding:6px 5px; border-radius:999px; border:1px solid #ccd8d4; background:white; font-size:9pt; color:#49635b; }
+
+.portfolio-modal-backdrop {
+  position:fixed; inset:0; background:rgba(0,0,0,.48); z-index:9998; display:flex;
+  align-items:center; justify-content:center; padding:18px;
+}
+.portfolio-modal {
+  width:min(860px,96vw); max-height:90vh; overflow:auto; background:#fff; border-radius:12px;
+  box-shadow:0 18px 60px rgba(0,0,0,.28); padding:22px; direction:rtl; text-align:right;
+}
+.portfolio-modal h2 { margin-top:0; }
+.modal-close { float:left; border:0; background:#eee; border-radius:999px; width:36px; height:36px; cursor:pointer; font-size:16pt; }
+.modal-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; }
+.modal-field label { display:block; font-weight:bold; color:#444; margin-bottom:4px; }
+.modal-field input, .modal-field textarea, .modal-field select {
+  width:100%; box-sizing:border-box; border:1px solid #bbb; border-radius:7px; padding:9px;
+  font-family:inherit; font-size:11pt; direction:rtl; text-align:right;
+}
+.modal-field textarea { min-height:120px; resize:vertical; }
+.modal-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.modal-actions button { border:0; border-radius:7px; padding:9px 14px; font-family:inherit; font-weight:bold; cursor:pointer; }
+.primary-action { background:var(--primary); color:#fff; }
+.secondary-action { background:#eee; color:#333; }
+.readiness-list { display:grid; grid-template-columns:1fr; gap:8px; margin-top:12px; }
+.readiness-item { display:flex; gap:8px; align-items:flex-start; background:#fafafa; border:1px solid #e5e5e5; border-radius:7px; padding:8px; }
+.readiness-badge { display:inline-block; padding:4px 9px; border-radius:999px; background:#e8f3ef; color:#0d5c4a; font-weight:bold; }
+.local-note { margin-top:10px; padding:9px 11px; background:#f6f6f6; border-right:4px solid #999; color:#555; font-size:10pt; }
+@media print {
+  .project-tools .tool-btn, .project-tools .package-link { display:none !important; }
+  .lifecycle { display:flex !important; }
+}
+
 @media print {
   body { padding: 15mm; font-size: 11pt; max-width: 100%; }
   .cover { border-radius: 0; page-break-after: always; }
@@ -263,6 +326,17 @@ li { margin-bottom: 5px; }
 
 <div class="callout">
   <strong>صفة الوثيقة:</strong> وثيقة عمل داخلية لإعداد مشاريع قابلة للتقديم عبر فرص منصة إحسان والمانحين. ليست وثيقة صادرة عن منصة إحسان، وتخضع كل فرصة للتوفر الفعلي وضوابط المنصة والجهة والأنظمة وقت التقديم.
+</div>
+
+<div id="portfolio-dashboard" class="portfolio-dashboard">
+  <div class="dashboard-title">لوحة المحفظة</div>
+  <div class="dashboard-grid">
+    <div class="dashboard-card"><span class="dashboard-number" id="dash-opps">96</span><span class="dashboard-label">فرصة</span></div>
+    <div class="dashboard-card"><span class="dashboard-number" id="dash-developed">80</span><span class="dashboard-label">مشروع مطور</span></div>
+    <div class="dashboard-card"><span class="dashboard-number" id="dash-total">176</span><span class="dashboard-label">إجمالي البطاقات</span></div>
+    <div class="dashboard-card"><span class="dashboard-number" id="dash-started">0</span><span class="dashboard-label">بدأ فحص جاهزيتها</span></div>
+    <div class="dashboard-card"><span class="dashboard-number" id="dash-ready">0</span><span class="dashboard-label">مكتملة الجاهزية 10/10</span></div>
+  </div>
 </div>
 
 <!-- ============ الفهرس ============ -->
@@ -1284,86 +1358,268 @@ function getAIPromptTextFromCard(card) {
 ابدأ الآن بإنتاج الدراسة كاملة من الفكرة حتى الإغلاق.`;
 }
 
-async function copyAIPromptFromCard(button) {
-  const card = button.closest('.project-card, .opp-card');
-  if (!card) return;
-  const prompt = getAIPromptTextFromCard(card);
-  const original = button.textContent;
-
-  try {
-    await navigator.clipboard.writeText(prompt);
-    button.textContent = '✅ تم نسخ المطالبة';
-  } catch (e) {
-    const ta = document.createElement('textarea');
-    ta.value = prompt;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    ta.remove();
-    button.textContent = '✅ تم نسخ المطالبة';
+function copyTextValue(text, successButton) {
+  const done = function() {
+    if (!successButton) return;
+    const old = successButton.textContent;
+    successButton.textContent = '✅ تم النسخ';
+    setTimeout(function(){ successButton.textContent = old; }, 1800);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+  } else {
+    fallbackCopy(text); done();
   }
-  setTimeout(() => { button.textContent = original; }, 2200);
 }
 
-/* =====================================================
-   إضافة الأزرار تحت كل بطاقة
-   ===================================================== */
-function addButtonsToCards() {
-  const DOCS_BASE = 'docs';
-  const templates = [
-    { file:'idea-card.docx',          label:'بطاقة الفكرة',        icon:'🟢', phase:'phase-idea' },
-    { file:'project-study.docx',      label:'دراسة المشروع',       icon:'🟢', phase:'phase-idea' },
-    { file:'project-charter.docx',    label:'ميثاق المشروع',       icon:'🟢', phase:'phase-idea' },
-    { file:'eligibility.docx',        label:'معايير الاستحقاق',    icon:'🟡', phase:'phase-verify' },
-    { file:'social-research.docx',    label:'البحث الاجتماعي',     icon:'🟡', phase:'phase-verify' },
-    { file:'offers-comparison.docx',  label:'مقارنة العروض',       icon:'🔵', phase:'phase-execute' },
-    { file:'acceptance-minutes.docx', label:'محضر الاستلام',       icon:'🔵', phase:'phase-execute' },
-    { file:'progress-report.docx',    label:'التقرير المرحلي',     icon:'🔵', phase:'phase-execute' },
-    { file:'risk-register.docx',      label:'سجل المخاطر',         icon:'🔵', phase:'phase-execute' },
-    { file:'closure-report.docx',     label:'تقرير الإغلاق',       icon:'🟣', phase:'phase-close' },
-    { file:'evidence-checklist.docx', label:'قائمة الأدلة',        icon:'🟣', phase:'phase-close' }
-  ];
+function fallbackCopy(text) {
+  const ta=document.createElement('textarea');
+  ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+}
 
-  const cards = Array.from(document.querySelectorAll('.project-card, .opp-card'));
-  cards.forEach(function(card, index) {
-    let docId = card.dataset.docId;
-    // Fallback preserves compatibility if an older card has no data-doc-id.
-    if (!docId) {
-      docId = index < 96
-        ? 'opp-' + String(index + 1).padStart(3, '0')
-        : 'app-' + String(index - 95).padStart(3, '0');
-    }
+function closePortfolioModal() {
+  const el=document.getElementById('portfolio-modal-root');
+  if(el) el.remove();
+}
 
-    const grid = document.createElement('div');
-    grid.className = 'github-forms-grid';
+function openPortfolioModal(title, bodyHTML) {
+  closePortfolioModal();
+  const root=document.createElement('div');
+  root.id='portfolio-modal-root';
+  root.className='portfolio-modal-backdrop';
+  root.innerHTML='<div class="portfolio-modal"><button class="modal-close" type="button" aria-label="إغلاق">×</button><h2>'+title+'</h2>'+bodyHTML+'</div>';
+  document.body.appendChild(root);
+  root.querySelector('.modal-close').addEventListener('click', closePortfolioModal);
+  root.addEventListener('click', function(e){ if(e.target===root) closePortfolioModal(); });
+  return root;
+}
 
-    const title = document.createElement('div');
-    title.className = 'github-forms-title';
-    title.textContent = 'نماذج Word — 11 نموذج + مطالبة الذكاء الاصطناعي لتصميم مشروع';
-    grid.appendChild(title);
+function cardContext(card) {
+  return {
+    id: card.dataset.docId || 'project',
+    name: card.dataset.name || 'مشروع جديد',
+    field: card.dataset.field || '[يحدد حسب المشروع]',
+    fund: card.dataset.fund || '[يحدد حسب الفرصة]'
+  };
+}
 
-    templates.forEach(function(t) {
-      const a = document.createElement('a');
-      a.className = 'github-form-link ' + t.phase;
-      a.href = DOCS_BASE + '/' + docId + '/' + t.file + '?v=ai-appendix-2';
-      a.setAttribute('download', '');
-      a.textContent = t.icon + ' ' + t.label;
-      a.setAttribute('aria-label', 'تحميل ' + t.label + ' بصيغة Word');
-      grid.appendChild(a);
-    });
-
-    const aiBtn = document.createElement('button');
-    aiBtn.type = 'button';
-    aiBtn.className = 'ai-prompt-btn';
-    aiBtn.textContent = '🤖 مطالبة الذكاء الاصطناعي لتصميم مشروع';
-    aiBtn.setAttribute('aria-label', 'نسخ المطالبة الاحترافية لتوليد دراسة المشروع');
-    aiBtn.addEventListener('click', function() { copyAIPromptFromCard(aiBtn); });
-    grid.appendChild(aiBtn);
-
-    card.appendChild(grid);
+function openDesignAssistant(card) {
+  const x=cardContext(card);
+  const html =
+    '<div class="modal-grid">'+
+      '<div class="modal-field"><label>اسم الجمعية</label><input id="ai-org" placeholder="اسم الجمعية"></div>'+
+      '<div class="modal-field"><label>المدينة / المنطقة</label><input id="ai-city" placeholder="المدينة أو المنطقة"></div>'+
+      '<div class="modal-field"><label>عدد المستفيدين</label><input id="ai-count" placeholder="إن كان معروفًا"></div>'+
+      '<div class="modal-field"><label>الميزانية</label><input id="ai-budget" placeholder="إن كانت معروفة"></div>'+
+      '<div class="modal-field"><label>المدة</label><input id="ai-duration" placeholder="مثال: 6 أشهر"></div>'+
+      '<div class="modal-field"><label>قيود أو بيانات إضافية</label><textarea id="ai-notes" placeholder="مصادر، ضوابط، موافقات، ملاحظات..."></textarea></div>'+
+    '</div>'+
+    '<div class="modal-actions"><button class="primary-action" id="ai-build">إنشاء المطالبة</button></div>'+
+    '<div class="modal-field" id="ai-output-wrap" style="display:none;margin-top:14px;"><label>المطالبة الجاهزة</label><textarea id="ai-output" style="min-height:280px;"></textarea><div class="modal-actions"><button class="primary-action" id="ai-copy">نسخ المطالبة</button></div></div>'+
+    '<div class="local-note">البيانات التي تكتبها هنا تبقى في المتصفح حتى تقوم أنت بنسخ المطالبة واستخدامها في نموذج ذكاء اصطناعي.</div>';
+  const root=openPortfolioModal('🤖 مساعد تصميم المشروع — '+x.name, html);
+  root.querySelector('#ai-build').addEventListener('click', function(){
+    const extra =
+      '\n\nبيانات إضافية من الجمعية:\n'+
+      '- الجمعية: '+(root.querySelector('#ai-org').value || '[يحتاج تحقق]')+'\n'+
+      '- المدينة/المنطقة: '+(root.querySelector('#ai-city').value || '[يحتاج تحقق]')+'\n'+
+      '- عدد المستفيدين: '+(root.querySelector('#ai-count').value || '[يحتاج تحقق]')+'\n'+
+      '- الميزانية: '+(root.querySelector('#ai-budget').value || '[يحتاج تحقق]')+'\n'+
+      '- المدة: '+(root.querySelector('#ai-duration').value || '[يحتاج تحقق]')+'\n'+
+      '- قيود/بيانات إضافية: '+(root.querySelector('#ai-notes').value || '[لا توجد بيانات إضافية]');
+    root.querySelector('#ai-output').value=getAIPromptTextFromCard(card)+extra;
+    root.querySelector('#ai-output-wrap').style.display='block';
   });
+  root.querySelector('#ai-copy').addEventListener('click', function(){
+    copyTextValue(root.querySelector('#ai-output').value, root.querySelector('#ai-copy'));
+  });
+}
+
+function openReviewTool(card, mode) {
+  const x=cardContext(card);
+  const isReview=mode==='review';
+  const title=isReview ? '🔍 مراجعة مشروع — '+x.name : '🧠 استكمال النواقص — '+x.name;
+  const instruction=isReview
+    ? 'راجع الدراسة التالية مراجعة مهنية نقدية دون إعادة كتابتها بالكامل. اكتشف الثغرات والادعاءات غير الموثقة والأرقام بلا مصدر وضعف المؤشرات وتعارض النطاق ونواقص الميزانية والمخاطر والإغلاق. صنف كل ملاحظة إلى: حرجة / مهمة / تحسين، وحدد الإجراء المطلوب والدليل المطلوب.'
+    : 'حلل الدراسة التالية ولا تعِد كتابتها. استخرج فقط البيانات الناقصة والأسئلة التي يجب أن تجيب عنها الجمعية قبل اعتماد المشروع. رتبها بحسب ما يمنع الاعتماد أولًا، وضع لكل نقص: سبب أهميته، من يملكه، والدليل المطلوب. لا تزيد الأسئلة الحرجة على 12 سؤالًا.';
+  const html='<div class="modal-field"><label>ألصق الدراسة أو المسودة الحالية</label><textarea id="review-source" style="min-height:250px;" placeholder="ألصق النص هنا"></textarea></div>'+
+    '<div class="modal-actions"><button class="primary-action" id="review-build">إنشاء المطالبة</button></div>'+
+    '<div class="modal-field" id="review-output-wrap" style="display:none;margin-top:14px;"><label>المطالبة الجاهزة</label><textarea id="review-output" style="min-height:260px;"></textarea><div class="modal-actions"><button class="primary-action" id="review-copy">نسخ المطالبة</button></div></div>'+
+    '<div class="local-note">لا تُرسل أي بيانات تلقائيًا من الموقع. النسخ والاستخدام يتمان بقرارك.</div>';
+  const root=openPortfolioModal(title,html);
+  root.querySelector('#review-build').addEventListener('click',function(){
+    const source=root.querySelector('#review-source').value.trim() || '[لم تُرفق مسودة بعد]';
+    const prompt='اسم المشروع: '+x.name+'\nالمجال: '+x.field+'\nمسار التمويل: '+x.fund+'\n\n'+instruction+
+      '\n\nقواعد: لا تختلق متطلبات أو أرقامًا أو مصادر. ضع [يحتاج تحقق] عند غياب الدليل. لا تنسب متطلبًا إلى منصة إحسان أو جهة تنظيمية إلا إذا كان موثقًا في النص المقدم.\n\nالدراسة/المسودة:\n'+source;
+    root.querySelector('#review-output').value=prompt;
+    root.querySelector('#review-output-wrap').style.display='block';
+  });
+  root.querySelector('#review-copy').addEventListener('click',function(){
+    copyTextValue(root.querySelector('#review-output').value,root.querySelector('#review-copy'));
+  });
+}
+
+const READINESS_ITEMS = [
+  'إثبات الحاجة والمشكلة بأدلة قابلة للتحقق',
+  'تعريف الفئة المستهدفة وعدد المستفيدين',
+  'معايير الاستحقاق ومنع الازدواجية',
+  'نطاق المشروع والمخرجات ومعايير القبول',
+  'ميزانية قابلة للتدقيق وعروض/دراسة سوق عند الحاجة',
+  'مسؤول تنفيذ وحوكمة وأدوار واضحة',
+  'مؤشرات أداء ومصادر تحقق وخط أساس عند الحاجة',
+  'سجل مخاطر بمالك وإجراء استجابة',
+  'خطة توثيق وأدلة وخصوصية البيانات',
+  'خطة إغلاق واستدامة وما بعد التنفيذ'
+];
+
+function readinessKey(id){ return 'ehsan-readiness-'+id; }
+
+function getReadiness(id) {
+  try { return JSON.parse(localStorage.getItem(readinessKey(id)) || '[]'); }
+  catch(e){ return []; }
+}
+
+function saveReadiness(id, values) {
+  localStorage.setItem(readinessKey(id), JSON.stringify(values));
+  buildDashboard();
+}
+
+function updateReadinessBadge(card) {
+  const x=cardContext(card);
+  const vals=getReadiness(x.id);
+  const count=vals.filter(Boolean).length;
+  const badge=card.querySelector('.readiness-badge');
+  if(badge) badge.textContent='الجاهزية: '+count+'/10';
+}
+
+function openReadiness(card) {
+  const x=cardContext(card);
+  const vals=getReadiness(x.id);
+  const rows=READINESS_ITEMS.map(function(item,i){
+    return '<label class="readiness-item"><input type="checkbox" data-ridx="'+i+'" '+(vals[i]?'checked':'')+'><span>'+item+'</span></label>';
+  }).join('');
+  const html='<span class="readiness-badge" id="modal-ready-badge">الجاهزية: '+vals.filter(Boolean).length+'/10</span>'+
+    '<div class="readiness-list">'+rows+'</div>'+
+    '<div class="modal-actions"><button class="primary-action" id="save-ready">حفظ الحالة</button><button class="secondary-action" id="clear-ready">مسح التحديد</button></div>'+
+    '<div class="local-note">هذا الفحص أداة داخلية للجاهزية، وليس اعتمادًا أو تقييمًا رسميًا من أي جهة.</div>';
+  const root=openPortfolioModal('✅ فحص جاهزية المشروع — '+x.name,html);
+  const recalc=function(){
+    const count=Array.from(root.querySelectorAll('[data-ridx]')).filter(function(el){return el.checked;}).length;
+    root.querySelector('#modal-ready-badge').textContent='الجاهزية: '+count+'/10';
+  };
+  root.querySelectorAll('[data-ridx]').forEach(function(el){el.addEventListener('change',recalc);});
+  root.querySelector('#save-ready').addEventListener('click',function(){
+    const now=Array.from(root.querySelectorAll('[data-ridx]')).map(function(el){return el.checked;});
+    saveReadiness(x.id,now); updateReadinessBadge(card); closePortfolioModal();
+  });
+  root.querySelector('#clear-ready').addEventListener('click',function(){
+    root.querySelectorAll('[data-ridx]').forEach(function(el){el.checked=false;}); recalc();
+  });
+}
+
+function evidenceKey(id){ return 'ehsan-evidence-'+id; }
+
+function openEvidenceRegister(card) {
+  const x=cardContext(card);
+  const seed='الادعاء | الدليل المطلوب | المصدر | تاريخ التحقق | المسؤول | الحالة\n';
+  const saved=localStorage.getItem(evidenceKey(x.id)) || seed;
+  const html='<div class="modal-field"><label>سجل الأدلة والمصادر</label><textarea id="evidence-text" style="min-height:300px;">'+saved.replace(/</g,'&lt;')+'</textarea></div>'+
+    '<div class="modal-actions"><button class="primary-action" id="save-evidence">حفظ</button><button class="secondary-action" id="export-evidence">تصدير CSV</button></div>'+
+    '<div class="local-note">استخدم سطرًا لكل ادعاء بصيغة: الادعاء | الدليل المطلوب | المصدر | تاريخ التحقق | المسؤول | الحالة. الحفظ محلي في هذا المتصفح.</div>';
+  const root=openPortfolioModal('📚 سجل الأدلة والمصادر — '+x.name,html);
+  root.querySelector('#save-evidence').addEventListener('click',function(){
+    localStorage.setItem(evidenceKey(x.id),root.querySelector('#evidence-text').value);
+    const b=root.querySelector('#save-evidence'); const old=b.textContent; b.textContent='✅ تم الحفظ'; setTimeout(function(){b.textContent=old;},1500);
+  });
+  root.querySelector('#export-evidence').addEventListener('click',function(){
+    const lines=root.querySelector('#evidence-text').value.split('\n').filter(Boolean);
+    const csv=lines.map(function(line){
+      return line.split('|').map(function(v){return '"'+v.trim().replace(/"/g,'""')+'"';}).join(',');
+    }).join('\n');
+    const blob=new Blob(['\ufeff',csv],{type:'text/csv;charset=utf-8'});
+    const url=URL.createObjectURL(blob); const a=document.createElement('a');
+    a.href=url; a.download=x.id+'-evidence-register.csv'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){URL.revokeObjectURL(url);},100);
+  });
+}
+
+function buildDashboard() {
+  const opps=typeof OPPORTUNITIES!=='undefined' ? OPPORTUNITIES.length : 96;
+  let developed=0;
+  if(typeof APPENDIX_DATA!=='undefined') APPENDIX_DATA.forEach(function(s){developed += s.projects.length;});
+  let started=0, ready=0;
+  document.querySelectorAll('.project-card[data-doc-id], .opp-card[data-doc-id]').forEach(function(card){
+    const vals=getReadiness(card.dataset.docId);
+    const count=vals.filter(Boolean).length;
+    if(count>0) started++;
+    if(count===10) ready++;
+  });
+  const set=function(id,val){ const el=document.getElementById(id); if(el) el.textContent=val; };
+  set('dash-opps',opps); set('dash-developed',developed); set('dash-total',opps+developed); set('dash-started',started); set('dash-ready',ready);
+}
+
+function addButtonsToCards() {
+  const DOCS_BASE='docs';
+  const templates=[
+    { file:'idea-card.docx',label:'بطاقة الفكرة',icon:'🟢',phase:'phase-idea' },
+    { file:'project-study.docx',label:'دراسة المشروع',icon:'🟢',phase:'phase-idea' },
+    { file:'project-charter.docx',label:'ميثاق المشروع',icon:'🟢',phase:'phase-idea' },
+    { file:'eligibility.docx',label:'معايير الاستحقاق',icon:'🟡',phase:'phase-verify' },
+    { file:'social-research.docx',label:'البحث الاجتماعي',icon:'🟡',phase:'phase-verify' },
+    { file:'offers-comparison.docx',label:'مقارنة العروض',icon:'🔵',phase:'phase-execute' },
+    { file:'acceptance-minutes.docx',label:'محضر الاستلام',icon:'🔵',phase:'phase-execute' },
+    { file:'progress-report.docx',label:'التقرير المرحلي',icon:'🔵',phase:'phase-execute' },
+    { file:'risk-register.docx',label:'سجل المخاطر',icon:'🔵',phase:'phase-execute' },
+    { file:'closure-report.docx',label:'تقرير الإغلاق',icon:'🟣',phase:'phase-close' },
+    { file:'evidence-checklist.docx',label:'قائمة الأدلة',icon:'🟣',phase:'phase-close' }
+  ];
+  const stages=['الفكرة','التحقق','التصميم','الاعتماد','التعاقد','التنفيذ','القياس','الإغلاق'];
+  const cards=Array.from(document.querySelectorAll('.project-card, .opp-card'));
+  cards.forEach(function(card,index){
+    let docId=card.dataset.docId;
+    if(!docId) docId=index<96 ? 'opp-'+String(index+1).padStart(3,'0') : 'app-'+String(index-95).padStart(3,'0');
+
+    const wrap=document.createElement('div'); wrap.className='project-tools';
+    const life=document.createElement('div'); life.className='lifecycle';
+    stages.forEach(function(s){ const span=document.createElement('span'); span.className='lifecycle-step'; span.textContent=s; life.appendChild(span); });
+    wrap.appendChild(life);
+
+    const aiSec=document.createElement('div'); aiSec.className='tool-section';
+    aiSec.innerHTML='<div class="tool-section-title">🤖 الذكاء الاصطناعي</div><div class="tool-grid"></div>';
+    const aiGrid=aiSec.querySelector('.tool-grid');
+    [
+      ['🤖 تصميم مشروع',function(){openDesignAssistant(card);}],
+      ['🔍 مراجعة مشروع',function(){openReviewTool(card,'review');}],
+      ['🧠 استكمال النواقص',function(){openReviewTool(card,'gaps');}]
+    ].forEach(function(def){ const b=document.createElement('button'); b.type='button'; b.className='tool-btn tool-ai'; b.textContent=def[0]; b.addEventListener('click',def[1]); aiGrid.appendChild(b); });
+    wrap.appendChild(aiSec);
+
+    const docsSec=document.createElement('div'); docsSec.className='tool-section';
+    docsSec.innerHTML='<div class="tool-section-title">📑 مستندات المشروع</div><div class="tool-grid"></div>';
+    const docsGrid=docsSec.querySelector('.tool-grid');
+    templates.forEach(function(t){
+      const a=document.createElement('a'); a.className='github-form-link '+t.phase;
+      a.href=DOCS_BASE+'/'+docId+'/'+t.file+'?v=ai-appendix-2'; a.setAttribute('download','');
+      a.textContent=t.icon+' '+t.label; a.setAttribute('aria-label','تحميل '+t.label+' بصيغة Word'); docsGrid.appendChild(a);
+    });
+    const pkg=document.createElement('a'); pkg.className='package-link tool-package';
+    pkg.href=DOCS_BASE+'/'+docId+'/'+docId+'-project-package.zip?v=package-1'; pkg.setAttribute('download','');
+    pkg.textContent='📦 إنشاء/تحميل حزمة المشروع'; docsGrid.appendChild(pkg);
+    wrap.appendChild(docsSec);
+
+    const readySec=document.createElement('div'); readySec.className='tool-section';
+    readySec.innerHTML='<div class="tool-section-title">✅ إدارة الجاهزية <span class="readiness-badge">الجاهزية: 0/10</span></div><div class="tool-grid"></div>';
+    const readyGrid=readySec.querySelector('.tool-grid');
+    const rb=document.createElement('button'); rb.type='button'; rb.className='tool-btn tool-ready'; rb.textContent='✅ فحص الجاهزية'; rb.addEventListener('click',function(){openReadiness(card);});
+    const eb=document.createElement('button'); eb.type='button'; eb.className='tool-btn tool-evidence'; eb.textContent='📚 سجل الأدلة والمصادر'; eb.addEventListener('click',function(){openEvidenceRegister(card);});
+    const gb=document.createElement('button'); gb.type='button'; gb.className='tool-btn'; gb.textContent='🧠 تحليل النواقص'; gb.addEventListener('click',function(){openReviewTool(card,'gaps');});
+    readyGrid.appendChild(rb); readyGrid.appendChild(eb); readyGrid.appendChild(gb);
+    wrap.appendChild(readySec);
+
+    card.appendChild(wrap);
+    updateReadinessBadge(card);
+  });
+  buildDashboard();
 }
 
 /* =====================================================
